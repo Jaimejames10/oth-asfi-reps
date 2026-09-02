@@ -15,6 +15,7 @@ Uso:
 """
 
 import argparse
+import io
 import json
 import logging
 import os
@@ -34,8 +35,8 @@ CONFIG = {
     "url_base": "https://appweb.asfi.gob.bo/SCIP",
 
     # Credenciales (también se pueden pasar por variable de entorno)
-    "usuario": os.environ.get("ASFI_USUARIO", "TU_USUARIO_AQUI"),
-    "password": os.environ.get("ASFI_PASSWORD", "TU_PASSWORD_AQUI"),
+    "usuario": os.environ.get("ASFI_USUARIO", "thomas.clavijo@comarapa.coop"),
+    "password": os.environ.get("ASFI_PASSWORD", "Tsn1991*"),
 
     # días_atras ya no se usa — siempre se consulta "ayer"
     # Se conserva por compatibilidad con argumentos CLI pero no afecta la fecha
@@ -81,12 +82,125 @@ CONFIG = {
     "headless": True,
 
     # Tiempo máximo de espera para elementos (segundos)
-    "timeout_segundos": 30,
+    # En headless se necesita más tiempo
+    "timeout_segundos": 45,
+
+    # Logo/ícono para las notificaciones de Windows (.ico, relativo a este script)
+    "icono_notificacion": "assets/asfi.ico",
 }
+
+# Ruta absoluta del ícono de notificaciones (relativa a este script y no al CWD,
+# para que funcione también en la tarea programada de Windows)
+RUTA_ICONO = Path(__file__).resolve().parent / CONFIG["icono_notificacion"]
+if not RUTA_ICONO.exists():
+    RUTA_ICONO = None  # Sin logo disponible: notificaciones con ícono por defecto
+
+# ──────────────────────────────────────────────────────────────────────────────
+# REPORTES ESPERADOS POR DÍA DE LA SEMANA
+# ──────────────────────────────────────────────────────────────────────────────
+REPORTES_POR_DIA = {
+    "monday": [
+        "D007 IF - Diario Operaciones Interbancarias",
+        "D006 IF - Diario Tasas de Interés Activas",
+        "Auditor Externo",
+        "D008 IF - Diario Tipo de Cambio",  # Primera copia
+        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
+        "Estratificación de Depósitos",
+        "Ampliación de plazo de reclamos de primera instancia",
+        "Reporte de Transacciones con el Exterior Diario",
+        "D001-D005 IF - Diario Encaje",
+        "D012 - Créditos refinanciados y/o reprogramados",
+    ],
+    "tuesday": [
+        "D007 IF - Diario Operaciones Interbancarias",
+        "D006 IF - Diario Tasas de Interés Activas",
+        "Auditor Externo",
+        "D008 IF - Diario Tipo de Cambio",  # Primera copia
+        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
+        "Ampliación de plazo de reclamos de primera instancia",
+        "Reporte de Transacciones con el Exterior Diario",
+        "D001-D005 IF - Diario Encaje",
+        "D012 - Créditos refinanciados y/o reprogramados",
+    ],
+    "wednesday": [
+        "D007 IF - Diario Operaciones Interbancarias",
+        "D006 IF - Diario Tasas de Interés Activas",
+        "Auditor Externo",
+        "D008 IF - Diario Tipo de Cambio",  # Primera copia
+        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
+        "Ampliación de plazo de reclamos de primera instancia",
+        "Reporte de Transacciones con el Exterior Diario",
+        "D001-D005 IF - Diario Encaje",
+        "D012 - Créditos refinanciados y/o reprogramados",
+    ],
+    "thursday": [
+        "D007 IF - Diario Operaciones Interbancarias",
+        "D006 IF - Diario Tasas de Interés Activas",
+        "Auditor Externo",
+        "D008 IF - Diario Tipo de Cambio",  # Primera copia
+        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
+        "Ampliación de plazo de reclamos de primera instancia",
+        "Reporte de Transacciones con el Exterior Diario",
+        "D001-D005 IF - Diario Encaje",
+        "D012 - Créditos refinanciados y/o reprogramados",
+    ],
+    "friday": [
+        "D007 IF - Diario Operaciones Interbancarias",
+        "D006 IF - Diario Tasas de Interés Activas",
+        "Auditor Externo",
+        "D008 IF - Diario Tipo de Cambio",  # Primera copia
+        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
+        "Ampliación de plazo de reclamos de primera instancia",
+        "Reporte de Transacciones con el Exterior Diario",
+        "D001-D005 IF - Diario Encaje",
+        "D012 - Créditos refinanciados y/o reprogramados",
+    ],
+    "saturday": [
+        "D007 IF - Diario Operaciones Interbancarias",
+        "D006 IF - Diario Tasas de Interés Activas",
+        "Auditor Externo",
+        "D008 IF - Diario Tipo de Cambio",  # Primera copia
+        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
+        "Ampliación de plazo de reclamos de primera instancia",
+        "Reporte de Transacciones con el Exterior Diario",
+        "D001-D005 IF - Diario Encaje",
+        "D012 - Créditos refinanciados y/o reprogramados",
+    ],
+    "sunday": [
+        "D007 IF - Diario Operaciones Interbancarias",
+        "D006 IF - Diario Tasas de Interés Activas",
+        "Auditor Externo",
+        "D008 IF - Diario Tipo de Cambio",  # Solo una copia el domingo
+        "Solicitud de Créditos - PREAMyPes - Semanal",
+        "Ampliación de plazo de reclamos de primera instancia",
+        "Reporte de Transacciones con el Exterior Diario",
+        "D001-D005 IF - Diario Encaje",
+        "D012 - Créditos refinanciados y/o reprogramados",
+    ],
+}
+
+# Reportes semanales (se pueden enviar viernes, sábado o domingo)
+REPORTES_SEMANALES = [
+    "S001-S005 IF - Semanal Reportes Liquidez",
+    "CS - Cartera Semanal",
+]
+
+# Reportes mensuales (ignorar en validación de reportes diarios)
+REPORTES_MENSUALES = [
+    "M019 IF - Mensual Tasas Pasivas",
+    "Detalle de Créditos - CAPROSEN",
+    "Crédito PCD",
+    "Solicitud de Créditos - PREAMyPes - Mensual",
+]
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 # LOGGING
 # ──────────────────────────────────────────────────────────────────────────────
+# Configurar stdout con encoding UTF-8
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -102,52 +216,163 @@ log = logging.getLogger("asfi_monitor")
 # NOTIFICACIONES
 # ──────────────────────────────────────────────────────────────────────────────
 def notificar(titulo: str, mensaje: str, urgente: bool = False) -> None:
-    """Envía notificación nativa de Windows. Fallback a consola si falla."""
-    log.info(f"[NOTIFICACIÓN] {titulo}: {mensaje}")
+    """
+    Envía notificaciones nativas de Windows.
+    Para alertas urgentes, intenta múltiples métodos en paralelo para máxima visibilidad.
+    Para alertas normales, usa los métodos secuencialmente.
+    """
+    import threading
+    
+    # Sanitizar caracteres especiales para logging
+    titulo_log = titulo.encode("ascii", "replace").decode("ascii")
+    mensaje_log = mensaje[:100].encode("ascii", "replace").decode("ascii")
+    log.info(f"[NOTIFICACION] {titulo_log}: {mensaje_log}")
 
-    # Intentar con plyer (cross-platform, funciona bien en Windows)
-    try:
-        from plyer import notification
-        notification.notify(
-            title=titulo,
-            message=mensaje[:256],          # plyer tiene límite de caracteres
-            app_name="ASFI Monitor",
-            timeout=15 if urgente else 8,   # segundos que permanece visible
-        )
-        return
-    except Exception as e:
-        log.debug(f"plyer falló: {e}")
+    # Limitar longitud para evitar problemas con APIs
+    titulo_limpio = titulo[:128]
+    mensaje_limpio = mensaje[:512]
+    
+    # Escapar comillas simples para PowerShell
+    titulo_ps = titulo_limpio.replace("'", "''")
+    mensaje_ps = mensaje_limpio.replace("'", "''")
 
-    # Fallback: win10toast (solo Windows)
-    try:
-        from win10toast import ToastNotifier
-        toaster = ToastNotifier()
-        toaster.show_toast(titulo, mensaje[:255], duration=10, threaded=True)
-        return
-    except Exception as e:
-        log.debug(f"win10toast falló: {e}")
+    # Métodos de notificación
+    def metodo_messagebox():
+        """PowerShell - MessageBox (popup visible, bloquea hasta click)"""
+        try:
+            import subprocess
+            ps_script = f"""
+            [void][System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms')
+            [System.Windows.Forms.MessageBox]::Show('{mensaje_ps}', '{titulo_ps}', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)
+            """
+            subprocess.run(
+                ["powershell", "-NoProfile", "-WindowStyle", "Normal", "-Command", ps_script],
+                timeout=120,  # Timeout largo para permitir que usuario lea
+                capture_output=True,
+                text=True,
+            )
+            log.debug("✓ Notificación enviada via PowerShell MessageBox")
+            return True
+        except Exception as e:
+            log.debug(f"PowerShell MessageBox: {type(e).__name__}")
+            return False
 
-    # Fallback final: PowerShell balloon tip (siempre disponible en Windows)
-    try:
-        import subprocess
-        ps_script = f"""
-        Add-Type -AssemblyName System.Windows.Forms
-        $n = New-Object System.Windows.Forms.NotifyIcon
-        $n.Icon = [System.Drawing.SystemIcons]::Warning
-        $n.BalloonTipTitle = '{titulo[:63]}'
-        $n.BalloonTipText = '{mensaje[:255]}'
-        $n.Visible = $True
-        $n.ShowBalloonTip(10000)
-        Start-Sleep -Seconds 3
-        $n.Visible = $False
-        """
-        subprocess.Popen(
-            ["powershell", "-WindowStyle", "Hidden", "-Command", ps_script],
-            creationflags=0x08000000,  # CREATE_NO_WINDOW
-        )
-    except Exception as e:
-        log.debug(f"PowerShell notification falló: {e}")
-        # Sin más opciones, el log ya tiene el mensaje
+    def metodo_plyer():
+        """Plyer - Toast notification (cross-platform)"""
+        try:
+            from plyer import notification
+            # Duración en segundos (aumentada para urgentes)
+            duracion = 30 if urgente else 15
+            notification.notify(
+                title=titulo_limpio,
+                message=mensaje_limpio[:256],
+                app_name="ASFI/SCIP Monitor",
+                app_icon=str(RUTA_ICONO) if RUTA_ICONO else None,
+                timeout=duracion,
+            )
+            log.debug(f"✓ Notificación enviada via plyer ({duracion}s)")
+            return True
+        except Exception as e:
+            log.debug(f"plyer: {type(e).__name__}")
+            return False
+
+    def metodo_win10toast():
+        """Win10toast - Windows Toast notification"""
+        try:
+            from win10toast import ToastNotifier
+            toaster = ToastNotifier()
+            # Duración en segundos (aumentada para urgentes)
+            duracion = 30 if urgente else 15
+            toaster.show_toast(
+                titulo_limpio,
+                mensaje_limpio[:255],
+                icon_path=str(RUTA_ICONO) if RUTA_ICONO else None,
+                duration=duracion,
+                threaded=True,
+            )
+            log.debug(f"✓ Notificación enviada via win10toast ({duracion}s)")
+            return True
+        except Exception as e:
+            log.debug(f"win10toast: {type(e).__name__}")
+            return False
+
+    def metodo_ballontip():
+        """PowerShell - Balloon tip notification"""
+        try:
+            import subprocess
+            # Duración en ms (aumentada para urgentes)
+            duracion_ms = 15000 if urgente else 10000  # 15s o 10s
+            espera_s = 16 if urgente else 11  # Esperar un poco más que la duración
+            # Ícono personalizado (logo ASFI) si está disponible, si no el genérico
+            if RUTA_ICONO:
+                icono_ps = str(RUTA_ICONO).replace("'", "''")
+                linea_icono = f"$n.Icon = New-Object System.Drawing.Icon('{icono_ps}')"
+            else:
+                linea_icono = "$n.Icon = [System.Drawing.SystemIcons]::Warning"
+            ps_script = f"""
+            Add-Type -AssemblyName System.Windows.Forms
+            Add-Type -AssemblyName System.Drawing
+            $n = New-Object System.Windows.Forms.NotifyIcon
+            {linea_icono}
+            $n.BalloonTipTitle = '{titulo_ps}'
+            $n.BalloonTipText = '{mensaje_ps}'
+            $n.Visible = $True
+            $n.ShowBalloonTip({duracion_ms})
+            Start-Sleep -Seconds {espera_s}
+            $n.Visible = $False
+            """
+            subprocess.run(
+                ["powershell", "-NoProfile", "-WindowStyle", "Hidden", "-Command", ps_script],
+                timeout=120,
+                capture_output=True,
+                text=True,
+            )
+            log.debug(f"✓ Notificación enviada via PowerShell BalloonTip ({duracion_ms}ms)")
+            return True
+        except Exception as e:
+            log.debug(f"PowerShell BalloonTip: {type(e).__name__}")
+            return False
+
+    # Estrategia: Para alertas urgentes, enviar múltiples métodos en paralelo
+    # Para no urgentes, probar métodos secuencialmente
+    if urgente:
+        # Alertas urgentes: enviar por múltiples métodos simultáneamente
+        # para maximizar probabilidad de que el usuario vea
+        log.info(f"[URGENTE] Enviando notificación por múltiples métodos...")
+        threads = []
+        
+        # Intentar MessageBox en paralelo (bloquea más tiempo)
+        t1 = threading.Thread(target=metodo_messagebox, daemon=True)
+        threads.append(t1)
+        t1.start()
+        
+        # Intentar otros métodos en paralelo también
+        t2 = threading.Thread(target=metodo_win10toast, daemon=True)
+        threads.append(t2)
+        t2.start()
+        
+        t3 = threading.Thread(target=metodo_plyer, daemon=True)
+        threads.append(t3)
+        t3.start()
+        
+        t4 = threading.Thread(target=metodo_ballontip, daemon=True)
+        threads.append(t4)
+        t4.start()
+        
+        # Esperar a que al menos uno tenga éxito (con timeout)
+        for t in threads:
+            t.join(timeout=5)  # Esperar máx 5s por thread
+    else:
+        # Alertas normales: intentar secuencialmente
+        if metodo_messagebox():
+            return
+        if metodo_win10toast():
+            return
+        if metodo_plyer():
+            return
+        if metodo_ballontip():
+            return
+        log.warning(f"No se pudo mostrar notificación: {titulo}")
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -176,15 +401,174 @@ def clave_reporte(reporte: dict) -> str:
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# ANÁLISIS DEL RESULTADO
+# VALIDACIÓN DE REPORTES POR DÍA DE LA SEMANA
 # ──────────────────────────────────────────────────────────────────────────────
+def obtener_dia_semana(fecha_str: str) -> str:
+    """
+    Extrae el día de la semana de una fecha en formato d/m/yyyy.
+    Devuelve el nombre del día en inglés: monday, tuesday, ..., sunday
+    """
+    from datetime import datetime
+    try:
+        # Formato esperado: d/m/yyyy
+        partes = fecha_str.split("/")
+        if len(partes) != 3:
+            return None
+        dia = int(partes[0])
+        mes = int(partes[1])
+        ano = int(partes[2])
+        fecha_obj = datetime(ano, mes, dia)
+        dias_ingles = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+        return dias_ingles[fecha_obj.weekday()]
+    except Exception as e:
+        log.warning(f"Error extrayendo día de la semana de '{fecha_str}': {e}")
+        return None
+
+
+def validar_reportes_dia(reportes: list[dict], fecha_consulta: str) -> list[str]:
+    """
+    Valida que todos los reportes esperados para el día hayan sido enviados.
+    
+    Lógica especial:
+    - Ignora reportes mensuales
+    - Maneja duplicados: si un reporte se repite (como D008), cuenta como exitoso
+      si al menos uno de sus duplicados tiene estado EXITOSO
+    - Si hay duplicados con "En proceso de recepción" + "Detalle Error", se marcan como rechazados
+    
+    Parámetros:
+      reportes: Lista de reportes obtenidos de la tabla ASFI
+      fecha_consulta: Fecha en formato d/m/yyyy (la que se consultó en ASFI)
+    
+    Devuelve:
+      Lista de reportes FALTANTES (nombres de grupos no encontrados)
+    """
+    dia_semana = obtener_dia_semana(fecha_consulta)
+    if not dia_semana:
+        log.warning(f"No se pudo determinar el día de la semana para {fecha_consulta}")
+        return []
+
+    # Reportes esperados para este día
+    reportes_esperados = REPORTES_POR_DIA.get(dia_semana, [])
+    
+    # Filtrar reportes obtenidos: excluir mensuales, agrupar por nombre
+    reportes_filtrados = [r for r in reportes if r["grupo"] not in REPORTES_MENSUALES]
+    
+    # Crear un mapa de reportes obtenidos: {nombre: [lista de reportes con ese nombre]}
+    grupos_obtenidos = {}
+    for reporte in reportes_filtrados:
+        nombre = reporte["grupo"]
+        if nombre not in grupos_obtenidos:
+            grupos_obtenidos[nombre] = []
+        grupos_obtenidos[nombre].append(reporte)
+    
+    # Función auxiliar: determinar si un grupo fue "enviado correctamente"
+    def grupo_aceptado(nombre_grupo, lista_reportes) -> bool:
+        """
+        Un grupo se considera aceptado si:
+        - Al menos uno de sus reportes tiene estado EXITOSO
+        - No todos están en estado ERROR
+        """
+        if not lista_reportes:
+            return False
+        
+        # Verificar si al menos uno tiene estado EXITOSO
+        for r in lista_reportes:
+            if r["estado"] == "EXITOSO":
+                return True
+        
+        # Si no hay EXITOSO pero hay PENDIENTE, no contar como aceptado aún
+        # Si todos son ERROR, tampoco
+        return False
+    
+    # Identificar reportes faltantes
+    faltantes = []
+    
+    # Procesar cada reporte esperado (permite duplicados como D008 x2)
+    for reporte_esperado in reportes_esperados:
+        if reporte_esperado in grupos_obtenidos:
+            lista_del_grupo = grupos_obtenidos[reporte_esperado]
+            if grupo_aceptado(reporte_esperado, lista_del_grupo):
+                # Este reporte se encontró y fue aceptado
+                continue
+            else:
+                # El reporte existe pero no fue aceptado
+                faltantes.append(reporte_esperado)
+        else:
+            # El reporte no existe en absoluto
+            faltantes.append(reporte_esperado)
+    
+    return faltantes
+
+
+def validar_reportes_semanales(reportes: list[dict], fecha_consulta: str) -> list[str]:
+    """
+    Valida reportes semanales.
+    Los reportes semanales se pueden enviar viernes, sábado o domingo.
+    
+    Devuelve:
+      Lista de reportes semanales FALTANTES
+    """
+    dia_semana = obtener_dia_semana(fecha_consulta)
+    if dia_semana not in ["friday", "saturday", "sunday"]:
+        # No es día de reportes semanales
+        return []
+    
+    # Filtrar reportes: excluir mensuales
+    reportes_filtrados = [r for r in reportes if r["grupo"] not in REPORTES_MENSUALES]
+    
+    # Extraer grupos de los reportes obtenidos (solo diarios relevantes)
+    grupos_obtenidos = set(r["grupo"] for r in reportes_filtrados)
+    
+    # Identificar reportes semanales faltantes
+    faltantes = []
+    for reporte_esperado in REPORTES_SEMANALES:
+        if reporte_esperado not in grupos_obtenidos:
+            faltantes.append(reporte_esperado)
+    
+    return faltantes
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# ANÁLISIS DEL RESULTADO - VERSIÓN NUEVA
+# ──────────────────────────────────────────────────────────────────────────────
+def analizar_reporte_nuevo(validacion: str, envio: str) -> tuple[str, str]:
+    """
+    Analiza el estado del reporte usando:
+      - validacion: Contenido de columna "Validación Formato/Consistencia"
+      - envio: Contenido de columna "Envío/Reproceso"
+    
+    Devuelve (estado, detalle) donde estado es:
+      'ERROR'     → Hay error en validación
+      'EXITOSO'   → Reporte aceptado (Envío X)
+      'PENDIENTE' → En proceso de recepción
+      'DESCONOCIDO' → No se puede determinar
+    """
+    validacion_lower = validacion.lower() if validacion else ""
+    envio_lower = envio.lower() if envio else ""
+
+    # Verificar errores en validación (máxima prioridad)
+    if "error" in validacion_lower or "detalle error" in validacion_lower:
+        return "ERROR", f"Validación: {validacion.strip()[:100]}"
+
+    # Verificar si está en proceso de recepción
+    if "en proceso de recepción" in envio_lower:
+        return "PENDIENTE", "En proceso de recepción"
+
+    # Verificar si fue enviado correctamente (Envío 1, Envío 2, etc.)
+    if envio_lower.startswith("envío"):
+        return "EXITOSO", f"{envio.strip()}"
+
+    # Si no hay validación y envío dice algo, puede ser exitoso
+    if envio.strip() and not "error" in validacion_lower:
+        return "EXITOSO", f"Envío: {envio.strip()[:100]}"
+
+    return "DESCONOCIDO", f"Validación: {validacion.strip()[:50]} | Envío: {envio.strip()[:50]}"
+
+
 def analizar_resultado(texto: str) -> tuple[str, str]:
     """
-    Devuelve (estado, detalle) donde estado es:
-      'ERROR'   → reporte fallido/rechazado
-      'EXITOSO' → reporte correcto
-      'PENDIENTE' → capturado pero en validación
-      'DESCONOCIDO' → no se puede determinar
+    [DEPRECATED] Mantener por compatibilidad.
+    La nueva función es analizar_reporte_nuevo().
     """
     if not texto or not texto.strip():
         return "DESCONOCIDO", "Sin resultado registrado"
@@ -226,19 +610,23 @@ def analizar_resultado(texto: str) -> tuple[str, str]:
 def _ingresar_fecha(page, selector_id: str, fecha_str: str, timeout_ms: int) -> None:
     """
     Ingresa una fecha en un campo DevExpress DateEdit del sistema ASFI.
-    Usa triple_click para seleccionar el texto existente y luego lo reemplaza.
+    Selecciona todo el texto con Ctrl+A y luego escribe la fecha nueva.
     Después presiona Tab para que el componente procese el valor y dispare
     el evento onchange interno de ASPx.
     """
     campo = page.locator(f"#{selector_id}")
     campo.wait_for(state="visible", timeout=timeout_ms)
     campo.scroll_into_view_if_needed()
-    campo.triple_click()
+    campo.click()                        # foco en el campo
     page.wait_for_timeout(200)
-    campo.fill(fecha_str)
-    page.wait_for_timeout(200)
-    campo.press("Tab")
-    page.wait_for_timeout(600)   # dejar que DevExpress procese el cambio
+    campo.press("Control+a")             # seleccionar todo el texto existente
+    page.wait_for_timeout(150)
+    campo.press("Delete")                # borrar selección
+    page.wait_for_timeout(150)
+    campo.type(fecha_str, delay=60)      # escribir carácter a carácter (más robusto con DevExpress)
+    page.wait_for_timeout(300)
+    campo.press("Tab")                   # confirmar valor y disparar onchange de ASPx
+    page.wait_for_timeout(700)           # dejar que DevExpress procese el cambio
 
 
 def obtener_reportes() -> list[dict]:
@@ -267,14 +655,51 @@ def obtener_reportes() -> list[dict]:
 
     with sync_playwright() as p:
         log.info("Iniciando navegador Chromium...")
-        browser = p.chromium.launch(headless=CONFIG["headless"])
+        
+        # Opciones de lanzamiento para evitar detección de automatización
+        launch_args = [
+            "--disable-blink-features=AutomationControlled",  # Oculta navigator.webdriver
+            "--disable-dev-shm-usage",                        # Evita problemas de memoria en headless
+            "--no-first-run",                                 # Omite primera ejecución
+            "--no-default-browser-check",                     # Omite checks de navegador por defecto
+        ]
+        
+        browser = p.chromium.launch(
+            headless=CONFIG["headless"],
+            args=launch_args,
+        )
+        
+        # User-agent realista (Chrome en Windows 10)
+        user_agent = (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
+        
         context = browser.new_context(
             viewport={"width": 1366, "height": 768},
             locale="es-BO",
+            user_agent=user_agent,
             # Deshabilitar service workers para evitar caché que rompa la sesión
             service_workers="block",
+            # Headers para parecer más realista
+            extra_http_headers={
+                "Accept-Language": "es-BO,es;q=0.9,en;q=0.8",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "DNT": "1",
+                "Connection": "keep-alive",
+                "Upgrade-Insecure-Requests": "1",
+            },
         )
         page = context.new_page()
+        
+        # Inyectar script para ocultar que es navegador automatizado
+        page.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', {
+                get: () => undefined,
+            });
+        """)
+        
         # Interceptar diálogos inesperados (alertas JS) y aceptarlos
         page.on("dialog", lambda d: d.accept())
 
@@ -287,18 +712,30 @@ def obtener_reportes() -> list[dict]:
             log.info(f"Abriendo login: {url_login}")
             page.goto(url_login, timeout=timeout_ms, wait_until="domcontentloaded")
             page.wait_for_load_state("networkidle", timeout=timeout_ms)
+            
+            # En headless, el JavaScript tarda más en renderizar los controles
+            # Agregar delay extra para que DevExpress cargue completamente
+            page.wait_for_timeout(2000)
 
             # Campos confirmados del HTML real del login
             log.info("Ingresando credenciales...")
-            page.locator(".txtLogin").wait_for(state="visible", timeout=timeout_ms)
+            # Aumentar timeout a 50 segundos solo para la primera espera del elemento login
+            page.locator(".txtLogin").wait_for(state="visible", timeout=50_000)
             page.locator(".txtLogin").fill(CONFIG["usuario"])
+            page.wait_for_timeout(300)  # Dar tiempo entre acciones
             page.locator(".txtPasswd").fill(CONFIG["password"])
+            page.wait_for_timeout(300)
 
             # El botón ejecuta SubmitsEncry() (AES) y luego hace postback
             # Usar click() directo — Playwright ejecuta el onclick automáticamente
             log.info("Enviando formulario de login...")
             page.locator("#MainContent_DefaultContent_LoginButton").click()
+            
+            # En headless, el servidor puede tomar más tiempo
+            # Esperar tanto a la respuesta del servidor como a la navegación
+            page.wait_for_load_state("domcontentloaded", timeout=timeout_ms)
             page.wait_for_load_state("networkidle", timeout=timeout_ms)
+            page.wait_for_timeout(1500)  # Delay extra para que la página se estabilice
 
             # Verificar login exitoso: la URL ya no debe contener "Login.aspx"
             url_actual = page.url
@@ -352,6 +789,9 @@ def obtener_reportes() -> list[dict]:
             )
 
             # ── PASO 6: Click en Buscar ───────────────────────────────────────
+            # El <input id="BtnBuscar_I"> está hidden (display:none).
+            # El elemento clickeable real es el <div id="MainContent_DefaultContent_BtnBuscar">
+            # que es el contenedor visible del botón DevExpress.
             log.info("Ejecutando búsqueda...")
             btn_buscar = page.locator("#MainContent_DefaultContent_BtnBuscar")
             btn_buscar.wait_for(state="visible", timeout=timeout_ms)
@@ -360,80 +800,120 @@ def obtener_reportes() -> list[dict]:
             page.wait_for_load_state("networkidle", timeout=timeout_ms)
             page.wait_for_timeout(2500)
 
-            # ── PASO 7: Extraer filas de la tabla ────────────────────────────
+            # ── PASO 7: Extraer filas de la tabla (con paginación) ────────
             log.info("Extrayendo datos de la tabla...")
-            filas = page.locator("tr.dxgvDataRow")
-
-            # Esperar a que aparezca al menos una fila (o confirmar que no hay)
-            try:
-                filas.first.wait_for(state="attached", timeout=10_000)
-            except PWTimeout:
-                log.warning("La tabla no devolvió filas para la fecha consultada.")
-                return reportes
-
-            n_filas = filas.count()
-            log.info(f"Registros encontrados: {n_filas}")
-
-            for i in range(n_filas):
-                fila = filas.nth(i)
-                celdas = fila.locator("td.dxgv")
-
+            
+            pagina_num = 1
+            while True:
+                log.info(f"Procesando página {pagina_num} de la tabla...")
+                
+                filas = page.locator("tr.dxgvDataRow")
+                
+                # Esperar a que aparezca al menos una fila en esta página
                 try:
-                    tipo_entidad  = celdas.nth(0).inner_text().strip()
-                    fecha_corte   = celdas.nth(1).inner_text().strip()
-                    fecha_llegada = celdas.nth(2).inner_text().strip()
-                    sigla         = celdas.nth(3).inner_text().strip()
-                    grupo         = celdas.nth(4).inner_text().strip()
-                    email         = celdas.nth(5).inner_text().strip()
+                    filas.first.wait_for(state="attached", timeout=10_000)
+                except PWTimeout:
+                    if pagina_num == 1:
+                        log.warning("La tabla no devolvió filas para la fecha consultada.")
+                    break
+                
+                n_filas = filas.count()
+                log.info(f"  Filas encontradas en página {pagina_num}: {n_filas}")
+                
+                # Procesar cada fila de la página actual
+                for i in range(n_filas):
+                    fila = filas.nth(i)
+                    celdas = fila.locator("td.dxgv")
+                    n_celdas = celdas.count()
 
-                    # El resultado está en un <textarea readonly> dentro de la celda 6
-                    celda_resultado = celdas.nth(6)
-                    textarea = celda_resultado.locator("textarea")
-                    resultado_texto = (
-                        textarea.input_value()
-                        if textarea.count() > 0
-                        else celda_resultado.inner_text().strip()
-                    )
+                    try:
+                        tipo_entidad  = celdas.nth(0).inner_text().strip()
+                        fecha_corte   = celdas.nth(1).inner_text().strip()
+                        fecha_llegada = celdas.nth(2).inner_text().strip()
+                        sigla         = celdas.nth(3).inner_text().strip()
+                        grupo         = celdas.nth(4).inner_text().strip()
+                        email         = celdas.nth(5).inner_text().strip()
 
-                    # "Envío/Reproceso" es siempre la última celda
-                    envio = celdas.last.inner_text().strip()
+                        # El resultado está en un <textarea readonly> dentro de la celda 6
+                        celda_resultado = celdas.nth(6)
+                        textarea = celda_resultado.locator("textarea")
+                        resultado_texto = (
+                            textarea.input_value()
+                            if textarea.count() > 0
+                            else celda_resultado.inner_text().strip()
+                        )
 
-                    estado, detalle = analizar_resultado(resultado_texto)
+                        # Validación Formato/Consistencia - probablemente celda 7
+                        # (si existen más celdas)
+                        validacion_texto = ""
+                        if n_celdas > 7:
+                            validacion_texto = celdas.nth(7).inner_text().strip()
 
-                    reporte = {
-                        "tipo_entidad"      : tipo_entidad,
-                        "fecha_corte"       : fecha_corte,
-                        "fecha_llegada"     : fecha_llegada,
-                        "sigla"             : sigla,
-                        "grupo"             : grupo,
-                        "email"             : email,
-                        "resultado_raw"     : resultado_texto,
-                        "estado"            : estado,
-                        "detalle"           : detalle,
-                        "envio"             : envio,
-                        "timestamp_revision": datetime.now().isoformat(),
-                    }
-                    reportes.append(reporte)
-                    log.debug(f"  [{estado}] {grupo} ({fecha_corte}) → {detalle}")
+                        # "Envío/Reproceso" es siempre la última celda
+                        envio = celdas.last.inner_text().strip()
 
-                except Exception as exc:
-                    log.warning(f"Error procesando fila {i}: {exc}")
-                    continue
+                        # Nueva lógica: usar validación + envío en lugar de resultado
+                        estado, detalle = analizar_reporte_nuevo(validacion_texto, envio)
+
+                        reporte = {
+                            "tipo_entidad"      : tipo_entidad,
+                            "fecha_corte"       : fecha_corte,
+                            "fecha_llegada"     : fecha_llegada,
+                            "sigla"             : sigla,
+                            "grupo"             : grupo,
+                            "email"             : email,
+                            "resultado_raw"     : resultado_texto,
+                            "validacion"        : validacion_texto,
+                            "estado"            : estado,
+                            "detalle"           : detalle,
+                            "envio"             : envio,
+                            "timestamp_revision": datetime.now().isoformat(),
+                        }
+                        reportes.append(reporte)
+                        log.debug(f"  [{estado}] {grupo} ({fecha_corte}) → {detalle}")
+
+                    except Exception as exc:
+                        log.warning(f"Error procesando fila {i} (página {pagina_num}): {exc}")
+                        continue
+                
+                # Verificar si existe el botón "Siguiente" (paginación)
+                # Selector: <a class="dxp-button dxp-bi" onclick="ASPx.GVPagerOnClick(...,'PBN');">
+                # La imagen dentro tiene alt="Siguiente"
+                try:
+                    btn_siguiente = page.locator("a.dxp-bi[onclick*='PBN']")
+                    if btn_siguiente.count() > 0:
+                        # Verificar que el botón está habilitado (no deshabilitado)
+                        clase_btn = btn_siguiente.get_attribute("class")
+                        if "dxp-bi-disabled" not in clase_btn:
+                            log.info(f"  Haciendo clic en 'Siguiente' (página {pagina_num} → {pagina_num + 1})...")
+                            btn_siguiente.click()
+                            # Esperar a que se cargue la siguiente página
+                            page.wait_for_load_state("networkidle", timeout=timeout_ms)
+                            page.wait_for_timeout(1000)  # Extra delay para DevExpress
+                            pagina_num += 1
+                            continue
+                except Exception as e:
+                    log.debug(f"Error verificando botón siguiente: {e}")
+                
+                # Si no hay botón siguiente habilitado, terminamos
+                log.info(f"No hay más páginas. Total registros extraídos: {len(reportes)}")
+                break
+
 
         except PWTimeout as exc:
             log.error(f"Timeout esperando un elemento de la página: {exc}")
             notificar(
-                "⚠️ ASFI Monitor - Timeout",
+                "⚠️ ASFI/SCIP Monitor - Timeout",
                 f"No se cargó la página en {CONFIG['timeout_segundos']}s. "
                 "Verificar conexión o disponibilidad del sistema ASFI.",
             )
         except RuntimeError as exc:
             log.error(str(exc))
-            notificar("🔴 ASFI Monitor - Error de login", str(exc)[:250])
+            notificar("🔴 ASFI/SCIP Monitor - Error de login", str(exc)[:250])
         except Exception as exc:
             log.error(f"Error inesperado en scraping: {exc}", exc_info=True)
             notificar(
-                "⚠️ ASFI Monitor - Error inesperado",
+                "⚠️ ASFI/SCIP Monitor - Error inesperado",
                 f"{type(exc).__name__}: {str(exc)[:200]}",
             )
         finally:
@@ -459,7 +939,7 @@ def ejecutar_revision() -> None:
     except Exception as e:
         log.error(f"Fallo crítico obteniendo reportes: {e}", exc_info=True)
         notificar(
-            "🔴 ASFI Monitor - Fallo crítico",
+            "🔴 ASFI/SCIP Monitor - Fallo crítico",
             f"Error obteniendo reportes: {str(e)[:200]}",
             urgente=True,
         )
@@ -471,6 +951,10 @@ def ejecutar_revision() -> None:
         guardar_estado(estado)
         return
 
+    # La fecha consultada es siempre el día anterior (ayer)
+    ayer = date.today() - timedelta(days=1)
+    fmt_fecha = f"{ayer.day}/{ayer.month}/{ayer.year}"
+
     errores = []
     pendientes = []
     exitosos = []
@@ -480,22 +964,22 @@ def ejecutar_revision() -> None:
 
         if r["estado"] == "ERROR":
             errores.append(r)
-            # Solo notificar si no se notificó antes
-            if clave not in estado["alertas_enviadas"]:
-                estado["alertas_enviadas"][clave] = {
-                    "estado": r["estado"],
-                    "notificado": datetime.now().isoformat(),
-                }
-                # Notificación URGENTE para errores
-                titulo = f"🔴 ERROR en reporte ASFI — {r['grupo'][:40]}"
-                msg = (
-                    f"Entidad: {r['sigla']} | Corte: {r['fecha_corte']}\n"
-                    f"Grupo: {r['grupo'][:60]}\n"
-                    f"Problema: {r['detalle'][:100]}\n"
-                    f"Envío: {r['envio']}"
-                )
-                notificar(titulo, msg, urgente=True)
-                log.warning(f"ALERTA ENVIADA: {titulo}")
+            # SIEMPRE notificar errores - sin antispam
+            # (así se envía alerta cada ejecución hasta que se corrija)
+            estado["alertas_enviadas"][clave] = {
+                "estado": r["estado"],
+                "notificado": datetime.now().isoformat(),
+            }
+            # Notificación URGENTE para errores
+            titulo = f"🔴 ERROR en reporte ASFI — {r['grupo'][:40]}"
+            msg = (
+                f"Entidad: {r['sigla']} | Corte: {r['fecha_corte']}\n"
+                f"Grupo: {r['grupo'][:60]}\n"
+                f"Problema: {r['detalle'][:100]}\n"
+                f"Envío: {r['envio']}"
+            )
+            notificar(titulo, msg, urgente=True)
+            log.warning(f"ALERTA ENVIADA: {titulo}")
 
         elif r["estado"] == "PENDIENTE":
             pendientes.append(r)
@@ -503,6 +987,7 @@ def ejecutar_revision() -> None:
         elif r["estado"] == "EXITOSO":
             exitosos.append(r)
             # Limpiar alerta si antes estaba en error y ahora es exitoso
+            # (notificar resolución del problema)
             if clave in estado["alertas_enviadas"]:
                 prev = estado["alertas_enviadas"][clave]
                 if prev.get("estado") == "ERROR":
@@ -512,11 +997,51 @@ def ejecutar_revision() -> None:
                         f"El reporte '{r['grupo'][:60]}' ahora figura como exitoso.",
                     )
 
+    # Validar que se enviaron todos los reportes esperados para el día
+    log.info(f"Validando reportes esperados para {fmt_fecha}...")
+    reportes_faltantes_diarios = validar_reportes_dia(reportes, fmt_fecha)
+    reportes_faltantes_semanales = validar_reportes_semanales(reportes, fmt_fecha)
+
+    if reportes_faltantes_diarios:
+        log.warning(f"⚠️  Reportes diarios FALTANTES: {reportes_faltantes_diarios}")
+        clave_faltantes = f"faltantes_diarios|{fmt_fecha}"
+        # SIEMPRE notificar reportes faltantes - sin antispam
+        # (así se envía alerta cada ejecución hasta que se envíen)
+        estado["alertas_enviadas"][clave_faltantes] = {
+            "estado": "FALTANTE",
+            "notificado": datetime.now().isoformat(),
+        }
+        listado = "\n".join(f"  • {r}" for r in reportes_faltantes_diarios[:10])
+        if len(reportes_faltantes_diarios) > 10:
+            listado += f"\n  ...y {len(reportes_faltantes_diarios) - 10} más"
+        notificar(
+            f"⚠️ ASFI/SCIP Monitor - {len(reportes_faltantes_diarios)} reportes FALTANTES",
+            f"Fecha: {fmt_fecha}\n\n{listado}",
+            urgente=True,
+        )
+
+    if reportes_faltantes_semanales:
+        log.warning(f"⚠️ Reportes semanales FALTANTES: {reportes_faltantes_semanales}")
+        clave_faltantes = f"faltantes_semanales|{fmt_fecha}"
+        # SIEMPRE notificar reportes semanales faltantes - sin antispam
+        # (así se envía alerta cada ejecución hasta que se envíen)
+        estado["alertas_enviadas"][clave_faltantes] = {
+            "estado": "FALTANTE",
+            "notificado": datetime.now().isoformat(),
+        }
+        listado = "\n".join(f"  • {r}" for r in reportes_faltantes_semanales)
+        notificar(
+            f"⚠️ ASFI/SCIP Monitor - {len(reportes_faltantes_semanales)} reportes SEMANALES FALTANTES",
+            f"Fecha: {fmt_fecha}\n\n{listado}",
+            urgente=True,
+        )
+
     # Resumen en log
     log.info(
         f"Resumen: {len(exitosos)} exitosos | "
         f"{len(pendientes)} pendientes | "
-        f"{len(errores)} errores"
+        f"{len(errores)} errores | "
+        f"{len(reportes_faltantes_diarios)} faltantes"
     )
 
     # Notificación de resumen SOLO si hay errores múltiples
@@ -525,7 +1050,7 @@ def ejecutar_revision() -> None:
         if len(errores) > 5:
             grupos_error += f"\n...y {len(errores) - 5} más"
         notificar(
-            f"🔴 ASFI Monitor — {len(errores)} reportes con ERROR",
+            f"🔴 ASFI/SCIP Monitor - {len(errores)} reportes con ERROR",
             grupos_error,
             urgente=True,
         )
@@ -623,7 +1148,7 @@ def main() -> None:
 
     # Modo continuo: ejecutar ahora y luego cada N minutos
     notificar(
-        "ASFI Monitor iniciado",
+        "ASFI/SCIP Monitor iniciado",
         f"Monitoreando reportes cada {CONFIG['intervalo_minutos']} min.",
     )
     ejecutar_revision()  # Primera ejecución inmediata
@@ -638,7 +1163,7 @@ def main() -> None:
             time.sleep(30)  # Revisar el scheduler cada 30 segundos
     except KeyboardInterrupt:
         log.info("Monitor detenido por el usuario.")
-        notificar("ASFI Monitor detenido", "El monitoreo fue detenido manualmente.")
+        notificar("ASFI/SCIP Monitor detenido", "El monitoreo fue detenido manualmente.")
 
 
 if __name__ == "__main__":

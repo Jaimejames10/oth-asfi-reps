@@ -1,0 +1,13 @@
+{
+  "alertas_enviadas": {
+    "faltantes_diarios|31/8/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-01T16:35:18.344764"
+    },
+    "faltantes_diarios|1/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-02T15:42:51.715913"
+    }
+  },
+  "ultima_revision": "2026-09-02T16:13:37.291650"
+}

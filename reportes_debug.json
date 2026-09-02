@@ -1,0 +1,62 @@
+[
+  {
+    "grupo": "D007 IF - Diario Operaciones Interbancarias",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "D006 IF - Diario Tasas de Interés Activas",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "Auditor Externo",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "M019 IF - Mensual Tasas Pasivas",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "D008 IF - Diario Tipo de Cambio",
+    "estado": "EXITOSO",
+    "envio": "Envío 2",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "D008 IF - Diario Tipo de Cambio",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "Detalle de Créditos - CAPROSEN",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "Crédito PCD",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "Solicitud de Créditos - PREAMyPes - Mensual",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "Ampliación de plazo de reclamos de primera instancia",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  }
+]

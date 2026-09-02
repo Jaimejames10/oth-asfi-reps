@@ -55,7 +55,7 @@ print("Enviando notificación de prueba... (debería aparecer en la esquina)")
 print()
 
 notificar(
-    "✅ ASFI Monitor - Prueba OK",
+    "✅ ASFI/SCIP Monitor - Prueba OK",
     "Las notificaciones funcionan correctamente. El monitor está listo."
 )
 
@@ -65,7 +65,7 @@ print("  • Modo No molestar desactivado")
 print()
 
 notificar(
-    "🔴 ASFI Monitor - Prueba de ERROR",
+    "🔴 ASFI/SCIP Monitor - Prueba de ERROR",
     "D007 IF - Diario Operaciones Interbancarias\nFecha: 2026-08-28 | Diferencia: 744 bytes\nRevisar reporte urgente.",
     urgente=True
 )
