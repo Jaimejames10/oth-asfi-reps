@@ -8,11 +8,16 @@ Dependencias:
     pip install playwright plyer schedule
     playwright install chromium
 
+Configuración:
+    python gestionar_reportes.py
+
 Uso:
     python asfi_monitor.py
     python asfi_monitor.py --intervalo 10   # revisar cada 10 minutos
     python asfi_monitor.py --una-vez        # ejecutar solo una vez
 """
+
+from __future__ import annotations
 
 import argparse
 import io
@@ -24,8 +29,10 @@ import sys
 import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
+from typing import Optional
 
 import schedule
+import reportes_db
 
 # ──────────────────────────────────────────────────────────────────────────────
 # CONFIGURACIÓN  (editar según necesidad)
@@ -34,12 +41,11 @@ CONFIG = {
     # URL base del sistema SCIP (sin barra final)
     "url_base": "https://appweb.asfi.gob.bo/SCIP",
 
-    # Credenciales (también se pueden pasar por variable de entorno)
-    "usuario": os.environ.get("ASFI_USUARIO", "thomas.clavijo@comarapa.coop"),
-    "password": os.environ.get("ASFI_PASSWORD", "Tsn1991*"),
+    # Credenciales: se leen desde SQLite; estas variables/CLI son overrides temporales
+    "usuario": os.environ.get("ASFI_USUARIO", ""),
+    "password": os.environ.get("ASFI_PASSWORD", ""),
 
-    # días_atras ya no se usa — siempre se consulta "ayer"
-    # Se conserva por compatibilidad con argumentos CLI pero no afecta la fecha
+    # días_atras se conserva por compatibilidad con el CLI.
     "dias_atras": 1,
 
     # Intervalo de monitoreo en minutos (se puede sobreescribir con --intervalo)
@@ -78,6 +84,13 @@ CONFIG = {
     # Archivo donde se guardan alertas ya notificadas (evita spam)
     "archivo_estado": "asfi_estado.json",
 
+    # Archivo legado que se importa una vez a SQLite, si existe
+    "archivo_no_enviados": "reportes_no_enviados.json",
+
+    # Base SQLite con catálogo, obligaciones, historial y credenciales
+    "archivo_base_datos": "asfi_monitor.db",
+    "archivo_semilla": "reportes_seed.json",
+
     # Mostrar navegador (True para depuración, False para producción)
     "headless": True,
 
@@ -89,109 +102,19 @@ CONFIG = {
     "icono_notificacion": "assets/asfi.ico",
 }
 
+BASE_DIR = Path(__file__).resolve().parent
+
+
+def ruta_archivo(config_key: str) -> Path:
+    """Resuelve un archivo de configuración relativo al proyecto."""
+    return reportes_db.resolve_path(CONFIG[config_key])
+
+
 # Ruta absoluta del ícono de notificaciones (relativa a este script y no al CWD,
 # para que funcione también en la tarea programada de Windows)
-RUTA_ICONO = Path(__file__).resolve().parent / CONFIG["icono_notificacion"]
+RUTA_ICONO = ruta_archivo("icono_notificacion")
 if not RUTA_ICONO.exists():
     RUTA_ICONO = None  # Sin logo disponible: notificaciones con ícono por defecto
-
-# ──────────────────────────────────────────────────────────────────────────────
-# REPORTES ESPERADOS POR DÍA DE LA SEMANA
-# ──────────────────────────────────────────────────────────────────────────────
-REPORTES_POR_DIA = {
-    "monday": [
-        "D007 IF - Diario Operaciones Interbancarias",
-        "D006 IF - Diario Tasas de Interés Activas",
-        "Auditor Externo",
-        "D008 IF - Diario Tipo de Cambio",  # Primera copia
-        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
-        "Estratificación de Depósitos",
-        "Ampliación de plazo de reclamos de primera instancia",
-        "Reporte de Transacciones con el Exterior Diario",
-        "D001-D005 IF - Diario Encaje",
-        "D012 - Créditos refinanciados y/o reprogramados",
-    ],
-    "tuesday": [
-        "D007 IF - Diario Operaciones Interbancarias",
-        "D006 IF - Diario Tasas de Interés Activas",
-        "Auditor Externo",
-        "D008 IF - Diario Tipo de Cambio",  # Primera copia
-        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
-        "Ampliación de plazo de reclamos de primera instancia",
-        "Reporte de Transacciones con el Exterior Diario",
-        "D001-D005 IF - Diario Encaje",
-        "D012 - Créditos refinanciados y/o reprogramados",
-    ],
-    "wednesday": [
-        "D007 IF - Diario Operaciones Interbancarias",
-        "D006 IF - Diario Tasas de Interés Activas",
-        "Auditor Externo",
-        "D008 IF - Diario Tipo de Cambio",  # Primera copia
-        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
-        "Ampliación de plazo de reclamos de primera instancia",
-        "Reporte de Transacciones con el Exterior Diario",
-        "D001-D005 IF - Diario Encaje",
-        "D012 - Créditos refinanciados y/o reprogramados",
-    ],
-    "thursday": [
-        "D007 IF - Diario Operaciones Interbancarias",
-        "D006 IF - Diario Tasas de Interés Activas",
-        "Auditor Externo",
-        "D008 IF - Diario Tipo de Cambio",  # Primera copia
-        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
-        "Ampliación de plazo de reclamos de primera instancia",
-        "Reporte de Transacciones con el Exterior Diario",
-        "D001-D005 IF - Diario Encaje",
-        "D012 - Créditos refinanciados y/o reprogramados",
-    ],
-    "friday": [
-        "D007 IF - Diario Operaciones Interbancarias",
-        "D006 IF - Diario Tasas de Interés Activas",
-        "Auditor Externo",
-        "D008 IF - Diario Tipo de Cambio",  # Primera copia
-        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
-        "Ampliación de plazo de reclamos de primera instancia",
-        "Reporte de Transacciones con el Exterior Diario",
-        "D001-D005 IF - Diario Encaje",
-        "D012 - Créditos refinanciados y/o reprogramados",
-    ],
-    "saturday": [
-        "D007 IF - Diario Operaciones Interbancarias",
-        "D006 IF - Diario Tasas de Interés Activas",
-        "Auditor Externo",
-        "D008 IF - Diario Tipo de Cambio",  # Primera copia
-        "D008 IF - Diario Tipo de Cambio",  # Segunda copia
-        "Ampliación de plazo de reclamos de primera instancia",
-        "Reporte de Transacciones con el Exterior Diario",
-        "D001-D005 IF - Diario Encaje",
-        "D012 - Créditos refinanciados y/o reprogramados",
-    ],
-    "sunday": [
-        "D007 IF - Diario Operaciones Interbancarias",
-        "D006 IF - Diario Tasas de Interés Activas",
-        "Auditor Externo",
-        "D008 IF - Diario Tipo de Cambio",  # Solo una copia el domingo
-        "Solicitud de Créditos - PREAMyPes - Semanal",
-        "Ampliación de plazo de reclamos de primera instancia",
-        "Reporte de Transacciones con el Exterior Diario",
-        "D001-D005 IF - Diario Encaje",
-        "D012 - Créditos refinanciados y/o reprogramados",
-    ],
-}
-
-# Reportes semanales (se pueden enviar viernes, sábado o domingo)
-REPORTES_SEMANALES = [
-    "S001-S005 IF - Semanal Reportes Liquidez",
-    "CS - Cartera Semanal",
-]
-
-# Reportes mensuales (ignorar en validación de reportes diarios)
-REPORTES_MENSUALES = [
-    "M019 IF - Mensual Tasas Pasivas",
-    "Detalle de Créditos - CAPROSEN",
-    "Crédito PCD",
-    "Solicitud de Créditos - PREAMyPes - Mensual",
-]
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -206,7 +129,7 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler("asfi_monitor.log", encoding="utf-8"),
+        logging.FileHandler(BASE_DIR / "asfi_monitor.log", encoding="utf-8"),
     ],
 )
 log = logging.getLogger("asfi_monitor")
@@ -218,11 +141,10 @@ log = logging.getLogger("asfi_monitor")
 def notificar(titulo: str, mensaje: str, urgente: bool = False) -> None:
     """
     Envía notificaciones nativas de Windows.
-    Para alertas urgentes, intenta múltiples métodos en paralelo para máxima visibilidad.
-    Para alertas normales, usa los métodos secuencialmente.
+    Prueba los métodos secuencialmente y detiene el proceso cuando uno funciona.
+    Esto evita mostrar la misma alerta varias veces en Windows.
     """
-    import threading
-    
+
     # Sanitizar caracteres especiales para logging
     titulo_log = titulo.encode("ascii", "replace").decode("ascii")
     mensaje_log = mensaje[:100].encode("ascii", "replace").decode("ascii")
@@ -276,28 +198,8 @@ def notificar(titulo: str, mensaje: str, urgente: bool = False) -> None:
             log.debug(f"plyer: {type(e).__name__}")
             return False
 
-    def metodo_win10toast():
-        """Win10toast - Windows Toast notification"""
-        try:
-            from win10toast import ToastNotifier
-            toaster = ToastNotifier()
-            # Duración en segundos (aumentada para urgentes)
-            duracion = 30 if urgente else 15
-            toaster.show_toast(
-                titulo_limpio,
-                mensaje_limpio[:255],
-                icon_path=str(RUTA_ICONO) if RUTA_ICONO else None,
-                duration=duracion,
-                threaded=True,
-            )
-            log.debug(f"✓ Notificación enviada via win10toast ({duracion}s)")
-            return True
-        except Exception as e:
-            log.debug(f"win10toast: {type(e).__name__}")
-            return False
-
     def metodo_ballontip():
-        """PowerShell - Balloon tip notification"""
+        """PowerShell - notificación nativa integrada de Windows"""
         try:
             import subprocess
             # Duración en ms (aumentada para urgentes)
@@ -333,44 +235,24 @@ def notificar(titulo: str, mensaje: str, urgente: bool = False) -> None:
             log.debug(f"PowerShell BalloonTip: {type(e).__name__}")
             return False
 
-    # Estrategia: Para alertas urgentes, enviar múltiples métodos en paralelo
-    # Para no urgentes, probar métodos secuencialmente
+    # Usar un solo método por alerta. Varios proveedores simultáneos generan
+    # notificaciones duplicadas para el mismo evento.
     if urgente:
-        # Alertas urgentes: enviar por múltiples métodos simultáneamente
-        # para maximizar probabilidad de que el usuario vea
-        log.info(f"[URGENTE] Enviando notificación por múltiples métodos...")
-        threads = []
-        
-        # Intentar MessageBox en paralelo (bloquea más tiempo)
-        t1 = threading.Thread(target=metodo_messagebox, daemon=True)
-        threads.append(t1)
-        t1.start()
-        
-        # Intentar otros métodos en paralelo también
-        t2 = threading.Thread(target=metodo_win10toast, daemon=True)
-        threads.append(t2)
-        t2.start()
-        
-        t3 = threading.Thread(target=metodo_plyer, daemon=True)
-        threads.append(t3)
-        t3.start()
-        
-        t4 = threading.Thread(target=metodo_ballontip, daemon=True)
-        threads.append(t4)
-        t4.start()
-        
-        # Esperar a que al menos uno tenga éxito (con timeout)
-        for t in threads:
-            t.join(timeout=5)  # Esperar máx 5s por thread
-    else:
-        # Alertas normales: intentar secuencialmente
-        if metodo_messagebox():
-            return
-        if metodo_win10toast():
+        log.info("[URGENTE] Enviando notificación por un método disponible...")
+        if metodo_ballontip():
             return
         if metodo_plyer():
             return
+        if metodo_messagebox():
+            return
+        log.warning(f"No se pudo mostrar notificación: {titulo}")
+    else:
+        # Preferir la notificación nativa integrada de Windows.
         if metodo_ballontip():
+            return
+        if metodo_plyer():
+            return
+        if metodo_messagebox():
             return
         log.warning(f"No se pudo mostrar notificación: {titulo}")
 
@@ -379,7 +261,7 @@ def notificar(titulo: str, mensaje: str, urgente: bool = False) -> None:
 # ESTADO PERSISTENTE (para no repetir notificaciones)
 # ──────────────────────────────────────────────────────────────────────────────
 def cargar_estado() -> dict:
-    path = Path(CONFIG["archivo_estado"])
+    path = ruta_archivo("archivo_estado")
     if path.exists():
         try:
             return json.loads(path.read_text(encoding="utf-8"))
@@ -389,7 +271,7 @@ def cargar_estado() -> dict:
 
 
 def guardar_estado(estado: dict) -> None:
-    Path(CONFIG["archivo_estado"]).write_text(
+    ruta_archivo("archivo_estado").write_text(
         json.dumps(estado, ensure_ascii=False, indent=2, default=str),
         encoding="utf-8",
     )
@@ -401,136 +283,58 @@ def clave_reporte(reporte: dict) -> str:
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# VALIDACIÓN DE REPORTES POR DÍA DE LA SEMANA
+# VALIDACIÓN COMPATIBLE CON EL CATÁLOGO SQLITE
 # ──────────────────────────────────────────────────────────────────────────────
 def obtener_dia_semana(fecha_str: str) -> str:
-    """
-    Extrae el día de la semana de una fecha en formato d/m/yyyy.
-    Devuelve el nombre del día en inglés: monday, tuesday, ..., sunday
-    """
-    from datetime import datetime
-    try:
-        # Formato esperado: d/m/yyyy
-        partes = fecha_str.split("/")
-        if len(partes) != 3:
-            return None
-        dia = int(partes[0])
-        mes = int(partes[1])
-        ano = int(partes[2])
-        fecha_obj = datetime(ano, mes, dia)
-        dias_ingles = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-        return dias_ingles[fecha_obj.weekday()]
-    except Exception as e:
-        log.warning(f"Error extrayendo día de la semana de '{fecha_str}': {e}")
+    """Mantiene la utilidad anterior para consumidores externos."""
+    fecha_obj = reportes_db.parse_date(fecha_str)
+    if fecha_obj is None:
+        log.warning(f"No se pudo determinar el día de la semana para {fecha_str}")
         return None
+    dias = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    return dias[fecha_obj.weekday()]
+
+
+def _validar_tipo_desde_db(reportes: list[dict], tipo_periodo: str) -> list[str]:
+    """Evalúa obligaciones SQLite y devuelve faltantes del tipo solicitado."""
+    db_path = ruta_archivo("archivo_base_datos")
+    reportes_db.initialize_database(
+        db_path, ruta_archivo("archivo_semilla"), ruta_archivo("archivo_no_enviados")
+    )
+    conn = reportes_db.connect(db_path)
+    try:
+        resultado = reportes_db.evaluate_obligations(conn, reportes, reportes_db.local_now())
+        return resultado.get(tipo_periodo, [])
+    finally:
+        conn.close()
 
 
 def validar_reportes_dia(reportes: list[dict], fecha_consulta: str) -> list[str]:
-    """
-    Valida que todos los reportes esperados para el día hayan sido enviados.
-    
-    Lógica especial:
-    - Ignora reportes mensuales
-    - Maneja duplicados: si un reporte se repite (como D008), cuenta como exitoso
-      si al menos uno de sus duplicados tiene estado EXITOSO
-    - Si hay duplicados con "En proceso de recepción" + "Detalle Error", se marcan como rechazados
-    
-    Parámetros:
-      reportes: Lista de reportes obtenidos de la tabla ASFI
-      fecha_consulta: Fecha en formato d/m/yyyy (la que se consultó en ASFI)
-    
-    Devuelve:
-      Lista de reportes FALTANTES (nombres de grupos no encontrados)
-    """
-    dia_semana = obtener_dia_semana(fecha_consulta)
-    if not dia_semana:
-        log.warning(f"No se pudo determinar el día de la semana para {fecha_consulta}")
-        return []
-
-    # Reportes esperados para este día
-    reportes_esperados = REPORTES_POR_DIA.get(dia_semana, [])
-    
-    # Filtrar reportes obtenidos: excluir mensuales, agrupar por nombre
-    reportes_filtrados = [r for r in reportes if r["grupo"] not in REPORTES_MENSUALES]
-    
-    # Crear un mapa de reportes obtenidos: {nombre: [lista de reportes con ese nombre]}
-    grupos_obtenidos = {}
-    for reporte in reportes_filtrados:
-        nombre = reporte["grupo"]
-        if nombre not in grupos_obtenidos:
-            grupos_obtenidos[nombre] = []
-        grupos_obtenidos[nombre].append(reporte)
-    
-    # Función auxiliar: determinar si un grupo fue "enviado correctamente"
-    def grupo_aceptado(nombre_grupo, lista_reportes) -> bool:
-        """
-        Un grupo se considera aceptado si:
-        - Al menos uno de sus reportes tiene estado EXITOSO
-        - No todos están en estado ERROR
-        """
-        if not lista_reportes:
-            return False
-        
-        # Verificar si al menos uno tiene estado EXITOSO
-        for r in lista_reportes:
-            if r["estado"] == "EXITOSO":
-                return True
-        
-        # Si no hay EXITOSO pero hay PENDIENTE, no contar como aceptado aún
-        # Si todos son ERROR, tampoco
-        return False
-    
-    # Identificar reportes faltantes
-    faltantes = []
-    
-    # Procesar cada reporte esperado (permite duplicados como D008 x2)
-    for reporte_esperado in reportes_esperados:
-        if reporte_esperado in grupos_obtenidos:
-            lista_del_grupo = grupos_obtenidos[reporte_esperado]
-            if grupo_aceptado(reporte_esperado, lista_del_grupo):
-                # Este reporte se encontró y fue aceptado
-                continue
-            else:
-                # El reporte existe pero no fue aceptado
-                faltantes.append(reporte_esperado)
-        else:
-            # El reporte no existe en absoluto
-            faltantes.append(reporte_esperado)
-    
-    return faltantes
+    """Compatibilidad: valida los reportes diarios configurados en SQLite."""
+    return _validar_tipo_desde_db(reportes, "diario")
 
 
 def validar_reportes_semanales(reportes: list[dict], fecha_consulta: str) -> list[str]:
-    """
-    Valida reportes semanales.
-    Los reportes semanales se pueden enviar viernes, sábado o domingo.
-    
-    Devuelve:
-      Lista de reportes semanales FALTANTES
-    """
-    dia_semana = obtener_dia_semana(fecha_consulta)
-    if dia_semana not in ["friday", "saturday", "sunday"]:
-        # No es día de reportes semanales
-        return []
-    
-    # Filtrar reportes: excluir mensuales
-    reportes_filtrados = [r for r in reportes if r["grupo"] not in REPORTES_MENSUALES]
-    
-    # Extraer grupos de los reportes obtenidos (solo diarios relevantes)
-    grupos_obtenidos = set(r["grupo"] for r in reportes_filtrados)
-    
-    # Identificar reportes semanales faltantes
-    faltantes = []
-    for reporte_esperado in REPORTES_SEMANALES:
-        if reporte_esperado not in grupos_obtenidos:
-            faltantes.append(reporte_esperado)
-    
-    return faltantes
+    """Compatibilidad: valida los reportes semanales configurados en SQLite."""
+    return _validar_tipo_desde_db(reportes, "semanal")
+
+
+def validar_reportes_mensuales(reportes: list[dict], fecha_consulta: str) -> list[str]:
+    """Compatibilidad: valida reportes mensuales cuando estén activados."""
+    return _validar_tipo_desde_db(reportes, "mensual")
 
 
 # ──────────────────────────────────────────────────────────────────────────────
 # ANÁLISIS DEL RESULTADO - VERSIÓN NUEVA
 # ──────────────────────────────────────────────────────────────────────────────
+def _normalizar_texto(value: str) -> str:
+    return " ".join((value or "").casefold().split())
+
+
+def _es_error_validacion(value: str) -> bool:
+    return _normalizar_texto(value) in {"error", "detalle error"}
+
+
 def analizar_reporte_nuevo(validacion: str, envio: str) -> tuple[str, str]:
     """
     Analiza el estado del reporte usando:
@@ -543,11 +347,11 @@ def analizar_reporte_nuevo(validacion: str, envio: str) -> tuple[str, str]:
       'PENDIENTE' → En proceso de recepción
       'DESCONOCIDO' → No se puede determinar
     """
-    validacion_lower = validacion.lower() if validacion else ""
+    validacion_normalizada = _normalizar_texto(validacion)
     envio_lower = envio.lower() if envio else ""
 
     # Verificar errores en validación (máxima prioridad)
-    if "error" in validacion_lower or "detalle error" in validacion_lower:
+    if _es_error_validacion(validacion):
         return "ERROR", f"Validación: {validacion.strip()[:100]}"
 
     # Verificar si está en proceso de recepción
@@ -559,10 +363,35 @@ def analizar_reporte_nuevo(validacion: str, envio: str) -> tuple[str, str]:
         return "EXITOSO", f"{envio.strip()}"
 
     # Si no hay validación y envío dice algo, puede ser exitoso
-    if envio.strip() and not "error" in validacion_lower:
+    if envio.strip() and not _es_error_validacion(validacion):
         return "EXITOSO", f"Envío: {envio.strip()[:100]}"
 
     return "DESCONOCIDO", f"Validación: {validacion.strip()[:50]} | Envío: {envio.strip()[:50]}"
+
+
+def _leer_texto_celda(celda) -> str:
+    """Lee texto visible o el valor de controles usados por DevExpress."""
+    textarea = celda.locator("textarea")
+    if textarea.count() > 0:
+        return textarea.first.input_value().strip()
+    return celda.inner_text().strip()
+
+
+def _obtener_indices_columnas(page) -> tuple[Optional[int], Optional[int]]:
+    """Obtiene los índices de validación y envío desde los encabezados de SCIP."""
+    indice_validacion = None
+    indice_envio = None
+    try:
+        cabeceras = page.locator("tr.dxgvHeader").first.locator("td")
+        for index in range(cabeceras.count()):
+            texto = " ".join(_leer_texto_celda(cabeceras.nth(index)).casefold().split())
+            if "valid" in texto and ("formato" in texto or "consistencia" in texto):
+                indice_validacion = index
+            elif "env" in texto and "reproceso" in texto:
+                indice_envio = index
+    except Exception:
+        pass
+    return indice_validacion, indice_envio
 
 
 def analizar_resultado(texto: str) -> tuple[str, str]:
@@ -629,7 +458,9 @@ def _ingresar_fecha(page, selector_id: str, fecha_str: str, timeout_ms: int) -> 
     page.wait_for_timeout(700)           # dejar que DevExpress procese el cambio
 
 
-def obtener_reportes() -> list[dict]:
+def obtener_reportes(
+    fecha_inicio: Optional[date] = None, fecha_fin: Optional[date] = None
+) -> list[dict]:
     """
     Abre el navegador, inicia sesión y extrae los datos de la tabla
     de Control de Plazos. Devuelve lista de dicts con cada reporte.
@@ -644,14 +475,28 @@ def obtener_reportes() -> list[dict]:
     """
     from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
 
+    # Las llamadas directas al scraper también consumen las credenciales de DB.
+    if not CONFIG["usuario"] or not CONFIG["password"]:
+        try:
+            usuario_db, password_db = cargar_credenciales_desde_db()
+            if not CONFIG["usuario"]:
+                CONFIG["usuario"] = usuario_db
+            if not CONFIG["password"]:
+                CONFIG["password"] = password_db
+        except Exception as exc:
+            log.warning(f"No se pudieron cargar credenciales desde SQLite: {exc}")
+
     timeout_ms = CONFIG["timeout_segundos"] * 1000
     reportes = []
 
-    # La fecha que se busca es SIEMPRE el día anterior al de hoy,
-    # que es cuando los reportes diarios ya deberían estar enviados.
-    ayer = date.today() - timedelta(days=1)
-    fmt_fecha = f"{ayer.day}/{ayer.month}/{ayer.year}"   # formato d/M/yyyy que usa el sistema
-    log.info(f"Fecha a consultar: {fmt_fecha} (ayer)")
+    # SCIP debe consultarse siempre para un único período: ayer. No se usan
+    # rangos históricos aquí, aunque existan obligaciones atrasadas.
+    fecha_ayer = reportes_db.local_now().date() - timedelta(days=1)
+    fecha_inicio = fecha_ayer
+    fecha_fin = fecha_ayer
+    fmt_fecha_inicio = reportes_db.format_asfi_date(fecha_inicio)
+    fmt_fecha_fin = reportes_db.format_asfi_date(fecha_fin)
+    log.info(f"Fechas a consultar: {fmt_fecha_inicio} a {fmt_fecha_fin}")
 
     with sync_playwright() as p:
         log.info("Iniciando navegador Chromium...")
@@ -770,21 +615,21 @@ def obtener_reportes() -> list[dict]:
             page.wait_for_timeout(1500)   # DevExpress necesita tiempo extra para renderizar
             log.info(f"URL tras click menú lateral: {page.url}")
 
-            # ── PASO 4: Configurar fecha inicial = ayer ───────────────────────
-            log.info(f"Configurando Fecha Corte Inicial: {fmt_fecha}")
+            # ── PASO 4: Configurar fecha inicial ──────────────────────────────
+            log.info(f"Configurando Fecha Corte Inicial: {fmt_fecha_inicio}")
             _ingresar_fecha(
                 page,
                 "MainContent_DefaultContent_aspfechainicial_I",
-                fmt_fecha,
+                fmt_fecha_inicio,
                 timeout_ms,
             )
 
-            # ── PASO 5: Configurar fecha final = ayer (mismo día) ─────────────
-            log.info(f"Configurando Fecha Corte Final: {fmt_fecha}")
+            # ── PASO 5: Configurar fecha final ─────────────────────────────────
+            log.info(f"Configurando Fecha Corte Final: {fmt_fecha_fin}")
             _ingresar_fecha(
                 page,
                 "MainContent_DefaultContent_aspxFechaFinal_I",
-                fmt_fecha,
+                fmt_fecha_fin,
                 timeout_ms,
             )
 
@@ -802,6 +647,12 @@ def obtener_reportes() -> list[dict]:
 
             # ── PASO 7: Extraer filas de la tabla (con paginación) ────────
             log.info("Extrayendo datos de la tabla...")
+            indice_validacion, indice_envio = _obtener_indices_columnas(page)
+            if indice_validacion is None:
+                indice_validacion = 7
+            log.debug(
+                f"Columnas detectadas: validación={indice_validacion}, envío={indice_envio or 'última'}"
+            )
             
             pagina_num = 1
             while True:
@@ -836,21 +687,29 @@ def obtener_reportes() -> list[dict]:
 
                         # El resultado está en un <textarea readonly> dentro de la celda 6
                         celda_resultado = celdas.nth(6)
-                        textarea = celda_resultado.locator("textarea")
-                        resultado_texto = (
-                            textarea.input_value()
-                            if textarea.count() > 0
-                            else celda_resultado.inner_text().strip()
-                        )
+                        resultado_texto = _leer_texto_celda(celda_resultado)
 
-                        # Validación Formato/Consistencia - probablemente celda 7
-                        # (si existen más celdas)
+                        # Validación Formato/Consistencia, detectada por encabezado
+                        # y con celda 7 como respaldo para versiones distintas de SCIP.
                         validacion_texto = ""
-                        if n_celdas > 7:
-                            validacion_texto = celdas.nth(7).inner_text().strip()
+                        enlaces_detalle_error = fila.locator(
+                            "a[id*='BtnDetalleError'], a[href*='BtnDetalleError']"
+                        )
+                        for enlace_index in range(enlaces_detalle_error.count()):
+                            enlace_texto = _leer_texto_celda(enlaces_detalle_error.nth(enlace_index))
+                            if _es_error_validacion(enlace_texto):
+                                # Las filas normales también tienen este enlace,
+                                # pero su texto interno está vacío.
+                                validacion_texto = enlace_texto
+                                break
+                        if not validacion_texto and indice_validacion < n_celdas:
+                            validacion_texto = _leer_texto_celda(celdas.nth(indice_validacion))
 
-                        # "Envío/Reproceso" es siempre la última celda
-                        envio = celdas.last.inner_text().strip()
+                        # "Envío/Reproceso" suele ser la última celda.
+                        indice_envio_actual = (
+                            indice_envio if indice_envio is not None and indice_envio < n_celdas else n_celdas - 1
+                        )
+                        envio = _leer_texto_celda(celdas.nth(indice_envio_actual))
 
                         # Nueva lógica: usar validación + envío en lugar de resultado
                         estado, detalle = analizar_reporte_nuevo(validacion_texto, envio)
@@ -926,34 +785,99 @@ def obtener_reportes() -> list[dict]:
 # ──────────────────────────────────────────────────────────────────────────────
 # LÓGICA PRINCIPAL DE MONITOREO
 # ──────────────────────────────────────────────────────────────────────────────
+def inicializar_base_datos() -> Path:
+    """Crea/aplica la base y carga el catálogo inicial si todavía está vacía."""
+    return reportes_db.initialize_database(
+        ruta_archivo("archivo_base_datos"),
+        ruta_archivo("archivo_semilla"),
+        ruta_archivo("archivo_no_enviados"),
+    )
+
+
+def cargar_credenciales_desde_db(db_path: Optional[Path] = None) -> tuple[str, str]:
+    """Lee usuario y contraseña desde SQLite sin escribirlos en logs."""
+    db_path = db_path or inicializar_base_datos()
+    conn = reportes_db.connect(db_path)
+    try:
+        return reportes_db.get_credentials(conn)
+    finally:
+        conn.close()
+
+
 def ejecutar_revision() -> None:
     """Revisa los reportes y envía notificaciones si hay problemas."""
     log.info("=" * 60)
-    log.info(f"Iniciando revisión: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    current = reportes_db.local_now()
+    log.info(f"Iniciando revisión: {current.strftime('%Y-%m-%d %H:%M:%S')}")
+
+    if CONFIG.get("_usar_credenciales_db", False):
+        try:
+            CONFIG["usuario"], CONFIG["password"] = cargar_credenciales_desde_db()
+        except Exception as exc:
+            log.error(f"No se pudieron actualizar las credenciales desde SQLite: {exc}")
+            return
 
     estado = cargar_estado()
-    estado["ultima_revision"] = datetime.now().isoformat()
+    estado["ultima_revision"] = reportes_db.now_iso(current)
+
+    db_path = inicializar_base_datos()
+    conn = reportes_db.connect(db_path)
+    reportes_db.ensure_obligations(conn, current)
+    fecha_inicio, fecha_fin = reportes_db.get_query_date_range(conn, current)
+    run_id = reportes_db.start_scrape_run(conn, fecha_inicio, fecha_fin)
 
     try:
-        reportes = obtener_reportes()
-    except Exception as e:
-        log.error(f"Fallo crítico obteniendo reportes: {e}", exc_info=True)
+        reportes = obtener_reportes(fecha_inicio, fecha_fin)
+    except Exception as exc:
+        reportes_db.finish_scrape_run(conn, run_id, "ERROR", 0, str(exc)[:500])
+        conn.close()
+        log.error(f"Fallo crítico obteniendo reportes: {exc}", exc_info=True)
         notificar(
             "🔴 ASFI/SCIP Monitor - Fallo crítico",
-            f"Error obteniendo reportes: {str(e)[:200]}",
+            f"Error obteniendo reportes: {str(exc)[:200]}",
             urgente=True,
         )
         guardar_estado(estado)
         return
 
     if not reportes:
+        reportes_db.finish_scrape_run(conn, run_id, "VACIO", 0)
+        conn.close()
         log.warning("No se obtuvieron reportes (tabla vacía o error de scraping)")
         guardar_estado(estado)
         return
 
-    # La fecha consultada es siempre el día anterior (ayer)
-    ayer = date.today() - timedelta(days=1)
-    fmt_fecha = f"{ayer.day}/{ayer.month}/{ayer.year}"
+    sin_enviar_diarios: list[dict] = []
+    try:
+        reportes_db.store_observations(conn, run_id, reportes)
+        evaluacion = reportes_db.evaluate_obligations(
+            conn, reportes, reportes_db.local_now()
+        )
+        # Diarios del período vigente que aún no se registran como enviados
+        # (ABIERTO/PENDIENTE): se avisan en cada ciclo mientras esté dentro
+        # del plazo; al vencer pasan a FALTANTE y usan la alerta urgente.
+        sin_enviar_diarios = [
+            fila for fila in reportes_db.list_current_obligations(conn)
+            if fila["tipo_periodo"] == "diario"
+            and fila["estado"] in ("ABIERTO", "PENDIENTE")
+        ]
+        reportes_db.finish_scrape_run(conn, run_id, "OK", len(reportes))
+    except Exception as exc:
+        reportes_db.finish_scrape_run(conn, run_id, "ERROR", len(reportes), str(exc)[:500])
+        conn.close()
+        log.error(f"Fallo guardando resultados en SQLite: {exc}", exc_info=True)
+        notificar(
+            "🔴 ASFI/SCIP Monitor - Error de persistencia",
+            f"No se pudieron guardar los resultados: {str(exc)[:200]}",
+            urgente=True,
+        )
+        guardar_estado(estado)
+        return
+    finally:
+        conn.close()
+
+    fecha_corte_ayer = reportes_db.local_now().date() - timedelta(days=1)
+    fmt_fecha = reportes_db.format_asfi_date(fecha_corte_ayer)
 
     errores = []
     pendientes = []
@@ -998,9 +922,10 @@ def ejecutar_revision() -> None:
                     )
 
     # Validar que se enviaron todos los reportes esperados para el día
-    log.info(f"Validando reportes esperados para {fmt_fecha}...")
-    reportes_faltantes_diarios = validar_reportes_dia(reportes, fmt_fecha)
-    reportes_faltantes_semanales = validar_reportes_semanales(reportes, fmt_fecha)
+    log.info(f"Validando obligaciones configuradas para {fmt_fecha}...")
+    reportes_faltantes_diarios = evaluacion.get("diario", [])
+    reportes_faltantes_semanales = evaluacion.get("semanal", [])
+    reportes_faltantes_mensuales = evaluacion.get("mensual", [])
 
     if reportes_faltantes_diarios:
         log.warning(f"⚠️  Reportes diarios FALTANTES: {reportes_faltantes_diarios}")
@@ -1036,12 +961,77 @@ def ejecutar_revision() -> None:
             urgente=True,
         )
 
+    if reportes_faltantes_mensuales:
+        log.warning(f"⚠️ Reportes mensuales FALTANTES: {reportes_faltantes_mensuales}")
+        clave_faltantes = f"faltantes_mensuales|{fmt_fecha}"
+        estado["alertas_enviadas"][clave_faltantes] = {
+            "estado": "FALTANTE",
+            "notificado": reportes_db.now_iso(),
+        }
+        listado = "\n".join(f"  • {r}" for r in reportes_faltantes_mensuales)
+        notificar(
+            f"⚠️ ASFI/SCIP Monitor - {len(reportes_faltantes_mensuales)} reportes MENSUALES FALTANTES",
+            f"Fecha de corte: {fmt_fecha}\n\n{listado}",
+            urgente=True,
+        )
+
+    # Recordatorio periódico (cada ciclo, por defecto 15 min) de los reportes
+    # diarios del día que todavía no se han enviado y siguen dentro del plazo.
+    if sin_enviar_diarios:
+        nombres_sin_enviar = [
+            f"{fila['nombre']}" + (f" (envío {fila['ocurrencia']})" if fila["ocurrencia"] > 1 else "")
+            for fila in sin_enviar_diarios
+        ]
+        log.info(f"Reportes diarios aún sin enviar (dentro de plazo): {len(nombres_sin_enviar)}")
+        clave_sin_enviar = f"sin_enviar_diarios|{fmt_fecha}"
+        estado["alertas_enviadas"][clave_sin_enviar] = {
+            "estado": "SIN_ENVIAR",
+            "notificado": reportes_db.now_iso(),
+        }
+        listado = "\n".join(f"  • {nombre}" for nombre in nombres_sin_enviar[:10])
+        if len(nombres_sin_enviar) > 10:
+            listado += f"\n  ...y {len(nombres_sin_enviar) - 10} más"
+        limite = sin_enviar_diarios[0].get("fecha_hora_limite") or "-"
+        notificar(
+            f"⏳ ASFI/SCIP Monitor - {len(nombres_sin_enviar)} reportes diarios sin enviar",
+            f"Corte: {fmt_fecha}\nLímite de envío: {str(limite).replace('T', ' ')[:19]}\n\n{listado}",
+            urgente=False,
+        )
+
+    # Listado en consola del estado de los reportes
+    total_faltantes = (
+        len(reportes_faltantes_diarios)
+        + len(reportes_faltantes_semanales)
+        + len(reportes_faltantes_mensuales)
+    )
+    log.info(
+        f"Estado de los reportes "
+        f"({len(exitosos)} ✅ | {len(errores)} ❌ | "
+        f"{total_faltantes} ⚠️ | {len(sin_enviar_diarios)} ⏳):"
+    )
+    for r in exitosos:
+        log.info(f"  ✅ {r['grupo']} ({r['sigla']} | corte {r['fecha_corte']})")
+    for nombre in reportes_faltantes_diarios:
+        log.info(f"  ⚠️ {nombre} (FALTANTE)")
+    for fila in sin_enviar_diarios:
+        sufijo = f" (envío {fila['ocurrencia']})" if fila["ocurrencia"] > 1 else ""
+        log.info(f"  ⏳ {fila['nombre']}{sufijo} (SIN ENVIAR - dentro de plazo)")
+    for nombre in reportes_faltantes_semanales:
+        log.info(f"  ⚠️ {nombre} (SEMANAL FALTANTE)")
+    for nombre in reportes_faltantes_mensuales:
+        log.info(f"  ⚠️ {nombre} (MENSUAL FALTANTE)")
+    for r in errores:
+        log.info(f"  ❌ {r['grupo']} ({r['sigla']} | corte {r['fecha_corte']}) - {r['detalle'][:60]}")
+    if not exitosos:
+        log.warning("Ningún reporte figura como aceptado correctamente")
+
     # Resumen en log
     log.info(
         f"Resumen: {len(exitosos)} exitosos | "
         f"{len(pendientes)} pendientes | "
         f"{len(errores)} errores | "
-        f"{len(reportes_faltantes_diarios)} faltantes"
+        f"{total_faltantes} faltantes | "
+        f"{len(sin_enviar_diarios)} sin enviar (dentro de plazo)"
     )
 
     # Notificación de resumen SOLO si hay errores múltiples
@@ -1103,9 +1093,36 @@ def main() -> None:
     )
     parser.add_argument(
         "--password", type=str,
-        help="Contraseña ASFI (sobreescribe config y variable de entorno)"
+        help="Contraseña ASFI (override temporal sobre DB/entorno)"
+    )
+    parser.add_argument(
+        "--configurar", action="store_true",
+        help="Abrir la interfaz gráfica de configuración y salir"
     )
     args = parser.parse_args()
+
+    try:
+        db_path = inicializar_base_datos()
+    except Exception as exc:
+        print(f"\n❌ No se pudo inicializar SQLite: {exc}")
+        sys.exit(1)
+
+    if args.configurar:
+        from gestionar_reportes import ejecutar_gui
+        ejecutar_gui(db_path)
+        return
+
+    # Precedencia: argumentos CLI > variables de entorno > credenciales SQLite.
+    try:
+        usuario_db, password_db = cargar_credenciales_desde_db(db_path)
+    except Exception as exc:
+        print(f"\n❌ No se pudieron leer las credenciales de SQLite: {exc}")
+        sys.exit(1)
+
+    if not CONFIG["usuario"]:
+        CONFIG["usuario"] = usuario_db
+    if not CONFIG["password"]:
+        CONFIG["password"] = password_db
 
     # Aplicar argumentos
     CONFIG["intervalo_minutos"] = args.intervalo
@@ -1115,15 +1132,21 @@ def main() -> None:
         CONFIG["usuario"] = args.usuario
     if args.password:
         CONFIG["password"] = args.password
+    CONFIG["_usar_credenciales_db"] = not (
+        bool(args.usuario)
+        or bool(args.password)
+        or bool(os.environ.get("ASFI_USUARIO"))
+        or bool(os.environ.get("ASFI_PASSWORD"))
+    )
 
     # Validar credenciales
-    if CONFIG["usuario"] == "TU_USUARIO_AQUI" or not CONFIG["usuario"]:
+    if not CONFIG["usuario"] or not CONFIG["password"]:
         print(
             "\n⚠️  No se configuraron las credenciales.\n"
             "   Opciones:\n"
-            "   1. Editar CONFIG en asfi_monitor.py\n"
+            "   1. Ejecutar: python gestionar_reportes.py\n"
             "   2. Variables de entorno: ASFI_USUARIO y ASFI_PASSWORD\n"
-            "   3. Argumentos: --usuario XXXX --password YYYY\n"
+            "   3. Argumentos temporales: --usuario XXXX --password YYYY\n"
         )
         sys.exit(1)
 

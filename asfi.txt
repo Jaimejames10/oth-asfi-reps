@@ -1,0 +1,154 @@
+(15:15) Thomas Clavijo: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+(15:18) Thomas Clavijo: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+(15:18) Thomas Clavijo: thomas.clavijo@comarapa.coop
+Tsn1991*
+
+
+
+(10:25) Thomas Clavijo: Ccm.cctv26@gmail.com
+Ccm*2026   // tsn9682545   //   Tsn9682545
+
+
+
+Usuario: ca1706486@anydesklatam.com 
+Clave: ViWj97c4azM0 
+
+Lunes:
+D007 IF - Diario Operaciones Interbancarias
+D006 IF - Diario Tasas de Interés Activas	
+Auditor Externo
+D008 IF - Diario Tipo de Cambio
+D008 IF - Diario Tipo de Cambio
+Estratificación de Depósitos
+Ampliación de plazo de reclamos de primera instancia
+Reporte de Transacciones con el Exterior Diario
+REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA
+D001-D005 IF - Diario Encaje
+D012 - Créditos refinanciados y/o reprogramados
+
+Martes:
+D007 IF - Diario Operaciones Interbancarias
+D006 IF - Diario Tasas de Interés Activas	
+Auditor Externo
+D008 IF - Diario Tipo de Cambio
+D008 IF - Diario Tipo de Cambio
+Ampliación de plazo de reclamos de primera instancia
+Reporte de Transacciones con el Exterior Diario
+REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA
+D001-D005 IF - Diario Encaje
+D012 - Créditos refinanciados y/o reprogramados
+
+Lunes:
+D007 IF - Diario Operaciones Interbancarias
+D006 IF - Diario Tasas de Interés Activas	
+Auditor Externo
+D008 IF - Diario Tipo de Cambio
+D008 IF - Diario Tipo de Cambio
+Estratificación de Depósitos
+Ampliación de plazo de reclamos de primera instancia
+Reporte de Transacciones con el Exterior Diario
+REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA
+D001-D005 IF - Diario Encaje
+D012 - Créditos refinanciados y/o reprogramados
+
+Martes:
+D007 IF - Diario Operaciones Interbancarias
+D006 IF - Diario Tasas de Interés Activas	
+Auditor Externo
+D008 IF - Diario Tipo de Cambio
+D008 IF - Diario Tipo de Cambio
+Ampliación de plazo de reclamos de primera instancia
+Reporte de Transacciones con el Exterior Diario
+REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA
+D001-D005 IF - Diario Encaje
+D012 - Créditos refinanciados y/o reprogramados
+
+Miercoles:
+D007 IF - Diario Operaciones Interbancarias
+D006 IF - Diario Tasas de Interés Activas	
+Auditor Externo
+D008 IF - Diario Tipo de Cambio
+D008 IF - Diario Tipo de Cambio
+Ampliación de plazo de reclamos de primera instancia
+Reporte de Transacciones con el Exterior Diario
+REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA
+D001-D005 IF - Diario Encaje
+D012 - Créditos refinanciados y/o reprogramados
+
+Jueves:
+D007 IF - Diario Operaciones Interbancarias
+D006 IF - Diario Tasas de Interés Activas	
+Auditor Externo
+D008 IF - Diario Tipo de Cambio
+D008 IF - Diario Tipo de Cambio
+Ampliación de plazo de reclamos de primera instancia
+Reporte de Transacciones con el Exterior Diario
+D001-D005 IF - Diario Encaje
+D012 - Créditos refinanciados y/o reprogramados
+REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA
+
+Viernes:
+D007 IF - Diario Operaciones Interbancarias
+D006 IF - Diario Tasas de Interés Activas	
+Auditor Externo
+D008 IF - Diario Tipo de Cambio
+D008 IF - Diario Tipo de Cambio
+Ampliación de plazo de reclamos de primera instancia
+Reporte de Transacciones con el Exterior Diario
+REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA
+D001-D005 IF - Diario Encaje 
+D012 - Créditos refinanciados y/o reprogramados
+
+Sabado:
+D007 IF - Diario Operaciones Interbancarias
+D006 IF - Diario Tasas de Interés Activas	
+Auditor Externo
+D008 IF - Diario Tipo de Cambio 
+D008 IF - Diario Tipo de Cambio
+Ampliación de plazo de reclamos de primera instancia
+Reporte de Transacciones con el Exterior Diario
+REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA
+D001-D005 IF - Diario Encaje 
+D012 - Créditos refinanciados y/o reprogramados
+
+Domingo:
+D007 IF - Diario Operaciones Interbancarias
+D006 IF - Diario Tasas de Interés Activas	
+Auditor Externo
+D008 IF - Diario Tipo de Cambio
+Solicitud de Créditos - PREAMyPes - Semanal
+Ampliación de plazo de reclamos de primera instancia
+Reporte de Transacciones con el Exterior Diario
+REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA
+D001-D005 IF - Diario Encaje 
+D012 - Créditos refinanciados y/o reprogramados
+
+
+Semanal (Estos pueden enviarse viernes, sabado y maximo hasta domingo a las 12:00 del medio dia):
+S001-S005 IF - Semanal Reportes Liquidez
+CS - Cartera Semanal
+
+Mensuales
+M019 IF - Mensual Tasas Pasivas    1dh 00    *************
+Detalle de Créditos - CAPROSEN         1dh 12
+Crédito PCD       10dh 12
+Solicitud de Créditos - PREAMyPes - Mensual   1dh 12
+Tarifas y n° de transacciones de servicios o productos   15dc 00
+Operaciones prorrogadas     10dc 00
+Reporte de transacciones relativas a la compra de activos virtuales       1dh 12
+MI01-MI09 - Mensual Central de Información de Riesgo Operativo   <<<<< 3dh 00
+Mensual Solicitudes de Créditos - PEDAEEL   1dh 12
+CM - Cartera Mensual   5dh 00
+MB01-MB20 Mensual Balance   2dh 00
+MC - Mensual Central de Información Crediticia  4dh 00
+Depósitos y ahorristas   4dh 00
+Depósitos a plazo fijo   3dh 00
+M020 - Mensual PR Reclamos   5dh 00
+M021 - Mensual PR Soluciones   5dh 00
+M029 - Información general de Personas Expuestas Políticamente    <<<< 5dh 00
+Detalle de solicitudes de crédito   5dh 12
+M030 - Reporte de tarifas   15dc 00
+Pasivos con el Público   3dh 00
+
+AC - Tiempo de Atencion en Cajas (Cuatrimestral)
+SM11 - Información semestral de riesgo de lavado de dinero y/o financiamiento al terrorismo

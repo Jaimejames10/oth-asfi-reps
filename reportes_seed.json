@@ -1,0 +1,199 @@
+{
+  "reportes": [
+    {
+      "codigo": "D007",
+      "nombre": "D007 IF - Diario Operaciones Interbancarias",
+      "tipo_periodo": "diario",
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 2, "dias_envio": [3], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 3, "dias_envio": [4], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 4, "dias_envio": [5], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 5, "dias_envio": [6], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 6, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 7, "dias_envio": [1], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "D006",
+      "nombre": "D006 IF - Diario Tasas de Interés Activas",
+      "tipo_periodo": "diario",
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 2, "dias_envio": [3], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 3, "dias_envio": [4], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 4, "dias_envio": [5], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 5, "dias_envio": [6], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 6, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 7, "dias_envio": [1], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "AUDITOR_EXT",
+      "nombre": "Auditor Externo",
+      "tipo_periodo": "anual",
+      "validacion_activa": false,
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 2, "dias_envio": [3], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 3, "dias_envio": [4], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 4, "dias_envio": [5], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 5, "dias_envio": [6], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 6, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 7, "dias_envio": [1], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "D008",
+      "nombre": "D008 IF - Diario Tipo de Cambio",
+      "tipo_periodo": "diario",
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 2},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 2, "dias_envio": [3], "hora_limite": "12:00", "ocurrencias_requeridas": 2},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 3, "dias_envio": [4], "hora_limite": "12:00", "ocurrencias_requeridas": 2},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 4, "dias_envio": [5], "hora_limite": "12:00", "ocurrencias_requeridas": 2},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 5, "dias_envio": [6], "hora_limite": "12:00", "ocurrencias_requeridas": 2},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 6, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 2},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 7, "dias_envio": [1], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "ESTRATIFICACION",
+      "nombre": "Estratificación de Depósitos",
+      "tipo_periodo": "diario",
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "AMPLIACION_RECLAMOS",
+      "nombre": "Ampliación de plazo de reclamos de primera instancia",
+      "tipo_periodo": "diario",
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 2, "dias_envio": [3], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 3, "dias_envio": [4], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 4, "dias_envio": [5], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 5, "dias_envio": [6], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 6, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 7, "dias_envio": [1], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "TRANSACCIONES_EXTERIOR",
+      "nombre": "Reporte de Transacciones con el Exterior Diario",
+      "tipo_periodo": "diario",
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 2, "dias_envio": [3], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 3, "dias_envio": [4], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 4, "dias_envio": [5], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 5, "dias_envio": [6], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 6, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 7, "dias_envio": [1], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "D001_D005",
+      "nombre": "D001-D005 IF - Diario Encaje",
+      "tipo_periodo": "diario",
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 2, "dias_envio": [3], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 3, "dias_envio": [4], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 4, "dias_envio": [5], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 5, "dias_envio": [6], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 6, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 7, "dias_envio": [1], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "D012",
+      "nombre": "D012 - Créditos refinanciados y/o reprogramados",
+      "tipo_periodo": "diario",
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 2, "dias_envio": [3], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 3, "dias_envio": [4], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 4, "dias_envio": [5], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 5, "dias_envio": [6], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 6, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 7, "dias_envio": [1], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "RETIRO_ME",
+      "nombre": "REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA",
+      "tipo_periodo": "diario",
+      "reglas": [
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 1, "dias_envio": [2], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 2, "dias_envio": [3], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 3, "dias_envio": [4], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 4, "dias_envio": [5], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 5, "dias_envio": [6], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 6, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1},
+        {"regla_fecha_corte": "AYER", "dia_semana_corte": 7, "dias_envio": [1], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "S001_S005",
+      "nombre": "S001-S005 IF - Semanal Reportes Liquidez",
+      "tipo_periodo": "semanal",
+      "reglas": [
+        {"regla_fecha_corte": "VIERNES", "dia_semana_corte": 5, "dias_envio": [5, 6, 7], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "CS_CARTERA",
+      "nombre": "CS - Cartera Semanal",
+      "tipo_periodo": "semanal",
+      "reglas": [
+        {"regla_fecha_corte": "VIERNES", "dia_semana_corte": 5, "dias_envio": [5, 6, 7], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "PREAMYPES_SEMANAL",
+      "nombre": "Solicitud de Créditos - PREAMyPes - Semanal",
+      "tipo_periodo": "semanal",
+      "reglas": [
+        {"regla_fecha_corte": "VIERNES", "dia_semana_corte": 5, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "M019",
+      "nombre": "M019 IF - Mensual Tasas Pasivas",
+      "tipo_periodo": "mensual",
+      "validacion_activa": false,
+      "reglas": [
+        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": null, "dias_plazo": null, "tipo_plazo": null, "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "CAPROSEN",
+      "nombre": "Detalle de Créditos - CAPROSEN",
+      "tipo_periodo": "mensual",
+      "validacion_activa": false,
+      "reglas": [
+        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": null, "dias_plazo": null, "tipo_plazo": null, "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "CREDITO_PCD",
+      "nombre": "Crédito PCD",
+      "tipo_periodo": "mensual",
+      "validacion_activa": false,
+      "reglas": [
+        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": null, "dias_plazo": null, "tipo_plazo": null, "ocurrencias_requeridas": 1}
+      ]
+    },
+    {
+      "codigo": "PREAMYPES_MENSUAL",
+      "nombre": "Solicitud de Créditos - PREAMyPes - Mensual",
+      "tipo_periodo": "mensual",
+      "validacion_activa": false,
+      "reglas": [
+        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": null, "dias_plazo": null, "tipo_plazo": null, "ocurrencias_requeridas": 1}
+      ]
+    }
+  ]
+}

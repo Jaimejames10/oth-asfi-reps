@@ -7,7 +7,27 @@
     "faltantes_diarios|1/9/2026": {
       "estado": "FALTANTE",
       "notificado": "2026-09-02T15:42:51.715913"
+    },
+    "faltantes_diarios|2/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-03T09:51:00.063421"
+    },
+    "faltantes_diarios|3/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-04T14:59:18.650525"
+    },
+    "faltantes_diarios|4/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-05T09:15:05.066489"
+    },
+    "sin_enviar_diarios|4/9/2026": {
+      "estado": "SIN_ENVIAR",
+      "notificado": "2026-09-05T09:27:53-04:00"
+    },
+    "2026-09-04|CS - Cartera Semanal|En proceso de recepción": {
+      "estado": "ERROR",
+      "notificado": "2026-09-05T12:04:10.817213"
     }
   },
-  "ultima_revision": "2026-09-02T16:13:37.291650"
+  "ultima_revision": "2026-09-05T12:03:33-04:00"
 }

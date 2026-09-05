@@ -2723,3 +2723,2163 @@ Revisar report
 2026-09-02 16:14:13,427 [INFO] Validando reportes esperados para 1/9/2026...
 2026-09-02 16:14:13,427 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes
 2026-09-02 16:14:13,430 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-02 16:29:13,449 [INFO] ============================================================
+2026-09-02 16:44:20,731 [INFO] Iniciando revisión: 2026-09-02 16:44:20
+2026-09-02 16:44:20,747 [INFO] Fecha a consultar: 1/9/2026 (ayer)
+2026-09-02 16:44:22,013 [INFO] Monitor detenido por el usuario.
+2026-09-02 16:44:22,015 [INFO] [NOTIFICACION] ASFI/SCIP Monitor detenido: El monitoreo fue detenido manualmente.
+2026-09-02 16:44:24,290 [ERROR] Task was destroyed but it is pending!
+task: <Task pending name='Task-2560' coro=<Connection.run.<locals>.init() done, defined at C:\Users\PA-CREDITO-02\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:343> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[ProtocolCallback.__init__.<locals>.cb() at C:\Users\PA-CREDITO-02\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:264]>
+2026-09-03 08:38:00,397 [INFO] ============================================================
+2026-09-03 08:38:00,398 [INFO] ASFI SCIP Monitor iniciado
+2026-09-03 08:38:00,399 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-03 08:38:00,399 [INFO]   Intervalo: 15 minutos
+2026-09-03 08:38:00,399 [INFO]   Headless : True
+2026-09-03 08:38:00,399 [INFO]   Días atrás: 1
+2026-09-03 08:38:00,400 [INFO] ============================================================
+2026-09-03 08:38:00,601 [INFO] [NOTIFICACION] ASFI/SCIP Monitor iniciado: Monitoreando reportes cada 15 min.
+2026-09-03 08:38:03,393 [INFO] ============================================================
+2026-09-03 08:38:03,393 [INFO] Iniciando revisión: 2026-09-03 08:38:03
+2026-09-03 08:38:03,395 [INFO] Fecha a consultar: 2/9/2026 (ayer)
+2026-09-03 08:38:05,242 [INFO] Iniciando navegador Chromium...
+2026-09-03 08:38:13,104 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-03 08:38:18,510 [INFO] Ingresando credenciales...
+2026-09-03 08:38:19,269 [INFO] Enviando formulario de login...
+2026-09-03 08:38:22,980 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-03 08:38:22,981 [INFO] ✅ Login exitoso
+2026-09-03 08:38:22,981 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-03 08:38:24,775 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-03 08:38:24,776 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-03 08:38:29,675 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-03 08:38:29,676 [INFO] Configurando Fecha Corte Inicial: 2/9/2026
+2026-09-03 08:38:32,129 [INFO] Configurando Fecha Corte Final: 2/9/2026
+2026-09-03 08:38:34,493 [INFO] Ejecutando búsqueda...
+2026-09-03 08:38:40,278 [INFO] Extrayendo datos de la tabla...
+2026-09-03 08:38:40,279 [INFO] Procesando página 1 de la tabla...
+2026-09-03 08:38:40,365 [INFO]   Filas encontradas en página 1: 6
+2026-09-03 08:38:40,617 [INFO] No hay más páginas. Total registros extraídos: 6
+2026-09-03 08:38:40,691 [INFO] Navegador cerrado.
+2026-09-03 08:38:40,708 [INFO] Validando reportes esperados para 2/9/2026...
+2026-09-03 08:38:40,709 [WARNING] ⚠️  Reportes diarios FALTANTES: ['D007 IF - Diario Operaciones Interbancarias', 'D006 IF - Diario Tasas de Interés Activas', 'D001-D005 IF - Diario Encaje']
+2026-09-03 08:38:40,710 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes FALTANTES: Fecha: 2/9/2026
+
+  ? D007 IF - Diario Operaciones Interbancarias
+  ? D006 IF - Diario Tasas de Inter
+2026-09-03 08:38:40,710 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-03 08:38:50,730 [INFO] Resumen: 6 exitosos | 0 pendientes | 0 errores | 3 faltantes
+2026-09-03 08:38:50,736 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-03 08:38:50,737 [INFO] Scheduler activo. Revisando cada 15 minutos.
+2026-09-03 08:38:50,739 [INFO] Presionar Ctrl+C para detener.
+2026-09-03 08:53:50,754 [INFO] ============================================================
+2026-09-03 09:23:32,415 [INFO] Iniciando revisión: 2026-09-03 09:23:32
+2026-09-03 09:23:32,418 [INFO] Fecha a consultar: 2/9/2026 (ayer)
+2026-09-03 09:23:33,068 [INFO] Monitor detenido por el usuario.
+2026-09-03 09:23:33,068 [INFO] [NOTIFICACION] ASFI/SCIP Monitor detenido: El monitoreo fue detenido manualmente.
+2026-09-03 09:23:33,486 [ERROR] Task was destroyed but it is pending!
+task: <Task pending name='Task-139' coro=<Connection.run.<locals>.init() running at C:\Users\PA-CREDITO-02\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:344> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[ProtocolCallback.__init__.<locals>.cb() at C:\Users\PA-CREDITO-02\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:264]>
+2026-09-03 09:35:21,451 [INFO] ============================================================
+2026-09-03 09:35:21,451 [INFO] ASFI SCIP Monitor iniciado
+2026-09-03 09:35:21,452 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-03 09:35:21,452 [INFO]   Intervalo: 15 minutos
+2026-09-03 09:35:21,452 [INFO]   Headless : True
+2026-09-03 09:35:21,452 [INFO]   Días atrás: 1
+2026-09-03 09:35:21,454 [INFO] ============================================================
+2026-09-03 09:35:21,736 [INFO] ============================================================
+2026-09-03 09:35:21,737 [INFO] Iniciando revisión: 2026-09-03 09:35:21
+2026-09-03 09:35:21,738 [INFO] Fecha a consultar: 2/9/2026 (ayer)
+2026-09-03 09:35:23,519 [INFO] Iniciando navegador Chromium...
+2026-09-03 09:35:37,582 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-03 09:35:44,249 [INFO] Ingresando credenciales...
+2026-09-03 09:35:45,021 [INFO] Enviando formulario de login...
+2026-09-03 09:35:49,079 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-03 09:35:49,080 [INFO] ✅ Login exitoso
+2026-09-03 09:35:49,081 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-03 09:35:51,145 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-03 09:35:51,146 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-03 09:35:55,283 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-03 09:35:55,284 [INFO] Configurando Fecha Corte Inicial: 2/9/2026
+2026-09-03 09:35:57,683 [INFO] Configurando Fecha Corte Final: 2/9/2026
+2026-09-03 09:36:00,123 [INFO] Ejecutando búsqueda...
+2026-09-03 09:36:05,575 [INFO] Extrayendo datos de la tabla...
+2026-09-03 09:36:05,576 [INFO] Procesando página 1 de la tabla...
+2026-09-03 09:36:05,682 [INFO]   Filas encontradas en página 1: 6
+2026-09-03 09:36:05,949 [INFO] No hay más páginas. Total registros extraídos: 6
+2026-09-03 09:36:06,036 [INFO] Navegador cerrado.
+2026-09-03 09:36:06,068 [INFO] Validando reportes esperados para 2/9/2026...
+2026-09-03 09:36:06,069 [WARNING] ⚠️  Reportes diarios FALTANTES: ['D007 IF - Diario Operaciones Interbancarias', 'D006 IF - Diario Tasas de Interés Activas', 'D001-D005 IF - Diario Encaje']
+2026-09-03 09:36:06,069 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes FALTANTES: Fecha: 2/9/2026
+
+  ? D007 IF - Diario Operaciones Interbancarias
+  ? D006 IF - Diario Tasas de Inter
+2026-09-03 09:36:06,069 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-03 09:36:16,097 [INFO] Resumen: 6 exitosos | 0 pendientes | 0 errores | 3 faltantes
+2026-09-03 09:36:16,103 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-03 09:37:23,706 [INFO] ============================================================
+2026-09-03 09:37:23,706 [INFO] ASFI SCIP Monitor iniciado
+2026-09-03 09:37:23,707 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-03 09:37:23,707 [INFO]   Intervalo: 15 minutos
+2026-09-03 09:37:23,707 [INFO]   Headless : True
+2026-09-03 09:37:23,707 [INFO]   Días atrás: 1
+2026-09-03 09:37:23,707 [INFO] ============================================================
+2026-09-03 09:37:23,885 [INFO] ============================================================
+2026-09-03 09:37:23,885 [INFO] Iniciando revisión: 2026-09-03 09:37:23
+2026-09-03 09:37:23,886 [INFO] Fecha a consultar: 2/9/2026 (ayer)
+2026-09-03 09:37:24,939 [INFO] Iniciando navegador Chromium...
+2026-09-03 09:37:33,221 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-03 09:37:36,692 [INFO] Ingresando credenciales...
+2026-09-03 09:37:37,436 [INFO] Enviando formulario de login...
+2026-09-03 09:37:41,998 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-03 09:37:41,999 [INFO] ✅ Login exitoso
+2026-09-03 09:37:42,000 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-03 09:37:43,819 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-03 09:37:43,820 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-03 09:37:48,105 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-03 09:37:48,106 [INFO] Configurando Fecha Corte Inicial: 2/9/2026
+2026-09-03 09:37:50,527 [INFO] Configurando Fecha Corte Final: 2/9/2026
+2026-09-03 09:37:53,000 [INFO] Ejecutando búsqueda...
+2026-09-03 09:37:58,813 [INFO] Extrayendo datos de la tabla...
+2026-09-03 09:37:58,814 [INFO] Procesando página 1 de la tabla...
+2026-09-03 09:37:58,906 [INFO]   Filas encontradas en página 1: 6
+2026-09-03 09:37:59,183 [INFO] No hay más páginas. Total registros extraídos: 6
+2026-09-03 09:37:59,268 [INFO] Navegador cerrado.
+2026-09-03 09:37:59,294 [INFO] Validando reportes esperados para 2/9/2026...
+2026-09-03 09:37:59,294 [WARNING] ⚠️  Reportes diarios FALTANTES: ['D007 IF - Diario Operaciones Interbancarias', 'D006 IF - Diario Tasas de Interés Activas', 'D001-D005 IF - Diario Encaje']
+2026-09-03 09:37:59,294 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes FALTANTES: Fecha: 2/9/2026
+
+  ? D007 IF - Diario Operaciones Interbancarias
+  ? D006 IF - Diario Tasas de Inter
+2026-09-03 09:37:59,295 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-03 09:38:09,311 [INFO] Resumen: 6 exitosos | 0 pendientes | 0 errores | 3 faltantes
+2026-09-03 09:38:09,314 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-03 09:47:08,606 [INFO] ============================================================
+2026-09-03 09:47:08,606 [INFO] ASFI SCIP Monitor iniciado
+2026-09-03 09:47:08,607 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-03 09:47:08,607 [INFO]   Intervalo: 15 minutos
+2026-09-03 09:47:08,608 [INFO]   Headless : True
+2026-09-03 09:47:08,608 [INFO]   Días atrás: 1
+2026-09-03 09:47:08,608 [INFO] ============================================================
+2026-09-03 09:47:08,808 [INFO] ============================================================
+2026-09-03 09:47:08,808 [INFO] Iniciando revisión: 2026-09-03 09:47:08
+2026-09-03 09:47:08,809 [INFO] Fecha a consultar: 2/9/2026 (ayer)
+2026-09-03 09:47:09,925 [INFO] Iniciando navegador Chromium...
+2026-09-03 09:47:19,808 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-03 09:47:26,777 [INFO] Ingresando credenciales...
+2026-09-03 09:47:27,584 [INFO] Enviando formulario de login...
+2026-09-03 09:47:31,460 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-03 09:47:31,461 [INFO] ✅ Login exitoso
+2026-09-03 09:47:31,462 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-03 09:47:33,293 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-03 09:47:33,294 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-03 09:47:37,506 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-03 09:47:37,507 [INFO] Configurando Fecha Corte Inicial: 2/9/2026
+2026-09-03 09:47:39,919 [INFO] Configurando Fecha Corte Final: 2/9/2026
+2026-09-03 09:47:42,342 [INFO] Ejecutando búsqueda...
+2026-09-03 09:47:47,785 [INFO] Extrayendo datos de la tabla...
+2026-09-03 09:47:47,785 [INFO] Procesando página 1 de la tabla...
+2026-09-03 09:47:47,841 [INFO]   Filas encontradas en página 1: 6
+2026-09-03 09:47:48,095 [INFO] No hay más páginas. Total registros extraídos: 6
+2026-09-03 09:47:48,182 [INFO] Navegador cerrado.
+2026-09-03 09:47:48,208 [INFO] Validando reportes esperados para 2/9/2026...
+2026-09-03 09:47:48,209 [WARNING] ⚠️  Reportes diarios FALTANTES: ['D007 IF - Diario Operaciones Interbancarias', 'D006 IF - Diario Tasas de Interés Activas', 'D008 IF - Diario Tipo de Cambio', 'D001-D005 IF - Diario Encaje']
+2026-09-03 09:47:48,209 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 4 reportes FALTANTES: Fecha: 2/9/2026
+
+  ? D007 IF - Diario Operaciones Interbancarias
+  ? D006 IF - Diario Tasas de Inter
+2026-09-03 09:47:48,210 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-03 09:47:58,219 [INFO] Resumen: 6 exitosos | 0 pendientes | 0 errores | 4 faltantes
+2026-09-03 09:47:58,229 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-03 09:50:07,318 [INFO] Reportes aceptados correctamente (2):
+2026-09-03 09:50:07,319 [INFO]   ✔ D008 IF - Diario Tipo de Cambio (COOP-1 | corte 2/9/2026)
+2026-09-03 09:50:07,319 [INFO]   ✔ Auditor Externo (COOP-1 | corte 2/9/2026)
+2026-09-03 09:50:25,556 [INFO] ============================================================
+2026-09-03 09:50:25,556 [INFO] ASFI SCIP Monitor iniciado
+2026-09-03 09:50:25,556 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-03 09:50:25,556 [INFO]   Intervalo: 15 minutos
+2026-09-03 09:50:25,557 [INFO]   Headless : True
+2026-09-03 09:50:25,557 [INFO]   Días atrás: 1
+2026-09-03 09:50:25,557 [INFO] ============================================================
+2026-09-03 09:50:25,719 [INFO] ============================================================
+2026-09-03 09:50:25,720 [INFO] Iniciando revisión: 2026-09-03 09:50:25
+2026-09-03 09:50:25,721 [INFO] Fecha a consultar: 2/9/2026 (ayer)
+2026-09-03 09:50:26,654 [INFO] Iniciando navegador Chromium...
+2026-09-03 09:50:35,089 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-03 09:50:38,452 [INFO] Ingresando credenciales...
+2026-09-03 09:50:39,185 [INFO] Enviando formulario de login...
+2026-09-03 09:50:42,942 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-03 09:50:42,943 [INFO] ✅ Login exitoso
+2026-09-03 09:50:42,944 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-03 09:50:44,797 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-03 09:50:44,797 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-03 09:50:49,149 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-03 09:50:49,150 [INFO] Configurando Fecha Corte Inicial: 2/9/2026
+2026-09-03 09:50:51,542 [INFO] Configurando Fecha Corte Final: 2/9/2026
+2026-09-03 09:50:53,941 [INFO] Ejecutando búsqueda...
+2026-09-03 09:50:59,583 [INFO] Extrayendo datos de la tabla...
+2026-09-03 09:50:59,584 [INFO] Procesando página 1 de la tabla...
+2026-09-03 09:50:59,672 [INFO]   Filas encontradas en página 1: 6
+2026-09-03 09:50:59,951 [INFO] No hay más páginas. Total registros extraídos: 6
+2026-09-03 09:51:00,038 [INFO] Navegador cerrado.
+2026-09-03 09:51:00,061 [INFO] Validando reportes esperados para 2/9/2026...
+2026-09-03 09:51:00,061 [WARNING] ⚠️  Reportes diarios FALTANTES: ['D007 IF - Diario Operaciones Interbancarias', 'D006 IF - Diario Tasas de Interés Activas', 'D008 IF - Diario Tipo de Cambio', 'D001-D005 IF - Diario Encaje']
+2026-09-03 09:51:00,063 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 4 reportes FALTANTES: Fecha: 2/9/2026
+
+  ? D007 IF - Diario Operaciones Interbancarias
+  ? D006 IF - Diario Tasas de Inter
+2026-09-03 09:51:00,063 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-03 09:51:10,083 [INFO] Reportes aceptados correctamente (6):
+2026-09-03 09:51:10,083 [INFO]   ✔ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-03 09:51:10,084 [INFO]   ✔ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-02)
+2026-09-03 09:51:10,084 [INFO]   ✔ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-02)
+2026-09-03 09:51:10,085 [INFO]   ✔ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-02)
+2026-09-03 09:51:10,085 [INFO]   ✔ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-02)
+2026-09-03 09:51:10,086 [INFO]   ✔ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-02)
+2026-09-03 09:51:10,086 [INFO] Resumen: 6 exitosos | 0 pendientes | 0 errores | 4 faltantes
+2026-09-03 09:51:10,090 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-03 10:59:26,011 [INFO] ============================================================
+2026-09-03 10:59:26,011 [INFO] ASFI SCIP Monitor iniciado
+2026-09-03 10:59:26,012 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-03 10:59:26,013 [INFO]   Intervalo: 15 minutos
+2026-09-03 10:59:26,013 [INFO]   Headless : True
+2026-09-03 10:59:26,013 [INFO]   Días atrás: 1
+2026-09-03 10:59:26,014 [INFO] ============================================================
+2026-09-03 10:59:26,316 [INFO] [NOTIFICACION] ASFI/SCIP Monitor iniciado: Monitoreando reportes cada 15 min.
+2026-09-03 10:59:28,894 [INFO] ============================================================
+2026-09-03 10:59:28,895 [INFO] Iniciando revisión: 2026-09-03 10:59:28
+2026-09-03 10:59:28,897 [INFO] Fecha a consultar: 2/9/2026 (ayer)
+2026-09-03 10:59:30,719 [INFO] Iniciando navegador Chromium...
+2026-09-03 10:59:39,554 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-03 10:59:45,438 [INFO] Ingresando credenciales...
+2026-09-03 10:59:46,171 [INFO] Enviando formulario de login...
+2026-09-03 10:59:50,068 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-03 10:59:50,069 [INFO] ✅ Login exitoso
+2026-09-03 10:59:50,071 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-03 10:59:51,914 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-03 10:59:51,915 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-03 10:59:56,173 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-03 10:59:56,173 [INFO] Configurando Fecha Corte Inicial: 2/9/2026
+2026-09-03 10:59:58,618 [INFO] Configurando Fecha Corte Final: 2/9/2026
+2026-09-03 11:00:00,995 [INFO] Ejecutando búsqueda...
+2026-09-03 11:00:06,080 [INFO] Extrayendo datos de la tabla...
+2026-09-03 11:00:06,081 [INFO] Procesando página 1 de la tabla...
+2026-09-03 11:00:06,171 [INFO]   Filas encontradas en página 1: 10
+2026-09-03 11:00:06,612 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-03 11:00:06,684 [INFO] Navegador cerrado.
+2026-09-03 11:00:06,717 [INFO] Validando reportes esperados para 2/9/2026...
+2026-09-03 11:00:06,718 [INFO] Reportes aceptados correctamente (10):
+2026-09-03 11:00:06,718 [INFO]   ✔ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-02)
+2026-09-03 11:00:06,719 [INFO]   ✔ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-02)
+2026-09-03 11:00:06,719 [INFO]   ✔ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-03 11:00:06,720 [INFO]   ✔ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-02)
+2026-09-03 11:00:06,720 [INFO]   ✔ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-02)
+2026-09-03 11:00:06,720 [INFO]   ✔ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-02)
+2026-09-03 11:00:06,721 [INFO]   ✔ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-02)
+2026-09-03 11:00:06,721 [INFO]   ✔ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-02)
+2026-09-03 11:00:06,722 [INFO]   ✔ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-02)
+2026-09-03 11:00:06,722 [INFO]   ✔ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-02)
+2026-09-03 11:00:06,722 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes
+2026-09-03 11:00:06,723 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-03 11:00:06,724 [INFO] Scheduler activo. Revisando cada 15 minutos.
+2026-09-03 11:00:06,725 [INFO] Presionar Ctrl+C para detener.
+2026-09-03 11:15:06,746 [INFO] ============================================================
+2026-09-03 11:15:06,747 [INFO] Iniciando revisión: 2026-09-03 11:15:06
+2026-09-03 11:15:06,751 [INFO] Fecha a consultar: 2/9/2026 (ayer)
+2026-09-03 11:15:07,712 [INFO] Iniciando navegador Chromium...
+2026-09-03 11:15:15,346 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-03 11:15:20,714 [INFO] Ingresando credenciales...
+2026-09-03 11:15:21,475 [INFO] Enviando formulario de login...
+2026-09-03 11:15:26,037 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-03 11:15:26,038 [INFO] ✅ Login exitoso
+2026-09-03 11:15:26,040 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-03 11:15:27,879 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-03 11:15:27,881 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-03 11:15:32,188 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-03 11:15:32,189 [INFO] Configurando Fecha Corte Inicial: 2/9/2026
+2026-09-03 11:15:34,703 [INFO] Configurando Fecha Corte Final: 2/9/2026
+2026-09-03 11:15:37,118 [INFO] Ejecutando búsqueda...
+2026-09-03 11:15:42,696 [INFO] Extrayendo datos de la tabla...
+2026-09-03 11:15:42,697 [INFO] Procesando página 1 de la tabla...
+2026-09-03 11:15:42,800 [INFO]   Filas encontradas en página 1: 10
+2026-09-03 11:15:43,300 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-03 11:15:43,380 [INFO] Navegador cerrado.
+2026-09-03 11:15:43,397 [INFO] Validando reportes esperados para 2/9/2026...
+2026-09-03 11:15:43,397 [INFO] Reportes aceptados correctamente (10):
+2026-09-03 11:15:43,398 [INFO]   ✔ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-02)
+2026-09-03 11:15:43,398 [INFO]   ✔ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-02)
+2026-09-03 11:15:43,398 [INFO]   ✔ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-03 11:15:43,399 [INFO]   ✔ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-02)
+2026-09-03 11:15:43,399 [INFO]   ✔ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-02)
+2026-09-03 11:15:43,399 [INFO]   ✔ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-02)
+2026-09-03 11:15:43,400 [INFO]   ✔ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-02)
+2026-09-03 11:15:43,400 [INFO]   ✔ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-02)
+2026-09-03 11:15:43,400 [INFO]   ✔ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-02)
+2026-09-03 11:15:43,401 [INFO]   ✔ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-02)
+2026-09-03 11:15:43,401 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes
+2026-09-03 11:15:43,403 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-03 11:17:23,710 [INFO] Estado de los reportes (2 ✅ | 1 ❌ | 2 ⚠️):
+2026-09-03 11:17:23,710 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (COOP-1 | corte 2/9/2026)
+2026-09-03 11:17:23,710 [INFO]   ✅ Auditor Externo (COOP-1 | corte 2/9/2026)
+2026-09-03 11:17:23,711 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-03 11:17:23,711 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-03 11:17:23,711 [INFO]   ❌ D006 IF - Diario Tasas de Interés Activas (COOP-1 | corte 2/9/2026) - Archivo Rechazado: formato invalido
+2026-09-03 11:17:52,561 [INFO] Monitor detenido por el usuario.
+2026-09-03 11:17:52,562 [INFO] [NOTIFICACION] ASFI/SCIP Monitor detenido: El monitoreo fue detenido manualmente.
+2026-09-03 11:18:11,577 [INFO] ============================================================
+2026-09-03 11:18:11,578 [INFO] ASFI SCIP Monitor iniciado
+2026-09-03 11:18:11,578 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-03 11:18:11,578 [INFO]   Intervalo: 15 minutos
+2026-09-03 11:18:11,578 [INFO]   Headless : True
+2026-09-03 11:18:11,579 [INFO]   Días atrás: 1
+2026-09-03 11:18:11,579 [INFO] ============================================================
+2026-09-03 11:18:11,744 [INFO] ============================================================
+2026-09-03 11:18:11,744 [INFO] Iniciando revisión: 2026-09-03 11:18:11
+2026-09-03 11:18:11,745 [INFO] Fecha a consultar: 2/9/2026 (ayer)
+2026-09-03 11:18:12,687 [INFO] Iniciando navegador Chromium...
+2026-09-03 11:18:23,094 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-03 11:18:27,035 [INFO] Ingresando credenciales...
+2026-09-03 11:18:27,858 [INFO] Enviando formulario de login...
+2026-09-03 11:18:31,692 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-03 11:18:31,693 [INFO] ✅ Login exitoso
+2026-09-03 11:18:31,694 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-03 11:18:33,541 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-03 11:18:33,541 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-03 11:18:37,828 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-03 11:18:37,829 [INFO] Configurando Fecha Corte Inicial: 2/9/2026
+2026-09-03 11:18:40,342 [INFO] Configurando Fecha Corte Final: 2/9/2026
+2026-09-03 11:18:42,746 [INFO] Ejecutando búsqueda...
+2026-09-03 11:18:48,309 [INFO] Extrayendo datos de la tabla...
+2026-09-03 11:18:48,310 [INFO] Procesando página 1 de la tabla...
+2026-09-03 11:18:48,387 [INFO]   Filas encontradas en página 1: 10
+2026-09-03 11:18:48,821 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-03 11:18:48,903 [INFO] Navegador cerrado.
+2026-09-03 11:18:48,919 [INFO] Validando reportes esperados para 2/9/2026...
+2026-09-03 11:18:48,919 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 0 ⚠️):
+2026-09-03 11:18:48,919 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-02)
+2026-09-03 11:18:48,919 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-02)
+2026-09-03 11:18:48,920 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-03 11:18:48,920 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-02)
+2026-09-03 11:18:48,921 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-02)
+2026-09-03 11:18:48,921 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-02)
+2026-09-03 11:18:48,921 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-02)
+2026-09-03 11:18:48,921 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-02)
+2026-09-03 11:18:48,922 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-02)
+2026-09-03 11:18:48,922 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-02)
+2026-09-03 11:18:48,922 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes
+2026-09-03 11:18:48,926 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-03 15:23:31,320 [INFO] 📝 Registrado reporte NO ENVIADO: D008 IF - Diario Tipo de Cambio (fecha 2/9/2026)
+2026-09-03 15:23:31,321 [INFO] 📝 Registrado reporte NO ENVIADO: CS - Cartera Semanal (fecha 2/9/2026)
+2026-09-03 15:23:31,333 [INFO] ✅ Reporte registrado como NO ENVIADO apareció después: D008 IF - Diario Tipo de Cambio (fecha 2/9/2026)
+2026-09-03 15:23:31,337 [INFO] 📝 Registrado reporte NO ENVIADO: D008 IF - Diario Tipo de Cambio (fecha 3/9/2026)
+2026-09-03 17:10:02,962 [INFO] ============================================================
+2026-09-03 17:10:02,962 [INFO] Iniciando revisión: 2026-09-03 17:10:02
+2026-09-03 17:10:03,027 [INFO] Validando obligaciones configuradas para 2/9/2026...
+2026-09-03 17:10:03,028 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-03 17:10:03,028 [INFO] Estado de los reportes (1 ✅ | 0 ❌ | 3 ⚠️):
+2026-09-03 17:10:03,028 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (TEST | corte 2/9/2026)
+2026-09-03 17:10:03,028 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-03 17:10:03,028 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-03 17:10:03,028 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-03 17:10:03,028 [INFO] Resumen: 1 exitosos | 0 pendientes | 0 errores | 3 faltantes
+2026-09-03 17:10:03,029 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-04 09:12:25,845 [INFO] ============================================================
+2026-09-04 09:12:25,845 [INFO] ASFI SCIP Monitor iniciado
+2026-09-04 09:12:25,846 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-04 09:12:25,846 [INFO]   Intervalo: 15 minutos
+2026-09-04 09:12:25,847 [INFO]   Headless : True
+2026-09-04 09:12:25,847 [INFO]   Días atrás: 1
+2026-09-04 09:12:25,847 [INFO] ============================================================
+2026-09-04 09:12:26,237 [INFO] ============================================================
+2026-09-04 09:12:26,237 [INFO] Iniciando revisión: 2026-09-04 09:12:26
+2026-09-04 09:12:26,327 [INFO] Fechas a consultar: 3/9/2026 a 4/9/2026
+2026-09-04 09:12:29,151 [INFO] Iniciando navegador Chromium...
+2026-09-04 09:12:39,706 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-04 09:12:45,126 [INFO] Ingresando credenciales...
+2026-09-04 09:12:45,854 [INFO] Enviando formulario de login...
+2026-09-04 09:12:50,512 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-04 09:12:50,513 [INFO] ✅ Login exitoso
+2026-09-04 09:12:50,513 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-04 09:12:52,293 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-04 09:12:52,293 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-04 09:12:56,864 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-04 09:12:56,864 [INFO] Configurando Fecha Corte Inicial: 3/9/2026
+2026-09-04 09:12:59,165 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-04 09:13:01,417 [INFO] Ejecutando búsqueda...
+2026-09-04 09:13:06,784 [INFO] Extrayendo datos de la tabla...
+2026-09-04 09:13:06,784 [INFO] Procesando página 1 de la tabla...
+2026-09-04 09:13:06,839 [INFO]   Filas encontradas en página 1: 6
+2026-09-04 09:13:07,166 [INFO] No hay más páginas. Total registros extraídos: 6
+2026-09-04 09:13:07,258 [INFO] Navegador cerrado.
+2026-09-04 09:13:07,297 [INFO] Validando obligaciones configuradas para 3/9/2026...
+2026-09-04 09:13:07,297 [INFO] Estado de los reportes (6 ✅ | 0 ❌ | 0 ⚠️):
+2026-09-04 09:13:07,297 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-04 09:13:07,298 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-04 09:13:07,298 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-03)
+2026-09-04 09:13:07,298 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-03)
+2026-09-04 09:13:07,298 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-03)
+2026-09-04 09:13:07,299 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-03)
+2026-09-04 09:13:07,299 [INFO] Resumen: 6 exitosos | 0 pendientes | 0 errores | 0 faltantes
+2026-09-04 09:13:07,300 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-04 13:28:36,040 [INFO] ============================================================
+2026-09-04 13:28:36,041 [INFO] ASFI SCIP Monitor iniciado
+2026-09-04 13:28:36,041 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-04 13:28:36,041 [INFO]   Intervalo: 15 minutos
+2026-09-04 13:28:36,042 [INFO]   Headless : True
+2026-09-04 13:28:36,042 [INFO]   Días atrás: 1
+2026-09-04 13:28:36,043 [INFO] ============================================================
+2026-09-04 13:28:37,069 [INFO] ============================================================
+2026-09-04 13:28:37,069 [INFO] Iniciando revisión: 2026-09-04 13:28:37
+2026-09-04 13:28:37,114 [INFO] Fechas a consultar: 3/9/2026 a 4/9/2026
+2026-09-04 13:28:38,399 [INFO] Iniciando navegador Chromium...
+2026-09-04 13:28:46,933 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-04 13:28:52,541 [INFO] Ingresando credenciales...
+2026-09-04 13:28:53,317 [INFO] Enviando formulario de login...
+2026-09-04 13:28:56,984 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-04 13:28:56,985 [INFO] ✅ Login exitoso
+2026-09-04 13:28:56,986 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-04 13:28:58,823 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-04 13:28:58,824 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-04 13:29:02,639 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-04 13:29:02,639 [INFO] Configurando Fecha Corte Inicial: 3/9/2026
+2026-09-04 13:29:05,155 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-04 13:29:07,580 [INFO] Ejecutando búsqueda...
+2026-09-04 13:29:12,799 [INFO] Extrayendo datos de la tabla...
+2026-09-04 13:29:12,800 [INFO] Procesando página 1 de la tabla...
+2026-09-04 13:29:12,894 [INFO]   Filas encontradas en página 1: 10
+2026-09-04 13:29:13,323 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-04 13:29:13,422 [INFO] Navegador cerrado.
+2026-09-04 13:29:13,461 [INFO] Validando obligaciones configuradas para 3/9/2026...
+2026-09-04 13:29:13,461 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 0 ⚠️):
+2026-09-04 13:29:13,462 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-03)
+2026-09-04 13:29:13,462 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-03)
+2026-09-04 13:29:13,462 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-04 13:29:13,463 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-04 13:29:13,463 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-04 13:29:13,464 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-03)
+2026-09-04 13:29:13,465 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-03)
+2026-09-04 13:29:13,465 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-03)
+2026-09-04 13:29:13,465 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-03)
+2026-09-04 13:29:13,466 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-03)
+2026-09-04 13:29:13,466 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes
+2026-09-04 13:29:13,468 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-04 14:37:40,731 [INFO] ============================================================
+2026-09-04 14:37:40,732 [INFO] ASFI SCIP Monitor iniciado
+2026-09-04 14:37:40,732 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-04 14:37:40,732 [INFO]   Intervalo: 15 minutos
+2026-09-04 14:37:40,733 [INFO]   Headless : True
+2026-09-04 14:37:40,733 [INFO]   Días atrás: 1
+2026-09-04 14:37:40,733 [INFO] ============================================================
+2026-09-04 14:37:40,987 [INFO] ============================================================
+2026-09-04 14:37:40,987 [INFO] Iniciando revisión: 2026-09-04 14:37:40
+2026-09-04 14:37:41,032 [INFO] Fechas a consultar: 3/9/2026 a 4/9/2026
+2026-09-04 14:37:42,660 [INFO] Iniciando navegador Chromium...
+2026-09-04 14:37:54,223 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-04 14:37:59,655 [INFO] Ingresando credenciales...
+2026-09-04 14:38:00,373 [INFO] Enviando formulario de login...
+2026-09-04 14:38:04,129 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-04 14:38:04,130 [INFO] ✅ Login exitoso
+2026-09-04 14:38:04,131 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-04 14:38:05,992 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-04 14:38:05,992 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-04 14:38:10,616 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-04 14:38:10,617 [INFO] Configurando Fecha Corte Inicial: 3/9/2026
+2026-09-04 14:38:13,067 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-04 14:38:15,413 [INFO] Ejecutando búsqueda...
+2026-09-04 14:38:21,419 [INFO] Extrayendo datos de la tabla...
+2026-09-04 14:38:21,420 [INFO] Procesando página 1 de la tabla...
+2026-09-04 14:38:21,521 [INFO]   Filas encontradas en página 1: 10
+2026-09-04 14:38:21,946 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-04 14:38:22,040 [INFO] Navegador cerrado.
+2026-09-04 14:38:22,079 [INFO] Validando obligaciones configuradas para 3/9/2026...
+2026-09-04 14:38:22,079 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Auditor Externo', 'D008 IF - Diario Tipo de Cambio']
+2026-09-04 14:38:22,080 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 2 reportes FALTANTES: Fecha: 3/9/2026
+
+  ? Auditor Externo
+  ? D008 IF - Diario Tipo de Cambio
+2026-09-04 14:38:22,080 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-04 14:38:32,099 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 2 ⚠️):
+2026-09-04 14:38:32,100 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-03)
+2026-09-04 14:38:32,101 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-03)
+2026-09-04 14:38:32,102 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-04 14:38:32,103 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-04 14:38:32,104 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-04 14:38:32,105 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-03)
+2026-09-04 14:38:32,106 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-03)
+2026-09-04 14:38:32,107 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-03)
+2026-09-04 14:38:32,109 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-03)
+2026-09-04 14:38:32,110 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-03)
+2026-09-04 14:38:32,112 [INFO]   ⚠️ Auditor Externo (FALTANTE)
+2026-09-04 14:38:32,113 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-04 14:38:32,116 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 2 faltantes
+2026-09-04 14:38:32,123 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-04 14:58:37,206 [INFO] ============================================================
+2026-09-04 14:58:37,207 [INFO] ASFI SCIP Monitor iniciado
+2026-09-04 14:58:37,207 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-04 14:58:37,207 [INFO]   Intervalo: 15 minutos
+2026-09-04 14:58:37,207 [INFO]   Headless : True
+2026-09-04 14:58:37,208 [INFO]   Días atrás: 1
+2026-09-04 14:58:37,208 [INFO] ============================================================
+2026-09-04 14:58:37,516 [INFO] ============================================================
+2026-09-04 14:58:37,516 [INFO] Iniciando revisión: 2026-09-04 14:58:37
+2026-09-04 14:58:37,569 [INFO] Fechas a consultar: 3/9/2026 a 3/9/2026
+2026-09-04 14:58:38,969 [INFO] Iniciando navegador Chromium...
+2026-09-04 14:58:51,791 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-04 14:58:57,538 [INFO] Ingresando credenciales...
+2026-09-04 14:58:58,299 [INFO] Enviando formulario de login...
+2026-09-04 14:59:02,141 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-04 14:59:02,142 [INFO] ✅ Login exitoso
+2026-09-04 14:59:02,142 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-04 14:59:03,984 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-04 14:59:03,984 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-04 14:59:08,144 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-04 14:59:08,144 [INFO] Configurando Fecha Corte Inicial: 3/9/2026
+2026-09-04 14:59:10,669 [INFO] Configurando Fecha Corte Final: 3/9/2026
+2026-09-04 14:59:13,101 [INFO] Ejecutando búsqueda...
+2026-09-04 14:59:18,002 [INFO] Extrayendo datos de la tabla...
+2026-09-04 14:59:18,003 [INFO] Procesando página 1 de la tabla...
+2026-09-04 14:59:18,094 [INFO]   Filas encontradas en página 1: 10
+2026-09-04 14:59:18,515 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-04 14:59:18,610 [INFO] Navegador cerrado.
+2026-09-04 14:59:18,650 [INFO] Validando obligaciones configuradas para 3/9/2026...
+2026-09-04 14:59:18,650 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Auditor Externo', 'D008 IF - Diario Tipo de Cambio']
+2026-09-04 14:59:18,650 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 2 reportes FALTANTES: Fecha: 3/9/2026
+
+  ? Auditor Externo
+  ? D008 IF - Diario Tipo de Cambio
+2026-09-04 14:59:18,650 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-04 14:59:28,669 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 2 ⚠️):
+2026-09-04 14:59:28,670 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-03)
+2026-09-04 14:59:28,672 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-03)
+2026-09-04 14:59:28,673 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-04 14:59:28,674 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-04 14:59:28,675 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-04 14:59:28,676 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-03)
+2026-09-04 14:59:28,676 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-03)
+2026-09-04 14:59:28,677 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-03)
+2026-09-04 14:59:28,678 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-03)
+2026-09-04 14:59:28,679 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-03)
+2026-09-04 14:59:28,680 [INFO]   ⚠️ Auditor Externo (FALTANTE)
+2026-09-04 14:59:28,682 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-04 14:59:28,682 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 2 faltantes
+2026-09-04 14:59:28,698 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-04 15:19:28,858 [INFO] ============================================================
+2026-09-04 15:19:28,859 [INFO] ASFI SCIP Monitor iniciado
+2026-09-04 15:19:28,859 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-04 15:19:28,859 [INFO]   Intervalo: 15 minutos
+2026-09-04 15:19:28,859 [INFO]   Headless : True
+2026-09-04 15:19:28,860 [INFO]   Días atrás: 1
+2026-09-04 15:19:28,860 [INFO] ============================================================
+2026-09-04 15:19:29,080 [INFO] ============================================================
+2026-09-04 15:19:29,080 [INFO] Iniciando revisión: 2026-09-04 15:19:29
+2026-09-04 15:19:29,119 [INFO] Fechas a consultar: 3/9/2026 a 3/9/2026
+2026-09-04 15:19:31,159 [INFO] Iniciando navegador Chromium...
+2026-09-04 15:19:42,197 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-04 15:19:47,594 [INFO] Ingresando credenciales...
+2026-09-04 15:19:48,384 [INFO] Enviando formulario de login...
+2026-09-04 15:19:52,115 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-04 15:19:52,115 [INFO] ✅ Login exitoso
+2026-09-04 15:19:52,116 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-04 15:19:53,960 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-04 15:19:53,961 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-04 15:19:57,960 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-04 15:19:57,961 [INFO] Configurando Fecha Corte Inicial: 3/9/2026
+2026-09-04 15:20:00,464 [INFO] Configurando Fecha Corte Final: 3/9/2026
+2026-09-04 15:20:02,902 [INFO] Ejecutando búsqueda...
+2026-09-04 15:20:08,205 [INFO] Extrayendo datos de la tabla...
+2026-09-04 15:20:08,206 [INFO] Procesando página 1 de la tabla...
+2026-09-04 15:20:08,301 [INFO]   Filas encontradas en página 1: 10
+2026-09-04 15:20:08,715 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-04 15:20:08,806 [INFO] Navegador cerrado.
+2026-09-04 15:20:08,848 [INFO] Validando obligaciones configuradas para 3/9/2026...
+2026-09-04 15:20:08,849 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 0 ⚠️):
+2026-09-04 15:20:08,850 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-03)
+2026-09-04 15:20:08,851 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-03)
+2026-09-04 15:20:08,852 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-04 15:20:08,852 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-04 15:20:08,853 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-04 15:20:08,853 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-03)
+2026-09-04 15:20:08,853 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-03)
+2026-09-04 15:20:08,853 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-03)
+2026-09-04 15:20:08,853 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-03)
+2026-09-04 15:20:08,854 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-03)
+2026-09-04 15:20:08,854 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes
+2026-09-04 15:20:08,858 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 08:23:54,919 [INFO] ============================================================
+2026-09-05 08:23:54,920 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 08:23:54,921 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 08:23:54,921 [INFO]   Intervalo: 15 minutos
+2026-09-05 08:23:54,922 [INFO]   Headless : True
+2026-09-05 08:23:54,922 [INFO]   Días atrás: 1
+2026-09-05 08:23:54,922 [INFO] ============================================================
+2026-09-05 08:23:55,180 [INFO] [NOTIFICACION] ASFI/SCIP Monitor iniciado: Monitoreando reportes cada 15 min.
+2026-09-05 08:23:58,059 [INFO] ============================================================
+2026-09-05 08:23:58,060 [INFO] Iniciando revisión: 2026-09-05 08:23:58
+2026-09-05 08:23:58,114 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 08:23:59,926 [INFO] Iniciando navegador Chromium...
+2026-09-05 08:24:07,917 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 08:24:13,377 [INFO] Ingresando credenciales...
+2026-09-05 08:24:14,099 [INFO] Enviando formulario de login...
+2026-09-05 08:24:17,728 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 08:24:17,729 [INFO] ✅ Login exitoso
+2026-09-05 08:24:17,729 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 08:24:19,527 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 08:24:19,527 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 08:24:23,250 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 08:24:23,252 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 08:24:25,707 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 08:24:27,982 [INFO] Ejecutando búsqueda...
+2026-09-05 08:24:33,159 [INFO] Extrayendo datos de la tabla...
+2026-09-05 08:24:33,160 [INFO] Procesando página 1 de la tabla...
+2026-09-05 08:24:33,219 [INFO]   Filas encontradas en página 1: 7
+2026-09-05 08:24:33,629 [INFO] No hay más páginas. Total registros extraídos: 7
+2026-09-05 08:24:34,034 [INFO] Navegador cerrado.
+2026-09-05 08:24:34,086 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 08:24:34,088 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D007 IF - Diario Operaciones Interbancarias', 'D008 IF - Diario Tipo de Cambio', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-05 08:24:34,089 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 9 reportes FALTANTES: Fecha: 4/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-05 08:24:34,089 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-05 08:24:44,111 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 08:24:44,112 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 08:26:44,156 [INFO] Estado de los reportes (7 ✅ | 0 ❌ | 9 ⚠️ | 3 ⏳):
+2026-09-05 08:26:44,158 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 08:26:44,160 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 08:26:44,160 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 08:26:44,161 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 08:26:44,161 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 08:26:44,162 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 08:26:44,163 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 08:26:44,163 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:26:44,164 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:26:44,165 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:26:44,165 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:26:44,166 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:26:44,167 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:26:44,167 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:26:44,168 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:26:44,168 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:26:44,168 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:26:44,169 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:26:44,169 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:26:44,170 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:26:44,170 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:26:44,170 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:26:44,171 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:26:44,171 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:26:44,171 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:26:44,172 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:26:44,172 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:26:44,173 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:26:44,173 [INFO] Resumen: 7 exitosos | 0 pendientes | 0 errores | 9 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 08:26:44,175 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 08:26:44,176 [INFO] Scheduler activo. Revisando cada 15 minutos.
+2026-09-05 08:26:44,177 [INFO] Presionar Ctrl+C para detener.
+2026-09-05 08:42:58,807 [INFO] ============================================================
+2026-09-05 08:42:58,808 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 08:42:58,808 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 08:42:58,808 [INFO]   Intervalo: 15 minutos
+2026-09-05 08:42:58,808 [INFO]   Headless : True
+2026-09-05 08:42:58,808 [INFO]   Días atrás: 1
+2026-09-05 08:42:58,810 [INFO] ============================================================
+2026-09-05 08:42:59,033 [INFO] ============================================================
+2026-09-05 08:42:59,033 [INFO] Iniciando revisión: 2026-09-05 08:42:59
+2026-09-05 08:42:59,073 [INFO] Fechas a consultar: 3/9/2026 a 4/9/2026
+2026-09-05 08:43:01,859 [INFO] Iniciando navegador Chromium...
+2026-09-05 08:43:11,948 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 08:43:18,545 [INFO] Ingresando credenciales...
+2026-09-05 08:43:19,267 [INFO] Enviando formulario de login...
+2026-09-05 08:43:23,448 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 08:43:23,449 [INFO] ✅ Login exitoso
+2026-09-05 08:43:23,449 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 08:43:25,277 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 08:43:25,277 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 08:43:29,985 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 08:43:29,985 [INFO] Configurando Fecha Corte Inicial: 3/9/2026
+2026-09-05 08:43:32,244 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 08:43:34,461 [INFO] Ejecutando búsqueda...
+2026-09-05 08:43:39,750 [INFO] Extrayendo datos de la tabla...
+2026-09-05 08:43:39,750 [INFO] Procesando página 1 de la tabla...
+2026-09-05 08:43:39,805 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 08:43:40,262 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 08:43:41,321 [INFO] Procesando página 2 de la tabla...
+2026-09-05 08:43:41,333 [INFO]   Filas encontradas en página 2: 6
+2026-09-05 08:43:41,606 [INFO] No hay más páginas. Total registros extraídos: 16
+2026-09-05 08:43:41,699 [INFO] Navegador cerrado.
+2026-09-05 08:43:41,744 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 08:43:41,745 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 08:43:41,745 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 08:43:44,181 [INFO] Estado de los reportes (16 ✅ | 0 ❌ | 0 ⚠️ | 3 ⏳):
+2026-09-05 08:43:44,188 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-03)
+2026-09-05 08:43:44,196 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-03)
+2026-09-05 08:43:44,200 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 08:43:44,203 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 08:43:44,206 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-05 08:43:44,206 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-03)
+2026-09-05 08:43:44,212 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 08:43:44,214 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-03)
+2026-09-05 08:43:44,219 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 08:43:44,219 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-03)
+2026-09-05 08:43:44,220 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 08:43:44,221 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-03)
+2026-09-05 08:43:44,222 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 08:43:44,226 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-03)
+2026-09-05 08:43:44,227 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 08:43:44,228 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-03)
+2026-09-05 08:43:44,230 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:43:44,232 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:43:44,232 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:43:44,234 [INFO] Resumen: 16 exitosos | 0 pendientes | 0 errores | 0 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 08:43:44,237 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 08:48:49,441 [INFO] ============================================================
+2026-09-05 08:48:49,441 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 08:48:49,441 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 08:48:49,442 [INFO]   Intervalo: 15 minutos
+2026-09-05 08:48:49,442 [INFO]   Headless : True
+2026-09-05 08:48:49,442 [INFO]   Días atrás: 1
+2026-09-05 08:48:49,442 [INFO] ============================================================
+2026-09-05 08:48:49,655 [INFO] ============================================================
+2026-09-05 08:48:49,655 [INFO] Iniciando revisión: 2026-09-05 08:48:49
+2026-09-05 08:48:49,693 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 08:48:51,632 [INFO] Iniciando navegador Chromium...
+2026-09-05 08:49:03,259 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 08:49:06,436 [INFO] Ingresando credenciales...
+2026-09-05 08:49:07,158 [INFO] Enviando formulario de login...
+2026-09-05 08:49:10,775 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 08:49:10,775 [INFO] ✅ Login exitoso
+2026-09-05 08:49:10,775 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 08:49:12,589 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 08:49:12,590 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 08:49:16,428 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 08:49:16,428 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 08:49:18,746 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 08:49:20,983 [INFO] Ejecutando búsqueda...
+2026-09-05 08:49:25,675 [INFO] Extrayendo datos de la tabla...
+2026-09-05 08:49:25,676 [INFO] Procesando página 1 de la tabla...
+2026-09-05 08:49:25,760 [INFO]   Filas encontradas en página 1: 7
+2026-09-05 08:49:26,106 [INFO] No hay más páginas. Total registros extraídos: 7
+2026-09-05 08:49:26,191 [INFO] Navegador cerrado.
+2026-09-05 08:49:26,286 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 08:49:26,287 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D007 IF - Diario Operaciones Interbancarias', 'D008 IF - Diario Tipo de Cambio', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-05 08:49:26,287 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 9 reportes FALTANTES: Fecha: 4/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-05 08:49:26,287 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-05 08:49:36,305 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 08:49:36,305 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 08:49:38,706 [INFO] Estado de los reportes (7 ✅ | 0 ❌ | 9 ⚠️ | 3 ⏳):
+2026-09-05 08:49:38,746 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 08:49:38,783 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 08:49:38,824 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 08:49:38,839 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 08:49:38,840 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 08:49:38,843 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 08:49:38,844 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 08:49:38,844 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:49:38,845 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:49:38,845 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:49:38,847 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:49:38,847 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:49:38,848 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:49:38,848 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:49:38,848 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:49:38,849 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:49:38,849 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:49:38,850 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:49:38,850 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:49:38,850 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:49:38,850 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:49:38,851 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:49:38,851 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:49:38,851 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:49:38,852 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:49:38,852 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:49:38,852 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:49:38,853 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:49:38,853 [INFO] Resumen: 7 exitosos | 0 pendientes | 0 errores | 9 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 08:49:38,886 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 08:50:02,331 [INFO] ============================================================
+2026-09-05 08:50:02,331 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 08:50:02,331 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 08:50:02,332 [INFO]   Intervalo: 15 minutos
+2026-09-05 08:50:02,332 [INFO]   Headless : True
+2026-09-05 08:50:02,332 [INFO]   Días atrás: 1
+2026-09-05 08:50:02,332 [INFO] ============================================================
+2026-09-05 08:50:02,640 [INFO] ============================================================
+2026-09-05 08:50:02,640 [INFO] Iniciando revisión: 2026-09-05 08:50:02
+2026-09-05 08:50:02,681 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 08:50:04,423 [INFO] Iniciando navegador Chromium...
+2026-09-05 08:50:14,772 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 08:50:18,202 [INFO] Ingresando credenciales...
+2026-09-05 08:50:18,945 [INFO] Enviando formulario de login...
+2026-09-05 08:50:22,553 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 08:50:22,553 [INFO] ✅ Login exitoso
+2026-09-05 08:50:22,554 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 08:50:24,342 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 08:50:24,343 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 08:50:28,176 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 08:50:28,176 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 08:50:30,489 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 08:50:32,740 [INFO] Ejecutando búsqueda...
+2026-09-05 08:50:37,872 [INFO] Extrayendo datos de la tabla...
+2026-09-05 08:50:37,873 [INFO] Procesando página 1 de la tabla...
+2026-09-05 08:50:37,940 [INFO]   Filas encontradas en página 1: 7
+2026-09-05 08:50:38,270 [INFO] No hay más páginas. Total registros extraídos: 7
+2026-09-05 08:50:38,361 [INFO] Navegador cerrado.
+2026-09-05 08:50:38,406 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 08:50:38,406 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D007 IF - Diario Operaciones Interbancarias', 'D008 IF - Diario Tipo de Cambio', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-05 08:50:38,406 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 9 reportes FALTANTES: Fecha: 4/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-05 08:50:38,407 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-05 08:50:48,432 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 08:50:48,432 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 08:51:51,211 [INFO] Estado de los reportes (7 ✅ | 0 ❌ | 9 ⚠️ | 3 ⏳):
+2026-09-05 08:51:51,211 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 08:51:51,212 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 08:51:51,212 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 08:51:51,212 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 08:51:51,212 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 08:51:51,213 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 08:51:51,213 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 08:51:51,213 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:51:51,213 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:51:51,213 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:51:51,214 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:51:51,214 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:51:51,214 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:51:51,215 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:51:51,217 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:51:51,217 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:51:51,218 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:51:51,218 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:51:51,219 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:51:51,220 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:51:51,220 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:51:51,220 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:51:51,220 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:51:51,221 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:51:51,221 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:51:51,221 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:51:51,221 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:51:51,222 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:51:51,222 [INFO] Resumen: 7 exitosos | 0 pendientes | 0 errores | 9 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 08:51:51,224 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 08:52:00,569 [INFO] ============================================================
+2026-09-05 08:52:00,570 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 08:52:00,570 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 08:52:00,570 [INFO]   Intervalo: 15 minutos
+2026-09-05 08:52:00,571 [INFO]   Headless : True
+2026-09-05 08:52:00,571 [INFO]   Días atrás: 1
+2026-09-05 08:52:00,571 [INFO] ============================================================
+2026-09-05 08:52:00,798 [INFO] ============================================================
+2026-09-05 08:52:00,798 [INFO] Iniciando revisión: 2026-09-05 08:52:00
+2026-09-05 08:52:00,851 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 08:52:02,515 [INFO] Iniciando navegador Chromium...
+2026-09-05 08:52:10,789 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 08:52:13,960 [INFO] Ingresando credenciales...
+2026-09-05 08:52:14,713 [INFO] Enviando formulario de login...
+2026-09-05 08:52:18,317 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 08:52:18,317 [INFO] ✅ Login exitoso
+2026-09-05 08:52:18,317 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 08:52:20,096 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 08:52:20,097 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 08:52:23,889 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 08:52:23,889 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 08:52:26,205 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 08:52:28,407 [INFO] Ejecutando búsqueda...
+2026-09-05 08:52:33,543 [INFO] Extrayendo datos de la tabla...
+2026-09-05 08:52:33,543 [INFO] Procesando página 1 de la tabla...
+2026-09-05 08:52:33,606 [INFO]   Filas encontradas en página 1: 7
+2026-09-05 08:52:33,947 [INFO] No hay más páginas. Total registros extraídos: 7
+2026-09-05 08:52:34,160 [INFO] Navegador cerrado.
+2026-09-05 08:52:34,202 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 08:52:34,202 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D007 IF - Diario Operaciones Interbancarias', 'D008 IF - Diario Tipo de Cambio', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-05 08:52:34,203 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 9 reportes FALTANTES: Fecha: 4/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-05 08:52:34,203 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-05 08:52:44,217 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 08:52:44,218 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 08:53:53,531 [INFO] Estado de los reportes (7 ✅ | 0 ❌ | 9 ⚠️ | 3 ⏳):
+2026-09-05 08:53:53,531 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 08:53:53,531 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 08:53:53,531 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 08:53:53,532 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 08:53:53,532 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 08:53:53,532 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 08:53:53,533 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 08:53:53,533 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:53:53,533 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:53:53,533 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:53:53,533 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:53:53,534 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:53:53,534 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:53:53,534 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:53:53,534 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:53:53,535 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:53:53,535 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:53:53,535 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:53:53,535 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:53:53,535 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:53:53,536 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:53:53,536 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:53:53,536 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:53:53,536 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:53:53,536 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:53:53,537 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:53:53,537 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:53:53,538 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:53:53,544 [INFO] Resumen: 7 exitosos | 0 pendientes | 0 errores | 9 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 08:53:53,552 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 08:54:09,235 [INFO] ============================================================
+2026-09-05 08:54:09,236 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 08:54:09,236 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 08:54:09,236 [INFO]   Intervalo: 15 minutos
+2026-09-05 08:54:09,236 [INFO]   Headless : True
+2026-09-05 08:54:09,237 [INFO]   Días atrás: 1
+2026-09-05 08:54:09,237 [INFO] ============================================================
+2026-09-05 08:54:09,405 [INFO] ============================================================
+2026-09-05 08:54:09,406 [INFO] Iniciando revisión: 2026-09-05 08:54:09
+2026-09-05 08:54:09,445 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 08:54:11,328 [INFO] Iniciando navegador Chromium...
+2026-09-05 08:54:21,736 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 08:54:25,059 [INFO] Ingresando credenciales...
+2026-09-05 08:54:25,781 [INFO] Enviando formulario de login...
+2026-09-05 08:54:29,450 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 08:54:29,451 [INFO] ✅ Login exitoso
+2026-09-05 08:54:29,451 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 08:54:31,228 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 08:54:31,228 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 08:54:35,143 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 08:54:35,143 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 08:54:37,444 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 08:54:39,674 [INFO] Ejecutando búsqueda...
+2026-09-05 08:54:44,958 [INFO] Extrayendo datos de la tabla...
+2026-09-05 08:54:44,959 [INFO] Procesando página 1 de la tabla...
+2026-09-05 08:54:45,018 [INFO]   Filas encontradas en página 1: 7
+2026-09-05 08:54:45,346 [INFO] No hay más páginas. Total registros extraídos: 7
+2026-09-05 08:54:45,438 [INFO] Navegador cerrado.
+2026-09-05 08:54:45,477 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 08:54:45,478 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D007 IF - Diario Operaciones Interbancarias', 'D008 IF - Diario Tipo de Cambio', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-05 08:54:45,478 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 9 reportes FALTANTES: Fecha: 4/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-05 08:54:45,478 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-05 08:54:55,507 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 08:54:55,508 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 08:55:08,394 [INFO] Estado de los reportes (7 ✅ | 0 ❌ | 9 ⚠️ | 3 ⏳):
+2026-09-05 08:55:08,394 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 08:55:08,394 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 08:55:08,394 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 08:55:08,395 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 08:55:08,395 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 08:55:08,395 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 08:55:08,395 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 08:55:08,396 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:55:08,396 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:55:08,396 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:55:08,396 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:55:08,396 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:55:08,397 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:55:08,397 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:55:08,397 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:55:08,397 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:55:08,398 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:55:08,398 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:55:08,398 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 08:55:08,399 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 08:55:08,399 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 08:55:08,399 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 08:55:08,399 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 08:55:08,400 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:55:08,401 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 08:55:08,402 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 08:55:08,403 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 08:55:08,403 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 08:55:08,403 [INFO] Resumen: 7 exitosos | 0 pendientes | 0 errores | 9 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 08:55:08,406 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 09:02:48,028 [INFO] ============================================================
+2026-09-05 09:02:48,028 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 09:02:48,029 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 09:02:48,029 [INFO]   Intervalo: 15 minutos
+2026-09-05 09:02:48,029 [INFO]   Headless : True
+2026-09-05 09:02:48,029 [INFO]   Días atrás: 1
+2026-09-05 09:02:48,029 [INFO] ============================================================
+2026-09-05 09:02:48,180 [INFO] [NOTIFICACION] ASFI/SCIP Monitor iniciado: Monitoreando reportes cada 15 min.
+2026-09-05 09:02:49,821 [INFO] ============================================================
+2026-09-05 09:02:49,822 [INFO] Iniciando revisión: 2026-09-05 09:02:49
+2026-09-05 09:02:49,850 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 09:02:51,970 [INFO] Iniciando navegador Chromium...
+2026-09-05 09:03:00,966 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 09:03:04,129 [INFO] Ingresando credenciales...
+2026-09-05 09:03:04,901 [INFO] Enviando formulario de login...
+2026-09-05 09:03:08,693 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 09:03:08,694 [INFO] ✅ Login exitoso
+2026-09-05 09:03:08,695 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 09:03:10,556 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 09:03:10,558 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 09:03:14,483 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 09:03:14,484 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 09:03:17,011 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 09:03:19,399 [INFO] Ejecutando búsqueda...
+2026-09-05 09:03:24,637 [INFO] Extrayendo datos de la tabla...
+2026-09-05 09:10:38,148 [INFO] Procesando página 1 de la tabla...
+2026-09-05 09:10:38,236 [INFO]   Filas encontradas en página 1: 7
+2026-09-05 09:10:38,534 [INFO] No hay más páginas. Total registros extraídos: 7
+2026-09-05 09:10:38,607 [INFO] Navegador cerrado.
+2026-09-05 09:10:38,645 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 09:10:38,646 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D007 IF - Diario Operaciones Interbancarias', 'D008 IF - Diario Tipo de Cambio', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-05 09:10:38,646 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 9 reportes FALTANTES: Fecha: 4/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-05 09:10:38,647 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-05 09:10:48,668 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 09:10:48,669 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 09:10:50,587 [INFO] Estado de los reportes (7 ✅ | 0 ❌ | 9 ⚠️ | 3 ⏳):
+2026-09-05 09:10:50,587 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 09:10:50,587 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 09:10:50,587 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 09:10:50,587 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 09:10:50,588 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 09:10:50,588 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 09:10:50,588 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 09:10:50,588 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 09:10:50,588 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 09:10:50,588 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 09:10:50,588 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 09:10:50,589 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:10:50,589 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:10:50,589 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 09:10:50,589 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 09:10:50,590 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 09:10:50,590 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:10:50,591 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:10:50,591 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:10:50,592 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 09:10:50,592 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 09:10:50,593 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 09:10:50,593 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 09:10:50,594 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:10:50,594 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:10:50,594 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 09:10:50,595 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 09:10:50,595 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 09:10:50,596 [INFO] Resumen: 7 exitosos | 0 pendientes | 0 errores | 9 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 09:10:50,597 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 09:10:50,598 [INFO] Scheduler activo. Revisando cada 15 minutos.
+2026-09-05 09:10:50,598 [INFO] Presionar Ctrl+C para detener.
+2026-09-05 09:10:56,692 [INFO] Monitor detenido por el usuario.
+2026-09-05 09:10:56,693 [INFO] [NOTIFICACION] ASFI/SCIP Monitor detenido: El monitoreo fue detenido manualmente.
+2026-09-05 09:11:35,822 [INFO] ============================================================
+2026-09-05 09:11:35,823 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 09:11:35,823 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 09:11:35,823 [INFO]   Intervalo: 15 minutos
+2026-09-05 09:11:35,824 [INFO]   Headless : True
+2026-09-05 09:11:35,825 [INFO]   Días atrás: 1
+2026-09-05 09:11:35,845 [INFO] ============================================================
+2026-09-05 09:11:36,294 [INFO] ============================================================
+2026-09-05 09:11:36,300 [INFO] Iniciando revisión: 2026-09-05 09:11:36
+2026-09-05 09:11:36,398 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 09:11:38,293 [INFO] Iniciando navegador Chromium...
+2026-09-05 09:11:54,283 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 09:11:59,765 [INFO] Ingresando credenciales...
+2026-09-05 09:12:00,552 [INFO] Enviando formulario de login...
+2026-09-05 09:12:04,802 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 09:12:04,803 [INFO] ✅ Login exitoso
+2026-09-05 09:12:04,803 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 09:12:06,602 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 09:12:06,602 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 09:12:10,424 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 09:12:10,425 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 09:12:12,904 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 09:12:15,268 [INFO] Ejecutando búsqueda...
+2026-09-05 09:12:20,515 [INFO] Extrayendo datos de la tabla...
+2026-09-05 09:12:20,516 [INFO] Procesando página 1 de la tabla...
+2026-09-05 09:12:20,608 [INFO]   Filas encontradas en página 1: 7
+2026-09-05 09:12:20,894 [INFO] No hay más páginas. Total registros extraídos: 7
+2026-09-05 09:12:20,973 [INFO] Navegador cerrado.
+2026-09-05 09:12:21,023 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 09:12:21,023 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D007 IF - Diario Operaciones Interbancarias', 'D008 IF - Diario Tipo de Cambio', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-05 09:12:21,024 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 9 reportes FALTANTES: Fecha: 4/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-05 09:12:21,024 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-05 09:12:31,043 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 09:12:31,044 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 09:12:33,429 [INFO] Estado de los reportes (7 ✅ | 0 ❌ | 9 ⚠️ | 3 ⏳):
+2026-09-05 09:12:33,450 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 09:12:33,453 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 09:12:33,454 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 09:12:33,454 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 09:12:33,454 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 09:12:33,455 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 09:12:33,455 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 09:12:33,455 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 09:12:33,456 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 09:12:33,456 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 09:12:33,457 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 09:12:33,460 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:12:33,460 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:12:33,461 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 09:12:33,461 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 09:12:33,461 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 09:12:33,462 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:12:33,462 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:12:33,462 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:12:33,462 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 09:12:33,463 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 09:12:33,463 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 09:12:33,463 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 09:12:33,463 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:12:33,464 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:12:33,464 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 09:12:33,464 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 09:12:33,464 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 09:12:33,481 [INFO] Resumen: 7 exitosos | 0 pendientes | 0 errores | 9 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 09:12:33,500 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 09:14:31,126 [INFO] ============================================================
+2026-09-05 09:14:31,127 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 09:14:31,127 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 09:14:31,127 [INFO]   Intervalo: 15 minutos
+2026-09-05 09:14:31,127 [INFO]   Headless : True
+2026-09-05 09:14:31,127 [INFO]   Días atrás: 1
+2026-09-05 09:14:31,128 [INFO] ============================================================
+2026-09-05 09:14:31,278 [INFO] ============================================================
+2026-09-05 09:14:31,278 [INFO] Iniciando revisión: 2026-09-05 09:14:31
+2026-09-05 09:14:31,314 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 09:14:32,667 [INFO] Iniciando navegador Chromium...
+2026-09-05 09:14:41,024 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 09:14:44,431 [INFO] Ingresando credenciales...
+2026-09-05 09:14:45,194 [INFO] Enviando formulario de login...
+2026-09-05 09:14:48,783 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 09:14:48,784 [INFO] ✅ Login exitoso
+2026-09-05 09:14:48,785 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 09:14:50,574 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 09:14:50,575 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 09:14:54,428 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 09:14:54,429 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 09:14:56,887 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 09:14:59,242 [INFO] Ejecutando búsqueda...
+2026-09-05 09:15:04,556 [INFO] Extrayendo datos de la tabla...
+2026-09-05 09:15:04,557 [INFO] Procesando página 1 de la tabla...
+2026-09-05 09:15:04,644 [INFO]   Filas encontradas en página 1: 7
+2026-09-05 09:15:04,954 [INFO] No hay más páginas. Total registros extraídos: 7
+2026-09-05 09:15:05,034 [INFO] Navegador cerrado.
+2026-09-05 09:15:05,065 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 09:15:05,066 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D007 IF - Diario Operaciones Interbancarias', 'D008 IF - Diario Tipo de Cambio', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-05 09:15:05,066 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 9 reportes FALTANTES: Fecha: 4/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-05 09:15:05,066 [INFO] [URGENTE] Enviando notificación por múltiples métodos...
+2026-09-05 09:15:14,289 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 09:15:14,290 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 09:15:18,898 [INFO] Estado de los reportes (7 ✅ | 0 ❌ | 9 ⚠️ | 3 ⏳):
+2026-09-05 09:15:18,899 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 09:15:18,900 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 09:15:18,900 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 09:15:18,901 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 09:15:18,901 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 09:15:18,902 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 09:15:18,906 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 09:15:18,907 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 09:15:18,907 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 09:15:18,907 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 09:15:18,908 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 09:15:18,908 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:15:18,908 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:15:18,908 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 09:15:18,908 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 09:15:18,909 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 09:15:18,909 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:15:18,909 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:15:18,909 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:15:18,910 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-05 09:15:18,910 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-05 09:15:18,910 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-05 09:15:18,910 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-05 09:15:18,910 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:15:18,911 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-05 09:15:18,911 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-05 09:15:18,911 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-05 09:15:18,912 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-05 09:15:18,912 [INFO] Resumen: 7 exitosos | 0 pendientes | 0 errores | 9 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 09:15:18,916 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 09:27:12,301 [INFO] ============================================================
+2026-09-05 09:27:12,301 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 09:27:12,301 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 09:27:12,302 [INFO]   Intervalo: 15 minutos
+2026-09-05 09:27:12,302 [INFO]   Headless : True
+2026-09-05 09:27:12,302 [INFO]   Días atrás: 1
+2026-09-05 09:27:12,302 [INFO] ============================================================
+2026-09-05 09:27:12,469 [INFO] ============================================================
+2026-09-05 09:27:12,470 [INFO] Iniciando revisión: 2026-09-05 09:27:12
+2026-09-05 09:27:12,506 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 09:27:14,765 [INFO] Iniciando navegador Chromium...
+2026-09-05 09:27:26,666 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 09:27:32,141 [INFO] Ingresando credenciales...
+2026-09-05 09:27:32,931 [INFO] Enviando formulario de login...
+2026-09-05 09:27:36,593 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 09:27:36,594 [INFO] ✅ Login exitoso
+2026-09-05 09:27:36,594 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 09:27:38,429 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 09:27:38,430 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 09:27:42,347 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 09:27:42,347 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 09:27:44,828 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 09:27:47,221 [INFO] Ejecutando búsqueda...
+2026-09-05 09:27:52,483 [INFO] Extrayendo datos de la tabla...
+2026-09-05 09:27:52,484 [INFO] Procesando página 1 de la tabla...
+2026-09-05 09:27:52,574 [INFO]   Filas encontradas en página 1: 7
+2026-09-05 09:27:52,881 [INFO] No hay más páginas. Total registros extraídos: 7
+2026-09-05 09:27:52,978 [INFO] Navegador cerrado.
+2026-09-05 09:27:53,020 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 09:27:53,021 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 3
+2026-09-05 09:27:53,021 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 3 reportes diarios sin enviar: Corte: 4/9/2026
+L?mite de env?o: 2026-09-05 12:00:00
+
+  ? D006 IF - Diario Tasas de Inter?s Activas
+
+2026-09-05 09:27:58,694 [INFO] Estado de los reportes (7 ✅ | 0 ❌ | 0 ⚠️ | 3 ⏳):
+2026-09-05 09:27:58,708 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 09:27:58,709 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 09:27:58,710 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 09:27:58,713 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 09:27:58,724 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 09:27:58,726 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 09:27:58,727 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 09:27:58,728 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:27:58,740 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:27:58,741 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (envío 2) (SIN ENVIAR - dentro de plazo)
+2026-09-05 09:27:58,742 [INFO] Resumen: 7 exitosos | 0 pendientes | 0 errores | 0 faltantes | 3 sin enviar (dentro de plazo)
+2026-09-05 09:27:58,760 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 09:41:58,889 [INFO] ============================================================
+2026-09-05 09:41:58,890 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 09:41:58,890 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 09:41:58,890 [INFO]   Intervalo: 15 minutos
+2026-09-05 09:41:58,890 [INFO]   Headless : True
+2026-09-05 09:41:58,890 [INFO]   Días atrás: 1
+2026-09-05 09:41:58,890 [INFO] ============================================================
+2026-09-05 09:41:59,112 [INFO] ============================================================
+2026-09-05 09:41:59,129 [INFO] Iniciando revisión: 2026-09-05 09:41:59
+2026-09-05 09:41:59,219 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 09:42:01,101 [INFO] Iniciando navegador Chromium...
+2026-09-05 09:42:11,962 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 09:42:17,530 [INFO] Ingresando credenciales...
+2026-09-05 09:42:18,306 [INFO] Enviando formulario de login...
+2026-09-05 09:42:21,942 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 09:42:21,942 [INFO] ✅ Login exitoso
+2026-09-05 09:42:21,943 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 09:42:23,804 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 09:42:23,804 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 09:42:27,691 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 09:42:27,691 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 09:42:30,095 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 09:42:32,433 [INFO] Ejecutando búsqueda...
+2026-09-05 09:42:37,529 [INFO] Extrayendo datos de la tabla...
+2026-09-05 09:42:37,530 [INFO] Procesando página 1 de la tabla...
+2026-09-05 09:42:37,636 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 09:42:38,190 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-05 09:42:38,286 [INFO] Navegador cerrado.
+2026-09-05 09:42:38,326 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 09:42:38,326 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 09:42:38,327 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 09:42:38,327 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 09:42:38,327 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 09:42:38,327 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 09:42:38,327 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 09:42:38,328 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 09:42:38,328 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 09:42:38,328 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 09:42:38,328 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 09:42:38,328 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 09:42:38,329 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 09:42:38,331 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 10:20:46,804 [INFO] ============================================================
+2026-09-05 10:20:46,805 [INFO] Iniciando revisión: 2026-09-05 10:20:46
+2026-09-05 10:20:47,057 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 10:20:48,489 [INFO] Iniciando navegador Chromium...
+2026-09-05 10:20:56,539 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 10:21:02,029 [INFO] Ingresando credenciales...
+2026-09-05 10:21:02,806 [INFO] Enviando formulario de login...
+2026-09-05 10:21:06,510 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 10:21:06,510 [INFO] ✅ Login exitoso
+2026-09-05 10:21:06,511 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 10:21:08,377 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 10:21:08,378 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 10:21:12,290 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 10:21:12,291 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 10:21:14,756 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 10:21:17,126 [INFO] Ejecutando búsqueda...
+2026-09-05 10:21:22,350 [INFO] Extrayendo datos de la tabla...
+2026-09-05 10:21:22,351 [INFO] Procesando página 1 de la tabla...
+2026-09-05 10:21:22,441 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 10:21:22,899 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-05 10:21:22,986 [INFO] Navegador cerrado.
+2026-09-05 10:21:23,032 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 10:21:23,033 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 10:21:23,033 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 10:21:23,033 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 10:21:23,033 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 10:21:23,034 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 10:21:23,034 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 10:21:23,034 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 10:21:23,034 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 10:21:23,035 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 10:21:23,035 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 10:21:23,035 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 10:21:23,035 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 10:21:23,037 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 10:25:34,837 [INFO] ============================================================
+2026-09-05 10:25:34,837 [INFO] Iniciando revisión: 2026-09-05 10:25:34
+2026-09-05 10:25:34,848 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 10:25:35,820 [INFO] Iniciando navegador Chromium...
+2026-09-05 10:25:45,742 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 10:25:49,041 [INFO] Ingresando credenciales...
+2026-09-05 10:25:49,793 [INFO] Enviando formulario de login...
+2026-09-05 10:25:53,366 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 10:25:53,367 [INFO] ✅ Login exitoso
+2026-09-05 10:25:53,368 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 10:25:55,183 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 10:25:55,184 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 10:25:59,057 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 10:25:59,058 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 10:26:01,524 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 10:26:03,933 [INFO] Ejecutando búsqueda...
+2026-09-05 10:26:09,300 [INFO] Extrayendo datos de la tabla...
+2026-09-05 10:26:09,301 [INFO] Procesando página 1 de la tabla...
+2026-09-05 10:26:09,405 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 10:26:09,873 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-05 10:26:09,960 [INFO] Navegador cerrado.
+2026-09-05 10:26:10,021 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 10:26:10,036 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 10:26:10,037 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 10:26:10,058 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 10:26:10,058 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 10:26:10,073 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 10:26:10,075 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 10:26:10,099 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 10:26:10,099 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 10:26:10,100 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 10:26:10,100 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 10:26:10,107 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 10:26:10,110 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 10:26:10,113 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 10:29:38,365 [INFO] ============================================================
+2026-09-05 10:29:38,366 [INFO] Iniciando revisión: 2026-09-05 10:29:38
+2026-09-05 10:29:38,375 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 10:29:39,596 [INFO] Iniciando navegador Chromium...
+2026-09-05 10:29:48,226 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 10:29:52,018 [INFO] Ingresando credenciales...
+2026-09-05 10:29:52,721 [INFO] Enviando formulario de login...
+2026-09-05 10:29:56,278 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 10:29:56,279 [INFO] ✅ Login exitoso
+2026-09-05 10:29:56,280 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 10:29:58,146 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 10:29:58,147 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 10:30:02,060 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 10:30:02,061 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 10:30:04,528 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 10:30:06,976 [INFO] Ejecutando búsqueda...
+2026-09-05 10:30:12,258 [INFO] Extrayendo datos de la tabla...
+2026-09-05 10:30:12,259 [INFO] Procesando página 1 de la tabla...
+2026-09-05 10:30:12,350 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 10:30:12,811 [INFO] No hay más páginas. Total registros extraídos: 10
+2026-09-05 10:30:12,904 [INFO] Navegador cerrado.
+2026-09-05 10:30:12,926 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 10:30:12,927 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 10:30:12,928 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 10:30:12,930 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 10:30:12,931 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 10:30:12,932 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 10:30:12,933 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 10:30:12,933 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 10:30:12,934 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 10:30:12,934 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 10:30:12,934 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 10:30:12,934 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 10:30:12,935 [INFO] Resumen: 10 exitosos | 0 pendientes | 0 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 10:30:12,937 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 10:59:36,922 [INFO] ============================================================
+2026-09-05 10:59:36,923 [INFO] Iniciando revisión: 2026-09-05 10:59:36
+2026-09-05 10:59:37,210 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 10:59:39,073 [INFO] Iniciando navegador Chromium...
+2026-09-05 10:59:50,519 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 10:59:56,056 [INFO] Ingresando credenciales...
+2026-09-05 10:59:56,791 [INFO] Enviando formulario de login...
+2026-09-05 11:00:00,377 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:00:00,378 [INFO] ✅ Login exitoso
+2026-09-05 11:00:00,379 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:00:02,201 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:00:02,204 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:00:06,045 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:00:06,046 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:00:08,436 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:00:10,746 [INFO] Ejecutando búsqueda...
+2026-09-05 11:00:16,096 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:00:16,096 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:00:16,188 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:00:16,682 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:00:17,747 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:00:17,758 [INFO]   Filas encontradas en página 2: 1
+2026-09-05 11:00:17,813 [INFO] No hay más páginas. Total registros extraídos: 11
+2026-09-05 11:00:17,903 [INFO] Navegador cerrado.
+2026-09-05 11:00:17,937 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:00:17,937 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:00:17,938 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:00:17,938 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:00:17,938 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:00:17,939 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:00:17,939 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:00:17,939 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:00:17,940 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:00:17,940 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:00:17,940 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:00:17,940 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:00:17,941 [INFO] Resumen: 10 exitosos | 1 pendientes | 0 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:00:17,942 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:00:41,399 [INFO] ============================================================
+2026-09-05 11:00:41,399 [INFO] Iniciando revisión: 2026-09-05 11:00:41
+2026-09-05 11:00:41,408 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:00:42,405 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:00:49,872 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:00:53,329 [INFO] Ingresando credenciales...
+2026-09-05 11:00:54,068 [INFO] Enviando formulario de login...
+2026-09-05 11:00:57,616 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:00:57,617 [INFO] ✅ Login exitoso
+2026-09-05 11:00:57,618 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:00:59,476 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:00:59,477 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:01:03,351 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:01:03,352 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:01:05,829 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:01:08,169 [INFO] Ejecutando búsqueda...
+2026-09-05 11:01:12,911 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:01:12,912 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:01:13,015 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:01:13,464 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:01:14,514 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:01:14,553 [INFO]   Filas encontradas en página 2: 1
+2026-09-05 11:01:14,616 [INFO] No hay más páginas. Total registros extraídos: 11
+2026-09-05 11:01:14,700 [INFO] Navegador cerrado.
+2026-09-05 11:01:14,725 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:01:14,725 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:01:14,725 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:01:14,726 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:01:14,726 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:01:14,726 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:01:14,726 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:01:14,727 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:01:14,727 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:01:14,727 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:01:14,727 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:01:14,729 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:01:14,729 [INFO] Resumen: 10 exitosos | 1 pendientes | 0 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:01:14,731 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:21:19,432 [INFO] ============================================================
+2026-09-05 11:21:19,432 [INFO] Iniciando revisión: 2026-09-05 11:21:19
+2026-09-05 11:21:19,442 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:21:20,486 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:21:32,913 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:21:38,524 [INFO] Ingresando credenciales...
+2026-09-05 11:21:39,253 [INFO] Enviando formulario de login...
+2026-09-05 11:21:42,993 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:21:42,994 [INFO] ✅ Login exitoso
+2026-09-05 11:21:42,995 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:21:44,860 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:21:44,861 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:21:48,949 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:21:48,950 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:21:51,413 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:21:53,860 [INFO] Ejecutando búsqueda...
+2026-09-05 11:21:59,120 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:21:59,121 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:21:59,213 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:21:59,681 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:22:00,747 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:22:00,780 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:22:00,898 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:22:00,989 [INFO] Navegador cerrado.
+2026-09-05 11:22:01,022 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:22:01,023 [INFO] Estado de los reportes (11 ✅ | 0 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:22:01,023 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,023 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,024 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,024 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:22:01,024 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,024 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,025 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,025 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,025 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,025 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,025 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:22:01,026 [INFO] Resumen: 11 exitosos | 1 pendientes | 0 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:22:01,031 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:24:01,464 [INFO] ============================================================
+2026-09-05 11:24:01,465 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 11:24:01,465 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 11:24:01,465 [INFO]   Intervalo: 15 minutos
+2026-09-05 11:24:01,466 [INFO]   Headless : True
+2026-09-05 11:24:01,466 [INFO]   Días atrás: 1
+2026-09-05 11:24:01,466 [INFO] ============================================================
+2026-09-05 11:24:01,653 [INFO] ============================================================
+2026-09-05 11:24:01,653 [INFO] Iniciando revisión: 2026-09-05 11:24:01
+2026-09-05 11:24:01,691 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:24:03,162 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:24:12,796 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:24:16,150 [INFO] Ingresando credenciales...
+2026-09-05 11:24:16,887 [INFO] Enviando formulario de login...
+2026-09-05 11:24:20,484 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:24:20,485 [INFO] ✅ Login exitoso
+2026-09-05 11:24:20,486 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:24:22,333 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:24:22,334 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:24:26,282 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:24:26,283 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:24:28,678 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:24:31,082 [INFO] Ejecutando búsqueda...
+2026-09-05 11:24:36,370 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:24:36,371 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:24:36,469 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:24:36,918 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:24:37,980 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:24:38,013 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:24:38,126 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:24:38,212 [INFO] Navegador cerrado.
+2026-09-05 11:24:38,240 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:24:38,241 [INFO] Estado de los reportes (11 ✅ | 0 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:24:38,241 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,241 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,241 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,242 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:24:38,242 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,242 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,242 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,242 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,243 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,244 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,244 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:24:38,244 [INFO] Resumen: 11 exitosos | 1 pendientes | 0 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:24:38,246 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:29:50,045 [INFO] ============================================================
+2026-09-05 11:29:50,045 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 11:29:50,045 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 11:29:50,045 [INFO]   Intervalo: 15 minutos
+2026-09-05 11:29:50,046 [INFO]   Headless : True
+2026-09-05 11:29:50,046 [INFO]   Días atrás: 1
+2026-09-05 11:29:50,046 [INFO] ============================================================
+2026-09-05 11:29:50,263 [INFO] ============================================================
+2026-09-05 11:29:50,264 [INFO] Iniciando revisión: 2026-09-05 11:29:50
+2026-09-05 11:29:50,296 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:29:52,288 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:30:04,401 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:30:07,705 [INFO] Ingresando credenciales...
+2026-09-05 11:30:08,484 [INFO] Enviando formulario de login...
+2026-09-05 11:30:12,028 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:30:12,029 [INFO] ✅ Login exitoso
+2026-09-05 11:30:12,030 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:30:13,860 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:30:13,861 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:30:17,708 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:30:17,709 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:30:20,209 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:30:22,579 [INFO] Ejecutando búsqueda...
+2026-09-05 11:30:27,819 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:30:27,897 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:30:27,943 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:30:28,437 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:30:29,493 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:30:29,533 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:30:29,650 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:30:29,738 [INFO] Navegador cerrado.
+2026-09-05 11:30:29,776 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:30:29,776 [INFO] Estado de los reportes (11 ✅ | 0 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:30:29,777 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,777 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,777 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,778 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:30:29,778 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,779 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,779 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,779 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,780 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,780 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,780 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:30:29,780 [INFO] Resumen: 11 exitosos | 1 pendientes | 0 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:30:29,782 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:34:54,853 [INFO] ============================================================
+2026-09-05 11:34:54,854 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 11:34:54,854 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 11:34:54,854 [INFO]   Intervalo: 15 minutos
+2026-09-05 11:34:54,854 [INFO]   Headless : True
+2026-09-05 11:34:54,854 [INFO]   Días atrás: 1
+2026-09-05 11:34:54,854 [INFO] ============================================================
+2026-09-05 11:34:55,008 [INFO] ============================================================
+2026-09-05 11:34:55,008 [INFO] Iniciando revisión: 2026-09-05 11:34:55
+2026-09-05 11:34:55,041 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:34:57,148 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:35:05,981 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:35:09,299 [INFO] Ingresando credenciales...
+2026-09-05 11:35:10,019 [INFO] Enviando formulario de login...
+2026-09-05 11:35:13,509 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:35:13,510 [INFO] ✅ Login exitoso
+2026-09-05 11:35:13,511 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:35:15,352 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:35:15,353 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:35:19,200 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:35:19,201 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:35:21,568 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:35:23,942 [INFO] Ejecutando búsqueda...
+2026-09-05 11:35:28,695 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:35:28,771 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:35:28,807 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:35:29,333 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:35:30,383 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:35:30,423 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:35:30,551 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:35:30,631 [INFO] Navegador cerrado.
+2026-09-05 11:35:30,658 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? D007 IF - Diario Operaciones Interbancar: Entidad: CCM | Corte: 2026-09-04
+Grupo: D007 IF - Diario Operaciones Interbancarias
+Problema: Valida
+2026-09-05 11:35:30,658 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,134 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — D007 IF - Diario Operaciones Interbancar
+2026-09-05 11:35:31,134 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? D006 IF - Diario Tasas de Inter?s Activa: Entidad: CCM | Corte: 2026-09-04
+Grupo: D006 IF - Diario Tasas de Inter?s Activas
+Problema: Validaci
+2026-09-05 11:35:31,134 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,136 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — D006 IF - Diario Tasas de Interés Activa
+2026-09-05 11:35:31,137 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? S001-S005 IF - Semanal Reportes Liquidez: Entidad: CCM | Corte: 2026-09-04
+Grupo: S001-S005 IF - Semanal Reportes Liquidez
+Problema: Validaci?
+2026-09-05 11:35:31,138 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,139 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — S001-S005 IF - Semanal Reportes Liquidez
+2026-09-05 11:35:31,141 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? Auditor Externo: Entidad: CCM | Corte: 2026-12-31
+Grupo: Auditor Externo
+Problema: Validaci?n: Detalle Error
+Env?o: E
+2026-09-05 11:35:31,145 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,149 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — Auditor Externo
+2026-09-05 11:35:31,151 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? D008 IF - Diario Tipo de Cambio: Entidad: CCM | Corte: 2026-09-04
+Grupo: D008 IF - Diario Tipo de Cambio
+Problema: Validaci?n: Detall
+2026-09-05 11:35:31,164 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,166 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — D008 IF - Diario Tipo de Cambio
+2026-09-05 11:35:31,167 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? D008 IF - Diario Tipo de Cambio: Entidad: CCM | Corte: 2026-09-04
+Grupo: D008 IF - Diario Tipo de Cambio
+Problema: Validaci?n: Detall
+2026-09-05 11:35:31,168 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,170 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — D008 IF - Diario Tipo de Cambio
+2026-09-05 11:35:31,170 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-04
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-05 11:35:31,172 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,176 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-05 11:35:31,179 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? Ampliaci?n de plazo de reclamos de prime: Entidad: CCM | Corte: 2026-09-04
+Grupo: Ampliaci?n de plazo de reclamos de primera instancia
+Problem
+2026-09-05 11:35:31,184 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,191 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — Ampliación de plazo de reclamos de prime
+2026-09-05 11:35:31,193 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? Reporte de Transacciones con el Exterior: Entidad: CCM | Corte: 2026-09-04
+Grupo: Reporte de Transacciones con el Exterior Diario
+Problema: Va
+2026-09-05 11:35:31,194 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,202 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — Reporte de Transacciones con el Exterior
+2026-09-05 11:35:31,203 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? D001-D005 IF - Diario Encaje: Entidad: CCM | Corte: 2026-09-04
+Grupo: D001-D005 IF - Diario Encaje
+Problema: Validaci?n: Detalle E
+2026-09-05 11:35:31,207 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,211 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — D001-D005 IF - Diario Encaje
+2026-09-05 11:35:31,213 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? D012 - Cr?ditos refinanciados y/o reprog: Entidad: CCM | Corte: 2026-09-04
+Grupo: D012 - Cr?ditos refinanciados y/o reprogramados
+Problema: Va
+2026-09-05 11:35:31,214 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,224 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — D012 - Créditos refinanciados y/o reprog
+2026-09-05 11:35:31,226 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? REPORTE DIARIO DE RETIRO DE DEP?SITOS EN: Entidad: CCM | Corte: 2026-09-04
+Grupo: REPORTE DIARIO DE RETIRO DE DEP?SITOS EN MONEDA EXTRANJERA
+P
+2026-09-05 11:35:31,234 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,236 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN
+2026-09-05 11:35:31,237 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:35:31,240 [INFO] Estado de los reportes (0 ✅ | 12 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:35:31,241 [INFO]   ❌ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,241 [INFO]   ❌ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,248 [INFO]   ❌ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,249 [INFO]   ❌ Auditor Externo (CCM | corte 2026-12-31) - Validación: Detalle Error
+2026-09-05 11:35:31,250 [INFO]   ❌ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,250 [INFO]   ❌ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,251 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,252 [INFO]   ❌ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,252 [INFO]   ❌ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,252 [INFO]   ❌ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,253 [INFO]   ❌ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,253 [INFO]   ❌ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:35:31,253 [WARNING] Ningún reporte figura como aceptado correctamente
+2026-09-05 11:35:31,254 [INFO] Resumen: 0 exitosos | 0 pendientes | 12 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:35:31,254 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 12 reportes con ERROR: ? D007 IF - Diario Operaciones Interbancarias
+? D006 IF - Diario Tasas de Inter?s Activas
+? S001-S00
+2026-09-05 11:35:31,254 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:35:31,261 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:48:15,362 [INFO] ============================================================
+2026-09-05 11:48:15,363 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 11:48:15,363 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 11:48:15,363 [INFO]   Intervalo: 15 minutos
+2026-09-05 11:48:15,363 [INFO]   Headless : True
+2026-09-05 11:48:15,363 [INFO]   Días atrás: 1
+2026-09-05 11:48:15,364 [INFO] ============================================================
+2026-09-05 11:48:15,515 [INFO] ============================================================
+2026-09-05 11:48:15,516 [INFO] Iniciando revisión: 2026-09-05 11:48:15
+2026-09-05 11:48:15,550 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:48:16,869 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:48:25,448 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:48:31,559 [INFO] Ingresando credenciales...
+2026-09-05 11:48:32,279 [INFO] Enviando formulario de login...
+2026-09-05 11:48:36,026 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:48:36,027 [INFO] ✅ Login exitoso
+2026-09-05 11:48:36,028 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:48:37,841 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:48:37,841 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:48:41,700 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:48:41,701 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:48:44,144 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:48:46,590 [INFO] Ejecutando búsqueda...
+2026-09-05 11:48:51,799 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:48:51,878 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:48:51,912 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:48:52,520 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:48:53,580 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:48:53,624 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:48:53,760 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:48:53,840 [INFO] Navegador cerrado.
+2026-09-05 11:48:53,871 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? D007 IF - Diario Operaciones Interbancar: El reporte 'D007 IF - Diario Operaciones Interbancarias' ahora figura como exitoso.
+2026-09-05 11:48:54,150 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? D006 IF - Diario Tasas de Inter?s Activa: El reporte 'D006 IF - Diario Tasas de Inter?s Activas' ahora figura como exitoso.
+2026-09-05 11:48:54,153 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? S001-S005 IF - Semanal Reportes Liquidez: El reporte 'S001-S005 IF - Semanal Reportes Liquidez' ahora figura como exitoso.
+2026-09-05 11:48:54,154 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? Auditor Externo: El reporte 'Auditor Externo' ahora figura como exitoso.
+2026-09-05 11:48:54,156 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? D008 IF - Diario Tipo de Cambio: El reporte 'D008 IF - Diario Tipo de Cambio' ahora figura como exitoso.
+2026-09-05 11:48:54,161 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? D008 IF - Diario Tipo de Cambio: El reporte 'D008 IF - Diario Tipo de Cambio' ahora figura como exitoso.
+2026-09-05 11:48:54,163 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-04
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-05 11:48:54,165 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:48:54,170 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-05 11:48:54,172 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? Ampliaci?n de plazo de reclamos de prime: El reporte 'Ampliaci?n de plazo de reclamos de primera instancia' ahora figura como exitoso.
+2026-09-05 11:48:54,177 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? Reporte de Transacciones con el Exterior: El reporte 'Reporte de Transacciones con el Exterior Diario' ahora figura como exitoso.
+2026-09-05 11:48:54,179 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? D001-D005 IF - Diario Encaje: El reporte 'D001-D005 IF - Diario Encaje' ahora figura como exitoso.
+2026-09-05 11:48:54,181 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? D012 - Cr?ditos refinanciados y/o reprog: El reporte 'D012 - Cr?ditos refinanciados y/o reprogramados' ahora figura como exitoso.
+2026-09-05 11:48:54,184 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? REPORTE DIARIO DE RETIRO DE DEP?SITOS EN: El reporte 'REPORTE DIARIO DE RETIRO DE DEP?SITOS EN MONEDA EXTRANJERA' ahora figura como exitoso.
+2026-09-05 11:48:54,187 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:48:54,188 [INFO] Estado de los reportes (11 ✅ | 1 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:48:54,195 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,196 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,197 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,201 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:48:54,201 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,202 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,204 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,206 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,208 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,209 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,210 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:48:54,211 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:48:54,212 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:48:54,227 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:49:25,720 [INFO] ============================================================
+2026-09-05 11:49:25,721 [INFO] Iniciando revisión: 2026-09-05 11:49:25
+2026-09-05 11:49:25,881 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:49:26,796 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:49:35,322 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:49:39,229 [INFO] Ingresando credenciales...
+2026-09-05 11:49:39,993 [INFO] Enviando formulario de login...
+2026-09-05 11:49:43,543 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:49:43,544 [INFO] ✅ Login exitoso
+2026-09-05 11:49:43,544 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:49:45,384 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:49:45,385 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:49:49,284 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:49:49,285 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:49:51,740 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:49:54,158 [INFO] Ejecutando búsqueda...
+2026-09-05 11:49:59,454 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:49:59,515 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:49:59,545 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:50:00,168 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:50:01,219 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:50:01,258 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:50:01,397 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:50:01,473 [INFO] Navegador cerrado.
+2026-09-05 11:50:01,498 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-04
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-05 11:50:01,499 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:50:01,700 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-05 11:50:01,701 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:50:01,701 [INFO] Estado de los reportes (11 ✅ | 1 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:50:01,701 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,702 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,702 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,702 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:50:01,702 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,702 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,703 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,703 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,703 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,703 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,704 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:50:01,704 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:50:01,704 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:50:01,706 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:50:58,368 [INFO] ============================================================
+2026-09-05 11:50:58,369 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 11:50:58,369 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 11:50:58,369 [INFO]   Intervalo: 15 minutos
+2026-09-05 11:50:58,369 [INFO]   Headless : True
+2026-09-05 11:50:58,369 [INFO]   Días atrás: 1
+2026-09-05 11:50:58,370 [INFO] ============================================================
+2026-09-05 11:50:58,660 [INFO] ============================================================
+2026-09-05 11:50:58,665 [INFO] Iniciando revisión: 2026-09-05 11:50:58
+2026-09-05 11:50:58,836 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:50:59,748 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:51:08,187 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:51:11,338 [INFO] Ingresando credenciales...
+2026-09-05 11:51:12,099 [INFO] Enviando formulario de login...
+2026-09-05 11:51:15,660 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:51:15,661 [INFO] ✅ Login exitoso
+2026-09-05 11:51:15,661 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:51:17,523 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:51:17,524 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:51:21,429 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:51:21,430 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:51:23,908 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:51:26,311 [INFO] Ejecutando búsqueda...
+2026-09-05 11:51:31,614 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:51:31,676 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:51:31,708 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:51:32,348 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:51:33,393 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:51:33,439 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:51:33,588 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:51:33,668 [INFO] Navegador cerrado.
+2026-09-05 11:51:33,699 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-04
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-05 11:51:33,700 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:51:33,964 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-05 11:51:33,965 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:51:33,965 [INFO] Estado de los reportes (11 ✅ | 1 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:51:33,965 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,965 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,966 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,966 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:51:33,966 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,966 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,967 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,967 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,967 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,967 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,967 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:51:33,968 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:51:33,968 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:51:33,970 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:52:31,791 [INFO] ============================================================
+2026-09-05 11:52:31,792 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 11:52:31,792 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 11:52:31,792 [INFO]   Intervalo: 15 minutos
+2026-09-05 11:52:31,792 [INFO]   Headless : True
+2026-09-05 11:52:31,793 [INFO]   Días atrás: 1
+2026-09-05 11:52:31,793 [INFO] ============================================================
+2026-09-05 11:52:31,939 [INFO] ============================================================
+2026-09-05 11:52:31,939 [INFO] Iniciando revisión: 2026-09-05 11:52:31
+2026-09-05 11:52:31,982 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:52:32,833 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:52:41,830 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:52:45,144 [INFO] Ingresando credenciales...
+2026-09-05 11:52:45,899 [INFO] Enviando formulario de login...
+2026-09-05 11:52:49,410 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:52:49,411 [INFO] ✅ Login exitoso
+2026-09-05 11:52:49,412 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:52:51,249 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:52:51,250 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:52:55,145 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:52:55,147 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:52:57,630 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:53:00,098 [INFO] Ejecutando búsqueda...
+2026-09-05 11:53:04,831 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:53:04,910 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:53:04,942 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:53:05,884 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:53:06,942 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:53:06,985 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:53:07,121 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:53:07,200 [INFO] Navegador cerrado.
+2026-09-05 11:53:07,229 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-04
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-05 11:53:07,229 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:53:07,492 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-05 11:53:07,493 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:53:07,493 [INFO] Estado de los reportes (11 ✅ | 1 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:53:07,493 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,494 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,494 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,494 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:53:07,494 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,494 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,495 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,495 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,495 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,495 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,496 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:53:07,496 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:53:07,496 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:53:07,499 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:53:51,234 [INFO] ============================================================
+2026-09-05 11:53:51,234 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 11:53:51,235 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 11:53:51,235 [INFO]   Intervalo: 15 minutos
+2026-09-05 11:53:51,235 [INFO]   Headless : True
+2026-09-05 11:53:51,235 [INFO]   Días atrás: 1
+2026-09-05 11:53:51,235 [INFO] ============================================================
+2026-09-05 11:53:51,560 [INFO] ============================================================
+2026-09-05 11:53:51,637 [INFO] Iniciando revisión: 2026-09-05 11:53:51
+2026-09-05 11:53:51,756 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:53:52,566 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:54:01,014 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:54:04,624 [INFO] Ingresando credenciales...
+2026-09-05 11:54:05,347 [INFO] Enviando formulario de login...
+2026-09-05 11:54:09,003 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:54:09,004 [INFO] ✅ Login exitoso
+2026-09-05 11:54:09,005 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:54:10,851 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:54:10,852 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:54:14,675 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:54:14,676 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:54:17,141 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:54:19,583 [INFO] Ejecutando búsqueda...
+2026-09-05 11:54:24,817 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:54:24,870 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:54:24,902 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:54:25,502 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:54:26,568 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:54:26,587 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:54:26,816 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:54:26,897 [INFO] Navegador cerrado.
+2026-09-05 11:54:26,927 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-04
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-05 11:54:26,927 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:54:27,194 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-05 11:54:27,194 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:54:27,194 [INFO] Estado de los reportes (11 ✅ | 1 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:54:27,195 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,195 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,195 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,195 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:54:27,196 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,196 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,196 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,196 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,196 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,197 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,197 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:54:27,197 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:54:27,197 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:54:27,199 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:55:34,846 [INFO] ============================================================
+2026-09-05 11:55:34,847 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 11:55:34,847 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 11:55:34,847 [INFO]   Intervalo: 15 minutos
+2026-09-05 11:55:34,847 [INFO]   Headless : True
+2026-09-05 11:55:34,848 [INFO]   Días atrás: 1
+2026-09-05 11:55:34,848 [INFO] ============================================================
+2026-09-05 11:55:34,994 [INFO] ============================================================
+2026-09-05 11:55:34,994 [INFO] Iniciando revisión: 2026-09-05 11:55:34
+2026-09-05 11:55:35,030 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:55:35,753 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:55:45,539 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:55:48,662 [INFO] Ingresando credenciales...
+2026-09-05 11:55:49,382 [INFO] Enviando formulario de login...
+2026-09-05 11:55:53,057 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:55:53,057 [INFO] ✅ Login exitoso
+2026-09-05 11:55:53,057 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:55:54,858 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:55:54,859 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:55:58,781 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:55:58,782 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:56:01,275 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:56:03,668 [INFO] Ejecutando búsqueda...
+2026-09-05 11:56:08,905 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:56:08,937 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:56:08,967 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:56:09,588 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:56:10,655 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:56:10,709 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:56:10,863 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:56:10,944 [INFO] Navegador cerrado.
+2026-09-05 11:56:10,974 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-04
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-05 11:56:10,975 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:56:11,336 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-05 11:56:11,336 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:56:11,336 [INFO] Estado de los reportes (11 ✅ | 1 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:56:11,337 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,337 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,337 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,338 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:56:11,338 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,339 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,339 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,339 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,339 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,340 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,340 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:56:11,340 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:56:11,340 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:56:11,343 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 11:57:25,977 [INFO] ============================================================
+2026-09-05 11:57:25,978 [INFO] Iniciando revisión: 2026-09-05 11:57:25
+2026-09-05 11:57:26,143 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 11:57:26,845 [INFO] Iniciando navegador Chromium...
+2026-09-05 11:57:35,821 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 11:57:39,029 [INFO] Ingresando credenciales...
+2026-09-05 11:57:39,786 [INFO] Enviando formulario de login...
+2026-09-05 11:57:43,429 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 11:57:43,430 [INFO] ✅ Login exitoso
+2026-09-05 11:57:43,431 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 11:57:45,249 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 11:57:45,250 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 11:57:49,179 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 11:57:49,180 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 11:57:51,659 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 11:57:54,074 [INFO] Ejecutando búsqueda...
+2026-09-05 11:57:59,346 [INFO] Extrayendo datos de la tabla...
+2026-09-05 11:57:59,415 [INFO] Procesando página 1 de la tabla...
+2026-09-05 11:57:59,445 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 11:58:00,079 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 11:58:01,142 [INFO] Procesando página 2 de la tabla...
+2026-09-05 11:58:01,191 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 11:58:01,351 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 11:58:01,443 [INFO] Navegador cerrado.
+2026-09-05 11:58:01,466 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-04
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-05 11:58:01,467 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 11:58:01,728 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-05 11:58:01,728 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 11:58:01,728 [INFO] Estado de los reportes (11 ✅ | 1 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 11:58:01,728 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,729 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,729 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,729 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 11:58:01,729 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,729 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,730 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,730 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,730 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,730 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,731 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 11:58:01,731 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 11:58:01,731 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 11:58:01,733 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-05 12:03:33,069 [INFO] ============================================================
+2026-09-05 12:03:33,070 [INFO] ASFI SCIP Monitor iniciado
+2026-09-05 12:03:33,070 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-05 12:03:33,070 [INFO]   Intervalo: 15 minutos
+2026-09-05 12:03:33,071 [INFO]   Headless : True
+2026-09-05 12:03:33,071 [INFO]   Días atrás: 1
+2026-09-05 12:03:33,072 [INFO] ============================================================
+2026-09-05 12:03:33,219 [INFO] ============================================================
+2026-09-05 12:03:33,220 [INFO] Iniciando revisión: 2026-09-05 12:03:33
+2026-09-05 12:03:33,263 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-05 12:03:34,009 [INFO] Iniciando navegador Chromium...
+2026-09-05 12:03:42,889 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-05 12:03:48,239 [INFO] Ingresando credenciales...
+2026-09-05 12:03:48,976 [INFO] Enviando formulario de login...
+2026-09-05 12:03:52,905 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-05 12:03:52,905 [INFO] ✅ Login exitoso
+2026-09-05 12:03:52,906 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-05 12:03:54,706 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-05 12:03:54,707 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-05 12:03:58,677 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-05 12:03:58,678 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-05 12:04:01,081 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-05 12:04:03,483 [INFO] Ejecutando búsqueda...
+2026-09-05 12:04:08,782 [INFO] Extrayendo datos de la tabla...
+2026-09-05 12:04:08,810 [INFO] Procesando página 1 de la tabla...
+2026-09-05 12:04:08,839 [INFO]   Filas encontradas en página 1: 10
+2026-09-05 12:04:09,455 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-05 12:04:10,512 [INFO] Procesando página 2 de la tabla...
+2026-09-05 12:04:10,559 [INFO]   Filas encontradas en página 2: 2
+2026-09-05 12:04:10,693 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-05 12:04:10,785 [INFO] Navegador cerrado.
+2026-09-05 12:04:10,817 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-04
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-05 12:04:10,817 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-05 12:04:27,395 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-05 12:04:27,396 [INFO] Validando obligaciones configuradas para 4/9/2026...
+2026-09-05 12:04:27,396 [INFO] Estado de los reportes (11 ✅ | 1 ❌ | 0 ⚠️ | 0 ⏳):
+2026-09-05 12:04:27,396 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,396 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,396 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,397 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-05 12:04:27,397 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,397 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,397 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,397 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,398 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,398 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,398 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-04)
+2026-09-05 12:04:27,398 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
+2026-09-05 12:04:27,398 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-05 12:04:27,400 [INFO] Revisión completada. Próxima en 15 min.

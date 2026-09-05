@@ -74,12 +74,14 @@ echo  ============================================
 echo.
 echo  PRÓXIMOS PASOS:
 echo.
-echo  1. Editar asfi_monitor.py y configurar:
-echo       - "usuario": tu usuario ASFI
-echo       - "password": tu contraseña
+echo  1. Ejecutar configurar.bat para registrar:
+echo       - Usuario y contraseña ASFI/SCIP (se guardan en SQLite protegido)
+echo       - Reportes, periodicidad, ocurrencias y reglas de calendario
+echo.
+echo  2. Editar asfi_monitor.py solo para opciones técnicas:
 echo       - "intervalo_minutos": cada cuántos minutos revisar (ej: 15)
 echo.
-echo  2. Ejecutar el monitor:
+echo  3. Ejecutar el monitor:
 echo       python asfi_monitor.py
 echo.
 echo  Opciones de ejecución:

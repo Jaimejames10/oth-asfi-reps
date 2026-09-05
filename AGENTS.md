@@ -44,6 +44,8 @@ Monitor automatizado que controla el envío de reportes al sistema ASFI/SCIP (pl
 | **Playwright** | ≥1.40.0 | Web scraping y automatización |
 | **Plyer** | ≥2.1.0 | Notificaciones del sistema Windows |
 | **Schedule** | ≥1.2.0 | Planificación de tareas periódicas |
+| **SQLite** | Incluido en Python | Catálogo, obligaciones, historial y credenciales |
+| **Tkinter** | Incluido en Python para Windows | Administración local del catálogo |
 
 **Requisitos adicionales:**
 - Navegador Chromium (instalado automáticamente por Playwright)
@@ -57,6 +59,11 @@ Monitor automatizado que controla el envío de reportes al sistema ASFI/SCIP (pl
 ```
 Reports_ASFI_monitor/
 ├── asfi_monitor.py              # Script principal - lógica de monitoreo
+├── reportes_db.py               # Persistencia SQLite y reglas de calendario
+├── reportes_seed.json           # Carga inicial del catálogo
+├── gestionar_reportes.py        # GUI para reportes, reglas y credenciales
+├── configurar.bat               # Lanzador de la GUI de configuración
+├── asfi_monitor.db              # Base local (se crea automáticamente, no versionar)
 ├── debug_reportes.py            # Herramienta interactiva para debugging
 ├── probar_notificaciones.py      # Script para probar notificaciones
 ├── asfi_estado.json             # Caché de último estado conocido
@@ -78,7 +85,17 @@ Reports_ASFI_monitor/
 - Lógica de autenticación con Playwright
 - Scraping y análisis de reportes
 - Generación de notificaciones
-- Manejo de estado (JSON)
+- Integración con catálogo y obligaciones SQLite
+- Compatibilidad temporal con el estado JSON
+
+**reportes_db.py**
+- Crea y migra el esquema SQLite
+- Calcula obligaciones y guarda observaciones e incumplimientos
+- Protege las credenciales con DPAPI en Windows
+
+**gestionar_reportes.py**
+- Interfaz gráfica local para administrar reportes y reglas
+- Permite guardar las credenciales consumidas por el monitor
 
 **debug_reportes.py**
 - Herramienta interactiva para debugging
@@ -98,13 +115,16 @@ Reports_ASFI_monitor/
 
 ## ⚙️ Configuración
 
-La configuración se encuentra en `asfi_monitor.py` en la sección `CONFIG` (línea ~50):
+Las opciones técnicas se encuentran en `asfi_monitor.py` en la sección `CONFIG`.
+El catálogo de reportes y las credenciales se administran desde SQLite mediante
+`configurar.bat` o `python gestionar_reportes.py`.
 
 ```python
 CONFIG = {
     "url_base": "https://appweb.asfi.gob.bo/SCIP",
-    "usuario": os.environ.get("ASFI_USUARIO", "usuario-default"),
-    "password": os.environ.get("ASFI_PASSWORD", "pass-default"),
+    "usuario": os.environ.get("ASFI_USUARIO", ""),
+    "password": os.environ.get("ASFI_PASSWORD", ""),
+    "archivo_base_datos": "asfi_monitor.db",
     "dias_atras": 1,  # (Deprecado - siempre consulta "ayer")
     "intervalo_minutos": 15,  # Intervalo entre chequeos
     "palabras_exito": [  # Patrones que indican ÉXITO
@@ -122,7 +142,15 @@ CONFIG = {
 
 ### Configuración de Credenciales
 
-**Opción 1: Variables de entorno (RECOMENDADO)**
+**Opción 1: interfaz gráfica (RECOMENDADA)**
+```powershell
+python gestionar_reportes.py
+# o ejecutar configurar.bat
+```
+La contraseña se protege con DPAPI de Windows y el monitor la lee desde la tabla
+`credenciales`.
+
+**Opción 2: Variables de entorno**
 ```powershell
 # En PowerShell
 $env:ASFI_USUARIO = "tu_usuario"
@@ -130,7 +158,7 @@ $env:ASFI_PASSWORD = "tu_contraseña"
 python asfi_monitor.py
 ```
 
-**Opción 2: Variables de entorno permanentes**
+**Opción 3: Variables de entorno permanentes**
 ```powershell
 [Environment]::SetEnvironmentVariable("ASFI_USUARIO", "tu_usuario", "User")
 [Environment]::SetEnvironmentVariable("ASFI_PASSWORD", "tu_contraseña", "User")
@@ -221,6 +249,12 @@ python asfi_monitor.py --intervalo 10
 ### Ejecución única (sin loop)
 ```bash
 python asfi_monitor.py --una-vez
+```
+
+### Configuración de reportes y credenciales
+```bash
+python gestionar_reportes.py
+# o configurar.bat
 ```
 
 ### Con UI visible (útil para debugging)
@@ -424,10 +458,14 @@ python probar_notificaciones.py
 - Revisar estado del servidor ASFI en horario distinto
 
 ### Credenciales inválidas
-**Causa**: Variables de entorno no configuradas  
+**Causa**: Credenciales de SQLite, entorno o argumentos no configuradas
 **Síntomas**: Login falla con mensaje de credenciales incorrectas  
 **Solución**: 
 ```powershell
+# Opción recomendada
+python gestionar_reportes.py
+
+# Alternativa temporal
 $env:ASFI_USUARIO = "tu_usuario"
 $env:ASFI_PASSWORD = "tu_contraseña"
 python asfi_monitor.py
@@ -477,13 +515,15 @@ python asfi_monitor.py
 4. **Docstrings**: Documentar funciones no triviales
 
 ### Manejo de Credenciales
-- ✅ Usar variables de entorno (`ASFI_USUARIO`, `ASFI_PASSWORD`)
+- ✅ Preferir la GUI y la tabla SQLite `credenciales` protegida con DPAPI
+- ✅ Usar variables de entorno (`ASFI_USUARIO`, `ASFI_PASSWORD`) como alternativa temporal
 - ✅ Nunca commitear credenciales en git
 - ✅ No loguear contraseñas
 - ❌ No hardcodear credenciales en código
 
-### Manejo de Estado (JSON)
+### Manejo de Estado
 - ✅ Validar estructura JSON antes de procesar
+- ✅ Guardar catálogo, obligaciones e historial en SQLite
 - ✅ Mantener timestamps de última actualización
 - ✅ Hacer backup antes de cambios importantes
 - ❌ No mezclar datos sensibles con estado público
@@ -510,7 +550,7 @@ python asfi_monitor.py
 
 ## 🔐 Consideraciones de Seguridad
 
-- ✅ Todas las credenciales via variables de entorno
+- ✅ Credenciales desde SQLite protegido con DPAPI o variables de entorno temporales
 - ✅ No incluir ASFI_USUARIO ni ASFI_PASSWORD en el código
 - ✅ No exponer tokens o sesiones en logs
 - ✅ Validar entrada de usuario en CLI

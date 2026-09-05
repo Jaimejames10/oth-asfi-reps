@@ -22,6 +22,7 @@ for %%V in (3.13 3.12 3.11 3.10) do (
         pause
         exit /b
     )
+
 )
 
 echo.

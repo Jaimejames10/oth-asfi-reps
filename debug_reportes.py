@@ -2,7 +2,18 @@
 """Script de depuración para ver qué reportes se obtienen"""
 import sys
 import json
-from asfi_monitor import obtener_reportes
+from asfi_monitor import CONFIG, cargar_credenciales_desde_db, obtener_reportes
+
+
+usuario, password = cargar_credenciales_desde_db()
+if not CONFIG["usuario"]:
+    CONFIG["usuario"] = usuario
+if not CONFIG["password"]:
+    CONFIG["password"] = password
+
+if not CONFIG["usuario"] or not CONFIG["password"]:
+    print("No hay credenciales configuradas. Ejecuta gestionar_reportes.py primero.")
+    sys.exit(1)
 
 reportes = obtener_reportes()
 

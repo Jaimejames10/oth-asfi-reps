@@ -1,0 +1,5 @@
+asfi_monitor.db
+asfi_monitor.db-shm
+asfi_monitor.db-wal
+__pycache__/
+tests/__pycache__/
