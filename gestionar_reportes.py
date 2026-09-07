@@ -124,7 +124,7 @@ class RuleDialog(tk.Toplevel):
             ("Día corte mes", self.cutoff_month_day),
             ("Días permitidos envío (1-7)", self.send_days),
             ("Hora límite (HH:MM)", self.deadline_time),
-            ("Ocurrencias requeridas", self.occurrences),
+            ("Envíos requeridos (1, 2, 3...)", self.occurrences),
             ("Días de plazo", self.grace_days),
             ("Tipo de plazo", self.grace_type),
             ("Frecuencia en meses", self.frequency_months),
@@ -154,7 +154,7 @@ class RuleDialog(tk.Toplevel):
 
         ttk.Label(
             frame,
-            text="1 = lunes ... 7 = domingo. Deje vacíos los campos que no apliquen.",
+            text="1 = lunes ... 7 = domingo. Envíos requeridos indica cuántas ocurrencias deben llegar.",
             foreground="#555555",
         ).grid(row=len(fields), column=0, columnspan=2, sticky="w", pady=(6, 10))
         buttons = ttk.Frame(frame)

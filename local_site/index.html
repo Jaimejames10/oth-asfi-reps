@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCIP - Iniciar sesión</title>
+</head>
+<body>
+  <h1>Sistema de Captura de Información Periódica</h1>
+  <h2>Login</h2>
+  <form action="/Login.aspx" method="post">
+    <input name="ctl00$ctl00$MainContent$DefaultContent$txtUsuario" type="text"
+      id="MainContent_DefaultContent_txtUsuario" class="txtLogin" autocomplete="off">
+    <br>
+    <input name="ctl00$ctl00$MainContent$DefaultContent$txtPassword" type="password"
+      id="MainContent_DefaultContent_txtPassword" class="txtPasswd" autocomplete="off">
+    <br>
+    <input type="submit" name="ctl00$ctl00$MainContent$DefaultContent$LoginButton" value="Ingresar"
+      id="MainContent_DefaultContent_LoginButton" class="btnIngresar">
+  </form>
+  <span id="MainContent_DefaultContent_lblResultado" style="color:#a94442;font-weight:bold;"><!--MSG--></span>
+</body>
+</html>

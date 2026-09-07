@@ -783,6 +783,42 @@ def ensure_obligations(conn: sqlite3.Connection, current: Optional[datetime] = N
     return created
 
 
+def get_required_occurrence_counts(
+    conn: sqlite3.Connection, reportes: Iterable[dict]
+) -> dict[tuple[str, str], int]:
+    """Devuelve cuántas ocurrencias exige cada reporte y fecha de corte.
+
+    La cantidad se obtiene de las obligaciones activas ya calculadas, por lo
+    que respeta la regla de calendario vigente para cada período.
+    """
+    counts: dict[tuple[str, str], int] = {}
+    for reporte in reportes:
+        nombre = normalize_name(str(reporte.get("grupo") or ""))
+        cutoff = parse_date(reporte.get("fecha_corte"))
+        if not nombre or cutoff is None:
+            continue
+
+        report_id = lookup_report_id(conn, reporte.get("grupo", ""))
+        if report_id is None:
+            continue
+
+        cutoff_iso = cutoff.isoformat()
+        count = conn.execute(
+            """
+            SELECT COUNT(*)
+            FROM obligaciones o
+            JOIN reglas_reportes rr ON rr.id = o.regla_id AND rr.activo = 1
+            WHERE o.reporte_id = ? AND o.fecha_corte = ?
+            """,
+            (report_id, cutoff_iso),
+        ).fetchone()[0]
+        if count:
+            key = (nombre, cutoff_iso)
+            counts[key] = max(counts.get(key, 0), int(count))
+
+    return counts
+
+
 def get_query_date_range(
     conn: sqlite3.Connection, current: Optional[datetime] = None, lookback_days: int = 62
 ) -> tuple[date, date]:
@@ -830,9 +866,14 @@ def finish_scrape_run(
     conn.commit()
 
 
-def _extract_occurrence(envio: str) -> Optional[int]:
+def extract_occurrence(envio: str) -> Optional[int]:
     match = re.search(r"env[ií]o\s*(\d+)", envio or "", re.IGNORECASE)
     return int(match.group(1)) if match else None
+
+
+def _extract_occurrence(envio: str) -> Optional[int]:
+    """Compatibilidad interna para llamadores existentes."""
+    return extract_occurrence(envio)
 
 
 def store_observations(conn: sqlite3.Connection, run_id: int, reportes: list[dict]) -> None:
@@ -886,28 +927,23 @@ def store_observations(conn: sqlite3.Connection, run_id: int, reportes: list[dic
                 """,
                 (report_id, cutoff_iso),
             ).fetchall()
-            if len(obligations) == 1:
-                for observation_id, _reporte in observations:
-                    conn.execute(
-                        "INSERT OR IGNORE INTO obligacion_observacion(obligacion_id, observacion_id) VALUES (?, ?)",
-                        (obligations[0]["id"], observation_id),
-                    )
-                continue
+            rows_with_ids = [
+                {**reporte, "_observacion_id": observation_id}
+                for observation_id, reporte in observations
+            ]
+            occurrence_map = _rows_by_occurrence(
+                rows_with_ids,
+                [dict(row) for row in obligations],
+            )
             by_occurrence = {row["ocurrencia"]: row for row in obligations}
-            used = set()
-            for observation_id, reporte in observations:
-                occurrence = _extract_occurrence(reporte.get("envio", ""))
-                obligation = by_occurrence.get(occurrence) if occurrence else None
-                if obligation is None or occurrence in used:
-                    obligation = next(
-                        (row for row in obligations if row["ocurrencia"] not in used),
-                        None,
-                    )
-                if obligation is not None:
-                    used.add(obligation["ocurrencia"])
+            for occurrence, occurrence_rows in occurrence_map.items():
+                obligation = by_occurrence.get(occurrence)
+                if obligation is None:
+                    continue
+                for reporte in occurrence_rows:
                     conn.execute(
                         "INSERT OR IGNORE INTO obligacion_observacion(obligacion_id, observacion_id) VALUES (?, ?)",
-                        (obligation["id"], observation_id),
+                        (obligation["id"], reporte["_observacion_id"]),
                     )
 
 
@@ -915,22 +951,22 @@ def _rows_by_occurrence(rows: list[dict], obligations: list[dict]) -> dict[int, 
     result: dict[int, list[dict]] = {}
     if len(obligations) == 1:
         return {obligations[0]["ocurrencia"]: list(rows)} if rows else {}
-    used = set()
-    by_number = {}
+    valid_occurrences = {obligation["ocurrencia"] for obligation in obligations}
+    by_number: dict[int, list[dict]] = {}
+    unnumbered: list[dict] = []
     for row in rows:
-        number = _extract_occurrence(row.get("envio", ""))
-        if number is not None:
+        number = extract_occurrence(row.get("envio", ""))
+        if number in valid_occurrences:
             by_number.setdefault(number, []).append(row)
+        elif number is None:
+            unnumbered.append(row)
+
     for obligation in obligations:
         occurrence = obligation["ocurrencia"]
         if by_number.get(occurrence):
             result[occurrence] = by_number[occurrence]
-            used.update(id(item) for item in by_number[occurrence])
-    remaining = [row for row in rows if id(row) not in used]
-    for obligation in obligations:
-        occurrence = obligation["ocurrencia"]
-        if occurrence not in result and remaining:
-            result[occurrence] = [remaining.pop(0)]
+        elif unnumbered:
+            result[occurrence] = [unnumbered.pop(0)]
     return result
 
 

@@ -4883,3 +4883,1027 @@ Env
 2026-09-05 12:04:27,398 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-04) - Validación: Detalle Error
 2026-09-05 12:04:27,398 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 0 faltantes | 0 sin enviar (dentro de plazo)
 2026-09-05 12:04:27,400 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 09:10:03,401 [INFO] ============================================================
+2026-09-07 09:10:03,402 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 09:10:03,402 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 09:10:03,402 [INFO]   Intervalo: 15 minutos
+2026-09-07 09:10:03,403 [INFO]   Headless : True
+2026-09-07 09:10:03,403 [INFO]   Días atrás: 1
+2026-09-07 09:10:03,404 [INFO] ============================================================
+2026-09-07 09:10:03,690 [INFO] ============================================================
+2026-09-07 09:10:03,690 [INFO] Iniciando revisión: 2026-09-07 09:10:03
+2026-09-07 09:10:03,719 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 09:10:06,138 [INFO] Iniciando navegador Chromium...
+2026-09-07 09:10:22,470 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 09:10:28,208 [INFO] Ingresando credenciales...
+2026-09-07 09:10:28,967 [INFO] Enviando formulario de login...
+2026-09-07 09:10:33,079 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-07 09:10:33,079 [INFO] ✅ Login exitoso
+2026-09-07 09:10:33,079 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 09:10:34,854 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-07 09:10:34,855 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 09:10:38,762 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 09:10:38,762 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 09:10:41,028 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 09:10:43,228 [INFO] Ejecutando búsqueda...
+2026-09-07 09:10:48,507 [INFO] Extrayendo datos de la tabla...
+2026-09-07 09:10:48,534 [INFO] Procesando página 1 de la tabla...
+2026-09-07 09:10:48,573 [INFO]   Filas encontradas en página 1: 5
+2026-09-07 09:10:49,020 [INFO] No hay más páginas. Total registros extraídos: 5
+2026-09-07 09:10:49,313 [INFO] Navegador cerrado.
+2026-09-07 09:10:49,586 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 09:10:49,587 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 09:10:49,588 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 09:10:49,588 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 09:11:07,801 [INFO] Reportes diarios aún sin enviar (dentro de plazo): 4
+2026-09-07 09:11:07,801 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 4 reportes diarios sin enviar: Corte: 6/9/2026
+L?mite de env?o: 2026-09-07 12:00:00
+
+  ? D001-D005 IF - Diario Encaje
+  ? D006 IF -
+2026-09-07 09:11:19,245 [INFO] Estado de los reportes (5 ✅ | 0 ❌ | 3 ⚠️ | 4 ⏳):
+2026-09-07 09:11:19,246 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 09:11:19,246 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 09:11:19,247 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 09:11:19,247 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 09:11:19,247 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 09:11:19,248 [INFO]   ⏳ D001-D005 IF - Diario Encaje (SIN ENVIAR - dentro de plazo)
+2026-09-07 09:11:19,248 [INFO]   ⏳ D006 IF - Diario Tasas de Interés Activas (SIN ENVIAR - dentro de plazo)
+2026-09-07 09:11:19,248 [INFO]   ⏳ D007 IF - Diario Operaciones Interbancarias (SIN ENVIAR - dentro de plazo)
+2026-09-07 09:11:19,248 [INFO]   ⏳ D008 IF - Diario Tipo de Cambio (SIN ENVIAR - dentro de plazo)
+2026-09-07 09:11:19,248 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 09:11:19,249 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 09:11:19,249 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 09:11:19,249 [INFO] Resumen: 5 exitosos | 0 pendientes | 0 errores | 3 faltantes | 4 sin enviar (dentro de plazo)
+2026-09-07 09:11:19,251 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 10:03:31,348 [INFO] Reporte subsanado por duplicado exitoso: Reporte de Prueba ()
+2026-09-07 10:46:20,209 [INFO] Reporte subsanado por duplicado exitoso: Reporte de Prueba (, ocurrencia=única)
+2026-09-07 10:46:20,211 [INFO] Reporte subsanado por duplicado exitoso: Reporte de Prueba (2026-09-02, ocurrencia=1)
+2026-09-07 10:46:42,437 [INFO] Reporte subsanado por duplicado exitoso: Reporte de Prueba (, ocurrencia=única)
+2026-09-07 10:46:42,438 [INFO] Reporte subsanado por duplicado exitoso: Reporte de Prueba (2026-09-02, ocurrencia=1)
+2026-09-07 10:47:29,659 [INFO] Reporte subsanado por duplicado exitoso: Reporte de Prueba (, ocurrencia=única)
+2026-09-07 10:47:29,660 [INFO] Reporte subsanado por duplicado exitoso: Reporte de Prueba (2026-09-02, ocurrencia=1)
+2026-09-07 10:49:16,609 [INFO] Reporte subsanado por duplicado exitoso: Reporte de Prueba (, ocurrencia=única)
+2026-09-07 10:49:16,610 [INFO] Reporte subsanado por duplicado exitoso: Reporte de Prueba (2026-09-02, ocurrencia=1)
+2026-09-07 10:54:58,709 [INFO] ============================================================
+2026-09-07 10:54:58,710 [INFO] Iniciando revisión: 2026-09-07 10:54:58
+2026-09-07 10:54:59,039 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 10:55:01,067 [INFO] Iniciando navegador Chromium...
+2026-09-07 10:55:15,173 [INFO] Abriendo login: https://appweb.asfi.gob.bo/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 10:55:23,956 [INFO] Ingresando credenciales...
+2026-09-07 10:55:24,727 [INFO] Enviando formulario de login...
+2026-09-07 10:55:36,102 [INFO] URL después del login: https://appweb.asfi.gob.bo/SCIP/Default.aspx
+2026-09-07 10:55:36,102 [INFO] ✅ Login exitoso
+2026-09-07 10:55:36,102 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 10:55:38,677 [INFO] URL tras click menú principal: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/Default.aspx
+2026-09-07 10:55:38,677 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 10:55:44,499 [INFO] URL tras click menú lateral: https://appweb.asfi.gob.bo/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 10:55:44,500 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 10:55:46,797 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 10:55:49,021 [INFO] Ejecutando búsqueda...
+2026-09-07 10:55:54,177 [INFO] Extrayendo datos de la tabla...
+2026-09-07 10:55:54,214 [INFO] Procesando página 1 de la tabla...
+2026-09-07 10:55:54,249 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 10:55:55,041 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 10:55:56,102 [INFO] Procesando página 2 de la tabla...
+2026-09-07 10:55:56,115 [INFO]   Filas encontradas en página 2: 1
+2026-09-07 10:55:56,194 [INFO] No hay más páginas. Total registros extraídos: 11
+2026-09-07 10:55:56,286 [INFO] Navegador cerrado.
+2026-09-07 10:55:56,338 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 10:55:56,338 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 10:55:56,339 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 10:55:56,339 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 10:56:13,213 [INFO] Estado de los reportes (10 ✅ | 0 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 10:56:13,214 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 10:56:13,214 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 10:56:13,214 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 10:56:13,214 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 10:56:13,214 [INFO]   ✅ Solicitud de Créditos - PREAMyPes - Semanal (CCM | corte 2026-09-06)
+2026-09-07 10:56:13,215 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 10:56:13,215 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 10:56:13,215 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 10:56:13,215 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 10:56:13,216 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 10:56:13,216 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 10:56:13,216 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 10:56:13,216 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 10:56:13,216 [INFO] Resumen: 10 exitosos | 1 pendientes | 0 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 10:56:13,218 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 14:22:38,472 [INFO] ============================================================
+2026-09-07 14:22:38,472 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 14:22:38,473 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 14:22:38,473 [INFO]   Intervalo: 15 minutos
+2026-09-07 14:22:38,473 [INFO]   Headless : True
+2026-09-07 14:22:38,473 [INFO]   Días atrás: 1
+2026-09-07 14:22:38,474 [INFO] ============================================================
+2026-09-07 14:22:38,706 [INFO] ============================================================
+2026-09-07 14:22:38,707 [INFO] Iniciando revisión: 2026-09-07 14:22:38
+2026-09-07 14:22:38,748 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 14:22:40,549 [INFO] Iniciando navegador Chromium...
+2026-09-07 14:22:49,723 [INFO] Abriendo login:  http://127.0.0.1:5500/SCIP/Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 14:22:52,315 [INFO] Ingresando credenciales...
+2026-09-07 14:23:42,332 [ERROR] Timeout esperando un elemento de la página: Locator.wait_for: Timeout 50000ms exceeded.
+Call log:
+  - waiting for locator(".txtLogin") to be visible
+
+2026-09-07 14:23:42,333 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - Timeout: No se carg? la p?gina en 45s. Verificar conexi?n o disponibilidad del sistema ASFI.
+2026-09-07 14:23:54,453 [INFO] Navegador cerrado.
+2026-09-07 14:23:54,511 [WARNING] No se obtuvieron reportes (tabla vacía o error de scraping)
+2026-09-07 14:28:07,700 [INFO] ============================================================
+2026-09-07 14:28:07,700 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 14:28:07,701 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 14:28:07,701 [INFO]   Intervalo: 15 minutos
+2026-09-07 14:28:07,701 [INFO]   Headless : True
+2026-09-07 14:28:07,701 [INFO]   Días atrás: 1
+2026-09-07 14:28:07,702 [INFO] ============================================================
+2026-09-07 14:28:07,852 [INFO] ============================================================
+2026-09-07 14:28:07,852 [INFO] Iniciando revisión: 2026-09-07 14:28:07
+2026-09-07 14:28:07,890 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 14:28:09,214 [INFO] Iniciando navegador Chromium...
+2026-09-07 14:28:17,536 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 14:28:20,108 [INFO] Ingresando credenciales...
+2026-09-07 14:28:20,828 [INFO] Enviando formulario de login...
+2026-09-07 14:28:22,917 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 14:28:22,918 [INFO] ✅ Login exitoso
+2026-09-07 14:28:22,919 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 14:28:24,600 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 14:28:24,601 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 14:28:26,791 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 14:28:26,793 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 14:28:29,269 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 14:28:31,708 [INFO] Ejecutando búsqueda...
+2026-09-07 14:28:34,298 [INFO] Extrayendo datos de la tabla...
+2026-09-07 14:28:34,301 [INFO] Procesando página 1 de la tabla...
+2026-09-07 14:28:34,313 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 14:28:34,807 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 14:28:35,856 [INFO] Procesando página 2 de la tabla...
+2026-09-07 14:28:35,900 [INFO]   Filas encontradas en página 2: 3
+2026-09-07 14:28:36,064 [INFO] No hay más páginas. Total registros extraídos: 13
+2026-09-07 14:28:36,142 [INFO] Navegador cerrado.
+2026-09-07 14:28:36,170 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 14:28:36,183 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 14:28:36,183 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D007 IF - Diario Operaciones Interbancarias', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-07 14:28:36,183 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 8 reportes FALTANTES: Fecha: 6/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-07 14:28:36,184 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:28:52,761 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 14:28:52,761 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 14:28:52,761 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:29:09,146 [INFO] Estado de los reportes (13 ✅ | 0 ❌ | 11 ⚠️ | 0 ⏳):
+2026-09-07 14:29:09,146 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,146 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,147 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,147 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 14:29:09,147 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,147 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,147 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,147 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,148 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,148 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,148 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,148 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,148 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 14:29:09,149 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-07 14:29:09,149 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-07 14:29:09,149 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-07 14:29:09,149 [INFO]   ⚠️ D007 IF - Diario Operaciones Interbancarias (FALTANTE)
+2026-09-07 14:29:09,149 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-07 14:29:09,150 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-07 14:29:09,150 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-07 14:29:09,150 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-07 14:29:09,151 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 14:29:09,151 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 14:29:09,151 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 14:29:09,152 [INFO] Resumen: 13 exitosos | 0 pendientes | 0 errores | 11 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 14:29:09,156 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 14:43:54,739 [INFO] ============================================================
+2026-09-07 14:43:54,739 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 14:43:54,739 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 14:43:54,740 [INFO]   Intervalo: 15 minutos
+2026-09-07 14:43:54,740 [INFO]   Headless : True
+2026-09-07 14:43:54,740 [INFO]   Días atrás: 1
+2026-09-07 14:43:54,741 [INFO] ============================================================
+2026-09-07 14:43:54,966 [INFO] ============================================================
+2026-09-07 14:43:54,966 [INFO] Iniciando revisión: 2026-09-07 14:43:54
+2026-09-07 14:43:55,006 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 14:43:57,278 [INFO] Iniciando navegador Chromium...
+2026-09-07 14:44:10,651 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 14:44:13,368 [INFO] Ingresando credenciales...
+2026-09-07 14:44:14,091 [INFO] Enviando formulario de login...
+2026-09-07 14:44:16,177 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 14:44:16,178 [INFO] ✅ Login exitoso
+2026-09-07 14:44:16,178 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 14:44:17,803 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 14:44:17,803 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 14:44:19,938 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 14:44:19,938 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 14:44:22,233 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 14:44:24,562 [INFO] Ejecutando búsqueda...
+2026-09-07 14:44:27,119 [INFO] Extrayendo datos de la tabla...
+2026-09-07 14:44:27,123 [INFO] Procesando página 1 de la tabla...
+2026-09-07 14:44:27,134 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 14:44:28,068 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 14:44:29,117 [INFO] Procesando página 2 de la tabla...
+2026-09-07 14:44:29,128 [INFO]   Filas encontradas en página 2: 3
+2026-09-07 14:44:29,305 [INFO] No hay más páginas. Total registros extraídos: 13
+2026-09-07 14:44:29,403 [INFO] Navegador cerrado.
+2026-09-07 14:44:29,444 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 14:44:29,457 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 14:44:29,458 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D006 IF - Diario Tasas de Interés Activas', 'D008 IF - Diario Tipo de Cambio', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-07 14:44:29,459 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 7 reportes FALTANTES: Fecha: 6/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-07 14:44:29,459 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:44:46,342 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 14:44:46,342 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 14:44:46,342 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:45:02,753 [INFO] Estado de los reportes (13 ✅ | 0 ❌ | 10 ⚠️ | 0 ⏳):
+2026-09-07 14:45:02,753 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,753 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,754 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,754 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 14:45:02,754 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,754 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,754 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,755 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,755 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,755 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,755 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,755 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,756 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 14:45:02,756 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-07 14:45:02,756 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-07 14:45:02,756 [INFO]   ⚠️ D006 IF - Diario Tasas de Interés Activas (FALTANTE)
+2026-09-07 14:45:02,756 [INFO]   ⚠️ D008 IF - Diario Tipo de Cambio (FALTANTE)
+2026-09-07 14:45:02,757 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-07 14:45:02,757 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-07 14:45:02,757 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-07 14:45:02,757 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 14:45:02,757 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 14:45:02,758 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 14:45:02,758 [INFO] Resumen: 13 exitosos | 0 pendientes | 0 errores | 10 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 14:45:02,765 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 14:47:04,657 [INFO] ============================================================
+2026-09-07 14:47:04,657 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 14:47:04,657 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 14:47:04,657 [INFO]   Intervalo: 15 minutos
+2026-09-07 14:47:04,658 [INFO]   Headless : True
+2026-09-07 14:47:04,658 [INFO]   Días atrás: 1
+2026-09-07 14:47:04,658 [INFO] ============================================================
+2026-09-07 14:47:04,830 [INFO] ============================================================
+2026-09-07 14:47:04,830 [INFO] Iniciando revisión: 2026-09-07 14:47:04
+2026-09-07 14:47:04,875 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 14:47:06,722 [INFO] Iniciando navegador Chromium...
+2026-09-07 14:47:17,724 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 14:47:20,491 [INFO] Ingresando credenciales...
+2026-09-07 14:47:21,243 [INFO] Enviando formulario de login...
+2026-09-07 14:47:23,582 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 14:47:23,593 [INFO] ✅ Login exitoso
+2026-09-07 14:47:23,597 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 14:47:25,358 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 14:47:25,358 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 14:47:27,508 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 14:47:27,508 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 14:47:29,782 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 14:47:32,057 [INFO] Ejecutando búsqueda...
+2026-09-07 14:47:34,652 [INFO] Extrayendo datos de la tabla...
+2026-09-07 14:47:34,657 [INFO] Procesando página 1 de la tabla...
+2026-09-07 14:47:34,676 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 14:47:35,225 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 14:47:36,272 [INFO] Procesando página 2 de la tabla...
+2026-09-07 14:47:36,284 [INFO]   Filas encontradas en página 2: 3
+2026-09-07 14:47:36,461 [INFO] No hay más páginas. Total registros extraídos: 13
+2026-09-07 14:47:36,558 [INFO] Navegador cerrado.
+2026-09-07 14:47:36,593 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 14:47:36,608 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 14:47:36,609 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Ampliación de plazo de reclamos de primera instancia', 'D001-D005 IF - Diario Encaje', 'D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-07 14:47:36,610 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 5 reportes FALTANTES: Fecha: 6/9/2026
+
+  ? Ampliaci?n de plazo de reclamos de primera instancia
+  ? D001-D005 IF - Diario 
+2026-09-07 14:47:36,610 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:47:53,091 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 14:47:53,091 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 14:47:53,092 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:48:09,579 [INFO] Estado de los reportes (13 ✅ | 0 ❌ | 8 ⚠️ | 0 ⏳):
+2026-09-07 14:48:09,579 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,580 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,580 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,580 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 14:48:09,581 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,581 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,581 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,582 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,582 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,582 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,583 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,583 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,583 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 14:48:09,583 [INFO]   ⚠️ Ampliación de plazo de reclamos de primera instancia (FALTANTE)
+2026-09-07 14:48:09,584 [INFO]   ⚠️ D001-D005 IF - Diario Encaje (FALTANTE)
+2026-09-07 14:48:09,584 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-07 14:48:09,585 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-07 14:48:09,587 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-07 14:48:09,588 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 14:48:09,589 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 14:48:09,590 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 14:48:09,599 [INFO] Resumen: 13 exitosos | 0 pendientes | 0 errores | 8 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 14:48:09,853 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 14:51:39,943 [INFO] ============================================================
+2026-09-07 14:51:39,944 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 14:51:39,944 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 14:51:39,945 [INFO]   Intervalo: 15 minutos
+2026-09-07 14:51:39,945 [INFO]   Headless : True
+2026-09-07 14:51:39,946 [INFO]   Días atrás: 1
+2026-09-07 14:51:39,946 [INFO] ============================================================
+2026-09-07 14:51:40,138 [INFO] ============================================================
+2026-09-07 14:51:40,138 [INFO] Iniciando revisión: 2026-09-07 14:51:40
+2026-09-07 14:51:40,184 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 14:51:42,087 [INFO] Iniciando navegador Chromium...
+2026-09-07 14:51:53,065 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 14:51:55,819 [INFO] Ingresando credenciales...
+2026-09-07 14:51:56,553 [INFO] Enviando formulario de login...
+2026-09-07 14:51:58,674 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 14:51:58,674 [INFO] ✅ Login exitoso
+2026-09-07 14:51:58,674 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 14:52:00,317 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 14:52:00,318 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 14:52:02,484 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 14:52:02,485 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 14:52:04,855 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 14:52:07,184 [INFO] Ejecutando búsqueda...
+2026-09-07 14:52:09,922 [INFO] Extrayendo datos de la tabla...
+2026-09-07 14:52:09,935 [INFO] Procesando página 1 de la tabla...
+2026-09-07 14:52:09,973 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 14:52:10,455 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 14:52:11,488 [INFO] Procesando página 2 de la tabla...
+2026-09-07 14:52:11,516 [INFO]   Filas encontradas en página 2: 3
+2026-09-07 14:52:11,685 [INFO] No hay más páginas. Total registros extraídos: 13
+2026-09-07 14:52:11,769 [INFO] Navegador cerrado.
+2026-09-07 14:52:11,796 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 14:52:11,810 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 14:52:11,811 [WARNING] ⚠️  Reportes diarios FALTANTES: ['D012 - Créditos refinanciados y/o reprogramados', 'REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA', 'Reporte de Transacciones con el Exterior Diario']
+2026-09-07 14:52:11,811 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes FALTANTES: Fecha: 6/9/2026
+
+  ? D012 - Cr?ditos refinanciados y/o reprogramados
+  ? REPORTE DIARIO DE RETIRO DE
+2026-09-07 14:52:11,811 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:52:28,317 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 14:52:28,318 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 14:52:28,319 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:52:44,734 [INFO] Estado de los reportes (13 ✅ | 0 ❌ | 6 ⚠️ | 0 ⏳):
+2026-09-07 14:52:44,734 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,734 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,734 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,734 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 14:52:44,735 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,735 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,735 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,735 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,735 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,735 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,735 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,736 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,736 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 14:52:44,736 [INFO]   ⚠️ D012 - Créditos refinanciados y/o reprogramados (FALTANTE)
+2026-09-07 14:52:44,736 [INFO]   ⚠️ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (FALTANTE)
+2026-09-07 14:52:44,736 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-07 14:52:44,736 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 14:52:44,737 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 14:52:44,737 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 14:52:44,737 [INFO] Resumen: 13 exitosos | 0 pendientes | 0 errores | 6 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 14:52:44,739 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 14:53:35,156 [INFO] ============================================================
+2026-09-07 14:53:35,156 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 14:53:35,156 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 14:53:35,157 [INFO]   Intervalo: 15 minutos
+2026-09-07 14:53:35,157 [INFO]   Headless : True
+2026-09-07 14:53:35,157 [INFO]   Días atrás: 1
+2026-09-07 14:53:35,157 [INFO] ============================================================
+2026-09-07 14:53:35,334 [INFO] ============================================================
+2026-09-07 14:53:35,335 [INFO] Iniciando revisión: 2026-09-07 14:53:35
+2026-09-07 14:53:35,435 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 14:53:37,738 [INFO] Iniciando navegador Chromium...
+2026-09-07 14:53:46,637 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 14:53:49,432 [INFO] Ingresando credenciales...
+2026-09-07 14:53:50,167 [INFO] Enviando formulario de login...
+2026-09-07 14:53:52,276 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 14:53:52,277 [INFO] ✅ Login exitoso
+2026-09-07 14:53:52,278 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 14:53:53,942 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 14:53:53,942 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 14:53:56,142 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 14:53:56,144 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 14:53:58,583 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 14:54:00,931 [INFO] Ejecutando búsqueda...
+2026-09-07 14:54:03,520 [INFO] Extrayendo datos de la tabla...
+2026-09-07 14:54:03,528 [INFO] Procesando página 1 de la tabla...
+2026-09-07 14:54:03,555 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 14:54:04,092 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 14:54:05,122 [INFO] Procesando página 2 de la tabla...
+2026-09-07 14:54:05,157 [INFO]   Filas encontradas en página 2: 3
+2026-09-07 14:54:05,327 [INFO] No hay más páginas. Total registros extraídos: 13
+2026-09-07 14:54:05,564 [INFO] Navegador cerrado.
+2026-09-07 14:54:05,614 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 14:54:05,625 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 14:54:05,625 [WARNING] ⚠️  Reportes diarios FALTANTES: ['Reporte de Transacciones con el Exterior Diario']
+2026-09-07 14:54:05,625 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 1 reportes FALTANTES: Fecha: 6/9/2026
+
+  ? Reporte de Transacciones con el Exterior Diario
+2026-09-07 14:54:05,626 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:54:22,050 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 14:54:22,051 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 14:54:22,051 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:54:38,475 [INFO] Estado de los reportes (13 ✅ | 0 ❌ | 4 ⚠️ | 0 ⏳):
+2026-09-07 14:54:38,475 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,476 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,476 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,476 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 14:54:38,477 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,477 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,478 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,478 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,479 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,479 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,479 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,480 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,480 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 14:54:38,481 [INFO]   ⚠️ Reporte de Transacciones con el Exterior Diario (FALTANTE)
+2026-09-07 14:54:38,481 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 14:54:38,482 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 14:54:38,484 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 14:54:38,484 [INFO] Resumen: 13 exitosos | 0 pendientes | 0 errores | 4 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 14:54:38,490 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 14:58:01,970 [INFO] ============================================================
+2026-09-07 14:58:01,971 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 14:58:01,972 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 14:58:01,972 [INFO]   Intervalo: 15 minutos
+2026-09-07 14:58:01,972 [INFO]   Headless : True
+2026-09-07 14:58:01,972 [INFO]   Días atrás: 1
+2026-09-07 14:58:01,973 [INFO] ============================================================
+2026-09-07 14:58:02,219 [INFO] ============================================================
+2026-09-07 14:58:02,219 [INFO] Iniciando revisión: 2026-09-07 14:58:02
+2026-09-07 14:58:02,282 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 14:58:04,453 [INFO] Iniciando navegador Chromium...
+2026-09-07 14:58:13,781 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 14:58:16,391 [INFO] Ingresando credenciales...
+2026-09-07 14:58:17,118 [INFO] Enviando formulario de login...
+2026-09-07 14:58:19,194 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 14:58:19,194 [INFO] ✅ Login exitoso
+2026-09-07 14:58:19,194 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 14:58:20,828 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 14:58:20,828 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 14:58:22,999 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 14:58:22,999 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 14:58:25,278 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 14:58:27,602 [INFO] Ejecutando búsqueda...
+2026-09-07 14:58:30,168 [INFO] Extrayendo datos de la tabla...
+2026-09-07 14:58:30,172 [INFO] Procesando página 1 de la tabla...
+2026-09-07 14:58:30,184 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 14:58:30,718 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 14:58:31,769 [INFO] Procesando página 2 de la tabla...
+2026-09-07 14:58:31,780 [INFO]   Filas encontradas en página 2: 3
+2026-09-07 14:58:31,950 [INFO] No hay más páginas. Total registros extraídos: 13
+2026-09-07 14:58:32,045 [INFO] Navegador cerrado.
+2026-09-07 14:58:32,075 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 14:58:32,088 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 14:58:32,089 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 14:58:32,090 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 14:58:32,091 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 14:58:48,669 [INFO] Estado de los reportes (13 ✅ | 0 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 14:58:48,669 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,669 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,670 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,670 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 14:58:48,670 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,670 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,670 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,671 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,671 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,671 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,671 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,671 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,672 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 14:58:48,672 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 14:58:48,672 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 14:58:48,672 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 14:58:48,672 [INFO] Resumen: 13 exitosos | 0 pendientes | 0 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 14:58:48,676 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 15:07:27,777 [INFO] ============================================================
+2026-09-07 15:07:27,778 [INFO] Iniciando revisión: 2026-09-07 15:07:27
+2026-09-07 15:07:27,971 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 15:07:29,271 [INFO] Iniciando navegador Chromium...
+2026-09-07 15:07:41,255 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 15:07:43,891 [INFO] Ingresando credenciales...
+2026-09-07 15:07:44,643 [INFO] Enviando formulario de login...
+2026-09-07 15:07:46,826 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 15:07:46,827 [INFO] ✅ Login exitoso
+2026-09-07 15:07:46,827 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 15:07:48,456 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 15:07:48,456 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 15:07:50,596 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 15:07:50,596 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 15:07:52,873 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 15:07:55,133 [INFO] Ejecutando búsqueda...
+2026-09-07 15:07:57,693 [INFO] Extrayendo datos de la tabla...
+2026-09-07 15:07:57,699 [INFO] Procesando página 1 de la tabla...
+2026-09-07 15:07:57,718 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 15:07:58,358 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 15:07:59,388 [INFO] Procesando página 2 de la tabla...
+2026-09-07 15:07:59,398 [INFO]   Filas encontradas en página 2: 3
+2026-09-07 15:07:59,592 [INFO] No hay más páginas. Total registros extraídos: 13
+2026-09-07 15:07:59,681 [INFO] Navegador cerrado.
+2026-09-07 15:07:59,711 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 15:07:59,724 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 15:07:59,725 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 15:07:59,726 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 15:07:59,726 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:08:16,351 [INFO] Estado de los reportes (13 ✅ | 0 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 15:08:16,351 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,352 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,352 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,352 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 15:08:16,352 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,352 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,352 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,353 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,353 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,353 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,353 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,353 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,354 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 15:08:16,354 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 15:08:16,354 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 15:08:16,354 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 15:08:16,354 [INFO] Resumen: 13 exitosos | 0 pendientes | 0 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 15:08:16,357 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 15:10:28,752 [INFO] ============================================================
+2026-09-07 15:10:28,752 [INFO] Iniciando revisión: 2026-09-07 15:10:28
+2026-09-07 15:10:28,763 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 15:10:29,789 [INFO] Iniciando navegador Chromium...
+2026-09-07 15:10:39,566 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 15:10:42,136 [INFO] Ingresando credenciales...
+2026-09-07 15:10:42,879 [INFO] Enviando formulario de login...
+2026-09-07 15:10:45,431 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 15:10:45,433 [INFO] ✅ Login exitoso
+2026-09-07 15:10:45,433 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 15:10:47,073 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 15:10:47,073 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 15:10:49,279 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 15:10:49,280 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 15:10:51,587 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 15:10:53,958 [INFO] Ejecutando búsqueda...
+2026-09-07 15:10:56,514 [INFO] Extrayendo datos de la tabla...
+2026-09-07 15:10:56,523 [INFO] Procesando página 1 de la tabla...
+2026-09-07 15:10:56,565 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 15:10:57,443 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 15:10:58,507 [INFO] Procesando página 2 de la tabla...
+2026-09-07 15:10:58,535 [INFO]   Filas encontradas en página 2: 2
+2026-09-07 15:10:58,686 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-07 15:10:58,787 [INFO] Navegador cerrado.
+2026-09-07 15:10:58,824 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-06
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-07 15:10:58,824 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:11:15,381 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-07 15:11:15,381 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 15:11:15,381 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 15:11:15,382 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 15:11:15,382 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:11:31,811 [INFO] Estado de los reportes (11 ✅ | 1 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 15:11:31,812 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,812 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,812 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,812 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 15:11:31,813 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,813 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,813 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,813 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,813 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,814 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,814 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 15:11:31,814 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 15:11:31,814 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 15:11:31,814 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 15:11:31,815 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-06) - Validación: Detalle Error
+2026-09-07 15:11:31,815 [INFO] Resumen: 11 exitosos | 0 pendientes | 1 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 15:11:31,819 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 15:12:08,520 [INFO] ============================================================
+2026-09-07 15:12:08,520 [INFO] Iniciando revisión: 2026-09-07 15:12:08
+2026-09-07 15:12:08,533 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 15:12:09,589 [INFO] Iniciando navegador Chromium...
+2026-09-07 15:12:17,807 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 15:12:20,418 [INFO] Ingresando credenciales...
+2026-09-07 15:12:21,161 [INFO] Enviando formulario de login...
+2026-09-07 15:12:23,260 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 15:12:23,261 [INFO] ✅ Login exitoso
+2026-09-07 15:12:23,261 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 15:12:24,893 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 15:12:24,894 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 15:12:27,030 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 15:12:27,031 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 15:12:29,372 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 15:12:31,687 [INFO] Ejecutando búsqueda...
+2026-09-07 15:12:34,254 [INFO] Extrayendo datos de la tabla...
+2026-09-07 15:12:34,259 [INFO] Procesando página 1 de la tabla...
+2026-09-07 15:12:34,277 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 15:12:35,109 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 15:12:36,147 [INFO] Procesando página 2 de la tabla...
+2026-09-07 15:12:36,161 [INFO]   Filas encontradas en página 2: 3
+2026-09-07 15:12:36,344 [INFO] No hay más páginas. Total registros extraídos: 13
+2026-09-07 15:12:36,459 [INFO] Navegador cerrado.
+2026-09-07 15:12:36,494 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-06
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-07 15:12:36,494 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:12:52,982 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-07 15:12:52,982 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-06
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-07 15:12:52,982 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:13:09,453 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-07 15:13:09,453 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 15:13:09,453 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 15:13:09,454 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 15:13:09,454 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:13:25,871 [INFO] Estado de los reportes (11 ✅ | 2 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 15:13:25,871 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,872 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,872 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,872 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 15:13:25,872 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,873 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,873 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,873 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,873 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,873 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,874 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 15:13:25,874 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 15:13:25,874 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 15:13:25,874 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 15:13:25,874 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-06) - Validación: Detalle Error
+2026-09-07 15:13:25,875 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-06) - Validación: Detalle Error
+2026-09-07 15:13:25,875 [INFO] Resumen: 11 exitosos | 0 pendientes | 2 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 15:13:25,875 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 2 reportes con ERROR: ? CS - Cartera Semanal
+? CS - Cartera Semanal
+2026-09-07 15:13:25,875 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:13:42,273 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 15:14:02,576 [INFO] ============================================================
+2026-09-07 15:14:02,576 [INFO] Iniciando revisión: 2026-09-07 15:14:02
+2026-09-07 15:14:02,589 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 15:14:03,643 [INFO] Iniciando navegador Chromium...
+2026-09-07 15:14:12,061 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 15:14:14,662 [INFO] Ingresando credenciales...
+2026-09-07 15:14:15,378 [INFO] Enviando formulario de login...
+2026-09-07 15:14:17,471 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 15:14:17,471 [INFO] ✅ Login exitoso
+2026-09-07 15:14:17,472 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 15:14:19,098 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 15:14:19,098 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 15:14:21,234 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 15:14:21,235 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 15:14:23,565 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 15:14:25,889 [INFO] Ejecutando búsqueda...
+2026-09-07 15:14:28,441 [INFO] Extrayendo datos de la tabla...
+2026-09-07 15:14:28,445 [INFO] Procesando página 1 de la tabla...
+2026-09-07 15:14:28,458 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 15:14:29,190 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 15:14:30,220 [INFO] Procesando página 2 de la tabla...
+2026-09-07 15:14:30,232 [INFO]   Filas encontradas en página 2: 4
+2026-09-07 15:14:30,444 [INFO] No hay más páginas. Total registros extraídos: 14
+2026-09-07 15:14:30,528 [INFO] Navegador cerrado.
+2026-09-07 15:14:30,550 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 15:14:30,550 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 15:14:30,556 [INFO] [NOTIFICACION] ? Reporte ASFI resuelto ? CS - Cartera Semanal: El reporte 'CS - Cartera Semanal' ahora figura como exitoso.
+2026-09-07 15:14:41,995 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 15:14:41,995 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 15:14:41,996 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 15:14:41,996 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:14:58,425 [INFO] Estado de los reportes (14 ✅ | 0 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 15:14:58,425 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,425 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,425 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,426 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 15:14:58,426 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,426 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,426 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,426 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,427 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,427 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,427 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,427 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,427 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,427 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 15:14:58,428 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 15:14:58,428 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 15:14:58,428 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 15:14:58,428 [INFO] Resumen: 14 exitosos | 0 pendientes | 0 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 15:14:58,430 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 15:17:47,494 [INFO] ============================================================
+2026-09-07 15:17:47,495 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 15:17:47,495 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 15:17:47,495 [INFO]   Intervalo: 15 minutos
+2026-09-07 15:17:47,495 [INFO]   Headless : True
+2026-09-07 15:17:47,495 [INFO]   Días atrás: 3
+2026-09-07 15:17:47,495 [INFO] ============================================================
+2026-09-07 15:17:47,656 [INFO] ============================================================
+2026-09-07 15:17:47,657 [INFO] Iniciando revisión: 2026-09-07 15:17:47
+2026-09-07 15:17:47,692 [INFO] Fechas a consultar: 6/9/2026 a 6/9/2026
+2026-09-07 15:17:49,115 [INFO] Iniciando navegador Chromium...
+2026-09-07 15:17:58,236 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 15:18:00,857 [INFO] Ingresando credenciales...
+2026-09-07 15:18:01,572 [INFO] Enviando formulario de login...
+2026-09-07 15:18:03,647 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 15:18:03,647 [INFO] ✅ Login exitoso
+2026-09-07 15:18:03,647 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 15:18:05,269 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 15:18:05,269 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 15:18:07,397 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 15:18:07,397 [INFO] Configurando Fecha Corte Inicial: 6/9/2026
+2026-09-07 15:18:09,679 [INFO] Configurando Fecha Corte Final: 6/9/2026
+2026-09-07 15:18:11,933 [INFO] Ejecutando búsqueda...
+2026-09-07 15:18:14,487 [INFO] Extrayendo datos de la tabla...
+2026-09-07 15:18:14,491 [INFO] Procesando página 1 de la tabla...
+2026-09-07 15:18:14,506 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 15:18:15,020 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 15:18:16,059 [INFO] Procesando página 2 de la tabla...
+2026-09-07 15:18:16,070 [INFO]   Filas encontradas en página 2: 4
+2026-09-07 15:18:16,269 [INFO] No hay más páginas. Total registros extraídos: 14
+2026-09-07 15:18:16,359 [INFO] Navegador cerrado.
+2026-09-07 15:18:16,381 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 15:18:16,381 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 15:18:16,395 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 15:18:16,396 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 15:18:16,396 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 15:18:16,396 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:18:32,858 [INFO] Estado de los reportes (14 ✅ | 0 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 15:18:32,858 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,859 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,859 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,859 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 15:18:32,859 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,860 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,860 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,860 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,860 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,861 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,861 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,861 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,861 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,861 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 15:18:32,862 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 15:18:32,862 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 15:18:32,862 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 15:18:32,863 [INFO] Resumen: 14 exitosos | 0 pendientes | 0 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 15:18:32,867 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 15:22:46,872 [INFO] ============================================================
+2026-09-07 15:22:46,872 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 15:22:46,872 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 15:22:46,873 [INFO]   Intervalo: 15 minutos
+2026-09-07 15:22:46,873 [INFO]   Headless : True
+2026-09-07 15:22:46,873 [INFO]   Días atrás: 3
+2026-09-07 15:22:46,873 [INFO] ============================================================
+2026-09-07 15:22:47,029 [INFO] ============================================================
+2026-09-07 15:22:47,029 [INFO] Iniciando revisión: 2026-09-07 15:22:47
+2026-09-07 15:22:47,063 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-07 15:22:48,534 [INFO] Iniciando navegador Chromium...
+2026-09-07 15:22:58,520 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 15:23:01,140 [INFO] Ingresando credenciales...
+2026-09-07 15:23:01,876 [INFO] Enviando formulario de login...
+2026-09-07 15:23:03,998 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 15:23:03,998 [INFO] ✅ Login exitoso
+2026-09-07 15:23:03,999 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 15:23:05,647 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 15:23:05,648 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 15:23:07,809 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 15:23:07,810 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-07 15:23:10,310 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-07 15:23:12,742 [INFO] Ejecutando búsqueda...
+2026-09-07 15:23:15,317 [INFO] Extrayendo datos de la tabla...
+2026-09-07 15:23:15,329 [INFO] Procesando página 1 de la tabla...
+2026-09-07 15:23:15,374 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 15:23:15,882 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 15:23:16,924 [INFO] Procesando página 2 de la tabla...
+2026-09-07 15:23:16,963 [INFO]   Filas encontradas en página 2: 4
+2026-09-07 15:23:17,176 [INFO] No hay más páginas. Total registros extraídos: 14
+2026-09-07 15:23:17,264 [INFO] Navegador cerrado.
+2026-09-07 15:23:17,282 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 15:23:17,282 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 15:23:17,297 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 15:23:17,297 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 15:23:17,298 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 15:23:17,298 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:23:33,873 [INFO] Estado de los reportes (14 ✅ | 0 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 15:23:33,873 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,874 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,874 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,875 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 15:23:33,875 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,875 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,876 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,876 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,876 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,877 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,877 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,877 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,878 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,878 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 15:23:33,878 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 15:23:33,878 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 15:23:33,879 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 15:23:33,880 [INFO] Resumen: 14 exitosos | 0 pendientes | 0 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 15:23:33,884 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 15:25:25,161 [INFO] ============================================================
+2026-09-07 15:25:25,162 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 15:25:25,162 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 15:25:25,162 [INFO]   Intervalo: 15 minutos
+2026-09-07 15:25:25,162 [INFO]   Headless : True
+2026-09-07 15:25:25,163 [INFO]   Días atrás: 3
+2026-09-07 15:25:25,163 [INFO] ============================================================
+2026-09-07 15:25:25,327 [INFO] ============================================================
+2026-09-07 15:25:25,328 [INFO] Iniciando revisión: 2026-09-07 15:25:25
+2026-09-07 15:25:25,568 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-07 15:25:27,126 [INFO] Iniciando navegador Chromium...
+2026-09-07 15:25:36,505 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 15:25:39,146 [INFO] Ingresando credenciales...
+2026-09-07 15:25:39,883 [INFO] Enviando formulario de login...
+2026-09-07 15:25:41,985 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 15:25:41,985 [INFO] ✅ Login exitoso
+2026-09-07 15:25:41,986 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 15:25:43,635 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 15:25:43,635 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 15:25:45,798 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 15:25:45,799 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-07 15:25:48,275 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-07 15:25:50,577 [INFO] Ejecutando búsqueda...
+2026-09-07 15:25:53,149 [INFO] Extrayendo datos de la tabla...
+2026-09-07 15:25:53,155 [INFO] Procesando página 1 de la tabla...
+2026-09-07 15:25:53,180 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 15:25:54,040 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 15:25:55,088 [INFO] Procesando página 2 de la tabla...
+2026-09-07 15:25:55,114 [INFO]   Filas encontradas en página 2: 3
+2026-09-07 15:25:55,295 [INFO] No hay más páginas. Total registros extraídos: 13
+2026-09-07 15:25:55,402 [INFO] Navegador cerrado.
+2026-09-07 15:25:55,434 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 15:25:55,434 [INFO] Reporte subsanado por duplicado exitoso: CS - Cartera Semanal (2026-09-06, ocurrencia=única)
+2026-09-07 15:25:55,454 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 15:25:55,455 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 15:25:55,455 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 15:25:55,455 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:26:12,029 [INFO] Estado de los reportes (13 ✅ | 0 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 15:26:12,029 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,029 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,030 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,030 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 15:26:12,030 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,030 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,031 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,031 [INFO]   ✅ CS - Cartera Semanal (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,031 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,031 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,032 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,032 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,032 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 15:26:12,033 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 15:26:12,033 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 15:26:12,033 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 15:26:12,033 [INFO] Resumen: 13 exitosos | 0 pendientes | 0 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 15:26:12,036 [INFO] Revisión completada. Próxima en 15 min.
+2026-09-07 15:33:19,907 [INFO] ============================================================
+2026-09-07 15:33:19,908 [INFO] ASFI SCIP Monitor iniciado
+2026-09-07 15:33:19,908 [INFO]   Usuario  : thomas.clavijo@comarapa.coop
+2026-09-07 15:33:19,909 [INFO]   Intervalo: 15 minutos
+2026-09-07 15:33:19,909 [INFO]   Headless : True
+2026-09-07 15:33:19,909 [INFO]   Días atrás: 3
+2026-09-07 15:33:19,910 [INFO] ============================================================
+2026-09-07 15:33:20,346 [INFO] ============================================================
+2026-09-07 15:33:20,346 [INFO] Iniciando revisión: 2026-09-07 15:33:20
+2026-09-07 15:33:20,679 [INFO] Fechas a consultar: 4/9/2026 a 4/9/2026
+2026-09-07 15:33:22,835 [INFO] Iniciando navegador Chromium...
+2026-09-07 15:33:32,675 [INFO] Abriendo login:  http://127.0.0.1:5500//Login.aspx?ReturnUrl=%2fSCIP%2fmControlPlazos%2fControlPlazos.aspx
+2026-09-07 15:33:35,301 [INFO] Ingresando credenciales...
+2026-09-07 15:33:36,022 [INFO] Enviando formulario de login...
+2026-09-07 15:33:38,145 [INFO] URL después del login: http://127.0.0.1:5500/SCIP/Default.aspx
+2026-09-07 15:33:38,145 [INFO] ✅ Login exitoso
+2026-09-07 15:33:38,145 [INFO] Navegando a 'Control de Envios' en el menú principal...
+2026-09-07 15:33:39,780 [INFO] URL tras click menú principal: http://127.0.0.1:5500/SCIP/mControlPlazos/Default.aspx
+2026-09-07 15:33:39,780 [INFO] Navegando a 'Envios' en el menú lateral...
+2026-09-07 15:33:41,916 [INFO] URL tras click menú lateral: http://127.0.0.1:5500/SCIP/mControlPlazos/ControlPlazos.aspx
+2026-09-07 15:33:41,917 [INFO] Configurando Fecha Corte Inicial: 4/9/2026
+2026-09-07 15:33:44,282 [INFO] Configurando Fecha Corte Final: 4/9/2026
+2026-09-07 15:33:46,509 [INFO] Ejecutando búsqueda...
+2026-09-07 15:33:49,062 [INFO] Extrayendo datos de la tabla...
+2026-09-07 15:33:49,069 [INFO] Procesando página 1 de la tabla...
+2026-09-07 15:33:49,087 [INFO]   Filas encontradas en página 1: 10
+2026-09-07 15:33:49,619 [INFO]   Haciendo clic en 'Siguiente' (página 1 → 2)...
+2026-09-07 15:33:50,664 [INFO] Procesando página 2 de la tabla...
+2026-09-07 15:33:50,675 [INFO]   Filas encontradas en página 2: 2
+2026-09-07 15:33:50,808 [INFO] No hay más páginas. Total registros extraídos: 12
+2026-09-07 15:33:50,921 [INFO] Navegador cerrado.
+2026-09-07 15:33:50,966 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-06
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-07 15:33:50,966 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:34:07,544 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-07 15:34:07,544 [INFO] [NOTIFICACION] ? ERROR en reporte ASFI ? CS - Cartera Semanal: Entidad: CCM | Corte: 2026-09-06
+Grupo: CS - Cartera Semanal
+Problema: Validaci?n: Detalle Error
+Env
+2026-09-07 15:34:07,544 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:34:23,969 [WARNING] ALERTA ENVIADA: 🔴 ERROR en reporte ASFI — CS - Cartera Semanal
+2026-09-07 15:34:23,970 [INFO] Validando obligaciones configuradas para 6/9/2026...
+2026-09-07 15:34:23,971 [WARNING] ⚠️ Reportes semanales FALTANTES: ['CS - Cartera Semanal', 'Solicitud de Créditos - PREAMyPes - Semanal', 'S001-S005 IF - Semanal Reportes Liquidez']
+2026-09-07 15:34:23,971 [INFO] [NOTIFICACION] ?? ASFI/SCIP Monitor - 3 reportes SEMANALES FALTANTES: Fecha: 6/9/2026
+
+  ? CS - Cartera Semanal
+  ? Solicitud de Cr?ditos - PREAMyPes - Semanal
+  ? S001-S
+2026-09-07 15:34:23,971 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:34:40,419 [INFO] Estado de los reportes (10 ✅ | 2 ❌ | 3 ⚠️ | 0 ⏳):
+2026-09-07 15:34:40,419 [INFO]   ✅ D007 IF - Diario Operaciones Interbancarias (CCM | corte 2026-09-06)
+2026-09-07 15:34:40,420 [INFO]   ✅ D006 IF - Diario Tasas de Interés Activas (CCM | corte 2026-09-06)
+2026-09-07 15:34:40,420 [INFO]   ✅ S001-S005 IF - Semanal Reportes Liquidez (CCM | corte 2026-09-06)
+2026-09-07 15:34:40,420 [INFO]   ✅ Auditor Externo (CCM | corte 2026-12-31)
+2026-09-07 15:34:40,420 [INFO]   ✅ D008 IF - Diario Tipo de Cambio (CCM | corte 2026-09-06)
+2026-09-07 15:34:40,421 [INFO]   ✅ Ampliación de plazo de reclamos de primera instancia (CCM | corte 2026-09-06)
+2026-09-07 15:34:40,421 [INFO]   ✅ Reporte de Transacciones con el Exterior Diario (CCM | corte 2026-09-06)
+2026-09-07 15:34:40,421 [INFO]   ✅ D001-D005 IF - Diario Encaje (CCM | corte 2026-09-06)
+2026-09-07 15:34:40,421 [INFO]   ✅ REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA (CCM | corte 2026-09-06)
+2026-09-07 15:34:40,421 [INFO]   ✅ D012 - Créditos refinanciados y/o reprogramados (CCM | corte 2026-09-06)
+2026-09-07 15:34:40,421 [INFO]   ⚠️ CS - Cartera Semanal (SEMANAL FALTANTE)
+2026-09-07 15:34:40,422 [INFO]   ⚠️ Solicitud de Créditos - PREAMyPes - Semanal (SEMANAL FALTANTE)
+2026-09-07 15:34:40,422 [INFO]   ⚠️ S001-S005 IF - Semanal Reportes Liquidez (SEMANAL FALTANTE)
+2026-09-07 15:34:40,422 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-06) - Validación: Detalle Error
+2026-09-07 15:34:40,422 [INFO]   ❌ CS - Cartera Semanal (CCM | corte 2026-09-06) - Validación: Detalle Error
+2026-09-07 15:34:40,422 [INFO] Resumen: 10 exitosos | 0 pendientes | 2 errores | 3 faltantes | 0 sin enviar (dentro de plazo)
+2026-09-07 15:34:40,422 [INFO] [NOTIFICACION] ? ASFI/SCIP Monitor - 2 reportes con ERROR: ? CS - Cartera Semanal
+? CS - Cartera Semanal
+2026-09-07 15:34:40,423 [INFO] [URGENTE] Enviando notificación por un método disponible...
+2026-09-07 15:34:56,840 [INFO] Revisión completada. Próxima en 15 min.

@@ -59,23 +59,121 @@ class ReportesDatabaseTests(unittest.TestCase):
         current = datetime(2026, 9, 3, 10, 0)
         reportes_db.ensure_obligations(self.conn, current)
         row_one = scraped_row(D008, "2/9/2026", envio="Envío 1", arrival="3/9/2026")
-        run_id = reportes_db.start_scrape_run(self.conn, date(2026, 9, 2), date(2026, 9, 2))
-        reportes_db.store_observations(self.conn, run_id, [row_one])
+        counts = reportes_db.get_required_occurrence_counts(self.conn, [row_one])
+        self.assertEqual(counts[(reportes_db.normalize_name(D008), "2026-09-02")], 2)
+
+        first_run_id = reportes_db.start_scrape_run(
+            self.conn, date(2026, 9, 2), date(2026, 9, 2)
+        )
+        reportes_db.store_observations(self.conn, first_run_id, [row_one])
 
         after_deadline = datetime(2026, 9, 4, 0, 1)
         result = reportes_db.evaluate_obligations(self.conn, [row_one], after_deadline)
         self.assertEqual(result["diario"].count(D008), 1)
+        statuses = self.conn.execute(
+            """
+            SELECT o.ocurrencia, o.estado
+            FROM obligaciones o JOIN reportes p ON p.id = o.reporte_id
+            WHERE p.codigo = 'D008' AND o.fecha_corte = '2026-09-02'
+            ORDER BY o.ocurrencia
+            """
+        ).fetchall()
+        self.assertEqual(
+            [(row["ocurrencia"], row["estado"]) for row in statuses],
+            [(1, "EXITOSO"), (2, "FALTANTE")],
+        )
 
         row_two = scraped_row(D008, "2/9/2026", envio="Envío 2", arrival="3/9/2026")
-        run_id = reportes_db.start_scrape_run(self.conn, date(2026, 9, 2), date(2026, 9, 2))
-        reportes_db.store_observations(self.conn, run_id, [row_one, row_two])
+        second_run_id = reportes_db.start_scrape_run(
+            self.conn, date(2026, 9, 2), date(2026, 9, 2)
+        )
+        reportes_db.store_observations(self.conn, second_run_id, [row_one, row_two])
         result = reportes_db.evaluate_obligations(self.conn, [row_one, row_two], after_deadline)
         self.assertNotIn(D008, result["diario"])
+        statuses = self.conn.execute(
+            """
+            SELECT o.ocurrencia, o.estado
+            FROM obligaciones o JOIN reportes p ON p.id = o.reporte_id
+            WHERE p.codigo = 'D008' AND o.fecha_corte = '2026-09-02'
+            ORDER BY o.ocurrencia
+            """
+        ).fetchall()
+        self.assertEqual(
+            [(row["ocurrencia"], row["estado"]) for row in statuses],
+            [(1, "EXITOSO"), (2, "EXITOSO")],
+        )
+        associations = self.conn.execute(
+            """
+            SELECT o.ocurrencia, obs.envio
+            FROM obligacion_observacion oo
+            JOIN obligaciones o ON o.id = oo.obligacion_id
+            JOIN observaciones_reportes obs ON obs.id = oo.observacion_id
+            WHERE obs.ejecucion_id IN (?, ?)
+            ORDER BY obs.id
+            """,
+            (first_run_id, second_run_id),
+        ).fetchall()
+        self.assertEqual(
+            [(row["ocurrencia"], row["envio"]) for row in associations],
+            [(1, "Envío 1"), (1, "Envío 1"), (2, "Envío 2")],
+        )
         unresolved = self.conn.execute(
             "SELECT COUNT(*) FROM incumplimientos WHERE nombre_snapshot = ? AND resuelto_en IS NULL",
             (D008,),
         ).fetchone()[0]
         self.assertEqual(unresolved, 0)
+
+    def test_d008_without_submissions_marks_both_occurrences_missing(self):
+        current = datetime(2026, 9, 3, 10, 0)
+        reportes_db.ensure_obligations(self.conn, current)
+
+        result = reportes_db.evaluate_obligations(
+            self.conn, [], datetime(2026, 9, 3, 13, 0)
+        )
+        self.assertEqual(result["diario"].count(D008), 2)
+        statuses = self.conn.execute(
+            """
+            SELECT o.ocurrencia, o.estado
+            FROM obligaciones o JOIN reportes p ON p.id = o.reporte_id
+            WHERE p.codigo = 'D008' AND o.fecha_corte = '2026-09-02'
+            ORDER BY o.ocurrencia
+            """
+        ).fetchall()
+        self.assertEqual(
+            [(row["ocurrencia"], row["estado"]) for row in statuses],
+            [(1, "FALTANTE"), (2, "FALTANTE")],
+        )
+
+    def test_configured_occurrences_scale_to_three(self):
+        reportes_db.save_report(
+            self.conn,
+            None,
+            "T003",
+            "Reporte de tres envíos",
+            "diario",
+            True,
+            True,
+            "",
+            [{
+                "regla_fecha_corte": "AYER",
+                "dia_semana_corte": 3,
+                "dias_envio": [4],
+                "hora_limite": "12:00",
+                "ocurrencias_requeridas": 3,
+            }],
+            [],
+        )
+
+        reportes_db.ensure_obligations(self.conn, datetime(2026, 9, 3, 10, 0))
+        rows = self.conn.execute(
+            """
+            SELECT o.ocurrencia
+            FROM obligaciones o JOIN reportes p ON p.id = o.reporte_id
+            WHERE p.codigo = 'T003' AND o.fecha_corte = '2026-09-02'
+            ORDER BY o.ocurrencia
+            """
+        ).fetchall()
+        self.assertEqual([row["ocurrencia"] for row in rows], [1, 2, 3])
 
     def test_evaluation_ignores_historical_missing_obligations(self):
         before = datetime(2026, 9, 3, 13, 0)

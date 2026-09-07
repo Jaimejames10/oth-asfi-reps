@@ -27,7 +27,23 @@
     "2026-09-04|CS - Cartera Semanal|En proceso de recepción": {
       "estado": "ERROR",
       "notificado": "2026-09-05T12:04:10.817213"
+    },
+    "faltantes_semanales|6/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-07T15:34:23.971212"
+    },
+    "sin_enviar_diarios|6/9/2026": {
+      "estado": "SIN_ENVIAR",
+      "notificado": "2026-09-07T09:11:07-04:00"
+    },
+    "faltantes_diarios|6/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-07T14:54:05.625752"
+    },
+    "2026-09-06|CS - Cartera Semanal|En proceso de recepción": {
+      "estado": "ERROR",
+      "notificado": "2026-09-07T15:34:07.544428"
     }
   },
-  "ultima_revision": "2026-09-05T12:03:33-04:00"
+  "ultima_revision": "2026-09-07T15:33:20-04:00"
 }

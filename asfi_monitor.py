@@ -39,14 +39,15 @@ import reportes_db
 # ──────────────────────────────────────────────────────────────────────────────
 CONFIG = {
     # URL base del sistema SCIP (sin barra final)
-    "url_base": "https://appweb.asfi.gob.bo/SCIP",
+    # "url_base": "https://appweb.asfi.gob.bo/SCIP",
+    "url_base": " http://127.0.0.1:5500/",  # Para pruebas locales con HTML simulado
 
     # Credenciales: se leen desde SQLite; estas variables/CLI son overrides temporales
     "usuario": os.environ.get("ASFI_USUARIO", ""),
     "password": os.environ.get("ASFI_PASSWORD", ""),
 
     # días_atras se conserva por compatibilidad con el CLI.
-    "dias_atras": 1,
+    "dias_atras": 3,
 
     # Intervalo de monitoreo en minutos (se puede sobreescribir con --intervalo)
     "intervalo_minutos": 15,
@@ -335,6 +336,82 @@ def _es_error_validacion(value: str) -> bool:
     return _normalizar_texto(value) in {"error", "detalle error"}
 
 
+def reconciliar_reportes_subsanados(
+    reportes: list[dict],
+    ocurrencias_por_reporte: Optional[dict[tuple[str, str], int]] = None,
+) -> list[dict]:
+    """Convierte en exitosos los errores corregidos por otro envío igual.
+
+    Los reportes con una sola ocurrencia se agrupan por nombre y fecha. Para
+    reportes con varias ocurrencias, cada grupo también incluye el número de
+    envío para no mezclar, por ejemplo, ``Envío 1`` con ``Envío 2``.
+    """
+    ocurrencias_por_reporte = ocurrencias_por_reporte or {}
+    grupos: dict[tuple[str, Optional[str], Optional[int]], list[dict]] = {}
+    for reporte in reportes:
+        nombre = reportes_db.normalize_name(str(reporte.get("grupo") or ""))
+        if not nombre:
+            continue
+        cutoff = reportes_db.parse_date(reporte.get("fecha_corte"))
+        cutoff_iso = cutoff.isoformat() if cutoff else None
+        ocurrencias = ocurrencias_por_reporte.get((nombre, cutoff_iso), 1)
+        numero_envio = reportes_db.extract_occurrence(reporte.get("envio", ""))
+
+        # Sin número no es seguro subsanar una ocurrencia concreta cuando el
+        # reporte exige varios envíos. La evaluación posterior usará el orden
+        # de las filas como fallback para esas observaciones.
+        if ocurrencias > 1 and numero_envio is None:
+            continue
+
+        clave = (
+            nombre,
+            cutoff_iso,
+            numero_envio if ocurrencias > 1 else None,
+        )
+        grupos.setdefault(clave, []).append(reporte)
+
+    for (nombre, cutoff_iso, numero_envio), reportes_mismo_grupo in grupos.items():
+        if len(reportes_mismo_grupo) < 2:
+            continue
+
+        reporte_exitoso = next(
+            (
+                reporte
+                for reporte in reportes_mismo_grupo
+                if reporte.get("estado") == "EXITOSO"
+            ),
+            None,
+        )
+        if reporte_exitoso is None:
+            continue
+
+        envio_exitoso = str(reporte_exitoso.get("envio") or "").strip()
+        for reporte in reportes_mismo_grupo:
+            if reporte.get("estado") != "ERROR":
+                continue
+
+            detalle_original = str(reporte.get("detalle") or "").strip()
+            if numero_envio is None:
+                detalle = "Subsanado por otro reporte exitoso del mismo nombre"
+            else:
+                detalle = "Subsanado por otro envío exitoso de la misma ocurrencia"
+            if envio_exitoso:
+                detalle += f" ({envio_exitoso})"
+            if detalle_original:
+                detalle += f". Error original: {detalle_original}"
+
+            reporte["estado"] = "EXITOSO"
+            reporte["detalle"] = detalle
+            log.info(
+                "Reporte subsanado por duplicado exitoso: %s (%s, ocurrencia=%s)",
+                reporte.get("grupo", ""),
+                cutoff_iso or reporte.get("fecha_corte", ""),
+                numero_envio or "única",
+            )
+
+    return reportes
+
+
 def analizar_reporte_nuevo(validacion: str, envio: str) -> tuple[str, str]:
     """
     Analiza el estado del reporte usando:
@@ -491,7 +568,7 @@ def obtener_reportes(
 
     # SCIP debe consultarse siempre para un único período: ayer. No se usan
     # rangos históricos aquí, aunque existan obligaciones atrasadas.
-    fecha_ayer = reportes_db.local_now().date() - timedelta(days=1)
+    fecha_ayer = reportes_db.local_now().date() - timedelta(days=3)
     fecha_inicio = fecha_ayer
     fecha_fin = fecha_ayer
     fmt_fecha_inicio = reportes_db.format_asfi_date(fecha_inicio)
@@ -849,6 +926,8 @@ def ejecutar_revision() -> None:
 
     sin_enviar_diarios: list[dict] = []
     try:
+        ocurrencias_por_reporte = reportes_db.get_required_occurrence_counts(conn, reportes)
+        reconciliar_reportes_subsanados(reportes, ocurrencias_por_reporte)
         reportes_db.store_observations(conn, run_id, reportes)
         evaluacion = reportes_db.evaluate_obligations(
             conn, reportes, reportes_db.local_now()
