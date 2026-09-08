@@ -42,8 +42,24 @@
     },
     "2026-09-06|CS - Cartera Semanal|En proceso de recepción": {
       "estado": "ERROR",
-      "notificado": "2026-09-07T15:34:07.544428"
+      "notificado": "2026-09-08T09:25:55.003177"
+    },
+    "faltantes_semanales|7/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-08T15:42:02.755760"
+    },
+    "sin_enviar_diarios|7/9/2026": {
+      "estado": "SIN_ENVIAR",
+      "notificado": "2026-09-08T10:35:32-04:00"
+    },
+    "2026-12-31|Auditor Externo|En proceso de recepcion": {
+      "estado": "ERROR",
+      "notificado": "2026-09-08T10:05:30.519994"
+    },
+    "2026-09-07|D008 IF - Diario Tipo de Cambio|En proceso de recepcion": {
+      "estado": "ERROR",
+      "notificado": "2026-09-08T10:27:51.380856"
     }
   },
-  "ultima_revision": "2026-09-07T15:33:20-04:00"
+  "ultima_revision": "2026-09-08T15:41:21-04:00"
 }

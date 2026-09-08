@@ -45,6 +45,18 @@ ESTADO_COLORS = {
     "CONFIGURAR": COLOR_MUTED,
 }
 
+# Orden en que se muestran los grupos del catálogo por tipo de período.
+TIPO_PERIODO_ORDEN = ("diario", "semanal", "mensual", "trimestral", "semestral", "anual", "otro")
+TIPO_PERIODO_TITULO = {
+    "diario": "DIARIOS",
+    "semanal": "SEMANALES",
+    "mensual": "MENSUALES",
+    "trimestral": "TRIMESTRALES",
+    "semestral": "SEMESTRALES",
+    "anual": "ANUALES",
+    "otro": "OTROS",
+}
+
 
 def _optional_int(value: str, field: str, minimum: int = 0) -> Optional[int]:
     value = value.strip()
@@ -512,11 +524,19 @@ class Dashboard(tk.Tk):
         ).pack(side="left", padx=(12, 0), pady=(3, 0))
         return inner
 
-    def _table(self, parent: tk.Frame, columns: tuple, headings: dict, widths: dict, height: int = 16) -> ttk.Treeview:
+    def _table(
+        self,
+        parent: tk.Frame,
+        columns: tuple,
+        headings: dict,
+        widths: dict,
+        height: int = 16,
+        show: str = "headings",
+    ) -> ttk.Treeview:
         wrapper = tk.Frame(parent, bg=COLOR_CARD, highlightthickness=1, highlightbackground=COLOR_BORDER)
         wrapper.pack(fill="both", expand=True, padx=18, pady=(0, 14))
         tree = ttk.Treeview(
-            wrapper, columns=columns, show="headings", selectmode="browse", style="Dash.Treeview", height=height
+            wrapper, columns=columns, show=show, selectmode="browse", style="Dash.Treeview", height=height
         )
         for column in columns:
             tree.heading(column, text=headings[column])
@@ -864,8 +884,12 @@ class Dashboard(tk.Tk):
             "reglas": "Reglas",
         }
         widths = {"codigo": 130, "nombre": 520, "tipo": 100, "activo": 80, "validacion": 95, "reglas": 70}
-        self.reportes_tree = self._table(parent, columns, headings, widths, height=15)
-        self.reportes_tree.bind("<Double-1>", lambda _event: self._edit_report())
+        self.reportes_tree = self._table(parent, columns, headings, widths, height=15, show="tree headings")
+        self.reportes_tree.column("#0", width=26, stretch=False, anchor="center")
+        self.reportes_tree.tag_configure(
+            "grupo", background=COLOR_BG, foreground=COLOR_TEXT, font=(FONT, 9, "bold")
+        )
+        self.reportes_tree.bind("<Double-1>", self._on_reportes_double_click)
         self.reportes_status = tk.StringVar(value="")
         tk.Label(
             parent,
@@ -886,32 +910,64 @@ class Dashboard(tk.Tk):
         filtro = self.search_var.get().strip().lower() if hasattr(self, "search_var") else ""
         for row in self.reportes_tree.get_children():
             self.reportes_tree.delete(row)
-        visibles = 0
+
+        visibles: dict[str, list[dict]] = {}
         for item_id, item in self.items.items():
             texto = f"{item['codigo']} {item['nombre']} {item['tipo_periodo']}".lower()
             if filtro and filtro not in texto:
                 continue
-            visibles += 1
+            tipo = (item.get("tipo_periodo") or "otro").lower()
+            if tipo not in TIPO_PERIODO_TITULO:
+                tipo = "otro"
+            visibles.setdefault(tipo, []).append({**item, "_id": item_id})
+
+        total_visibles = 0
+        for tipo in TIPO_PERIODO_ORDEN:
+            reportes = visibles.get(tipo)
+            if not reportes:
+                continue
+            reportes.sort(key=lambda item: (item["codigo"] or "", item["nombre"] or ""))
+            total_visibles += len(reportes)
+            grupo_iid = f"grupo_{tipo}"
+            titulo = TIPO_PERIODO_TITULO[tipo]
             self.reportes_tree.insert(
                 "",
                 "end",
-                iid=item_id,
-                values=(
-                    item["codigo"],
-                    item["nombre"],
-                    item["tipo_periodo"],
-                    "Sí" if item["activo"] else "No",
-                    "Sí" if item["validacion_activa"] else "No",
-                    len(item["reglas"]),
-                ),
+                iid=grupo_iid,
+                text="",
+                values=("", f"{titulo} ({len(reportes)})", "", "", "", ""),
+                tags=("grupo",),
+                open=True,
             )
+            for item in reportes:
+                self.reportes_tree.insert(
+                    grupo_iid,
+                    "end",
+                    iid=item["_id"],
+                    text="",
+                    values=(
+                        item["codigo"],
+                        item["nombre"],
+                        item["tipo_periodo"],
+                        "Sí" if item["activo"] else "No",
+                        "Sí" if item["validacion_activa"] else "No",
+                        len(item["reglas"]),
+                    ),
+                )
         self.reportes_status.set(
-            f"{visibles} de {len(self.items)} reportes | Base: {self.db_path.name}"
+            f"{total_visibles} de {len(self.items)} reportes | Base: {self.db_path.name}"
         )
+
+    def _on_reportes_double_click(self, event) -> None:
+        item_id = self.reportes_tree.identify_row(event.y)
+        if item_id.startswith("grupo_"):
+            self.reportes_tree.item(item_id, open=not self.reportes_tree.item(item_id, "open"))
+            return
+        self._edit_report()
 
     def _selected_report(self) -> Optional[dict]:
         selection = self.reportes_tree.selection()
-        if not selection:
+        if not selection or selection[0].startswith("grupo_"):
             messagebox.showwarning("Reporte", "Seleccione un reporte primero.", parent=self)
             return None
         return self.items.get(selection[0])

@@ -39,15 +39,15 @@ import reportes_db
 # ──────────────────────────────────────────────────────────────────────────────
 CONFIG = {
     # URL base del sistema SCIP (sin barra final)
-    # "url_base": "https://appweb.asfi.gob.bo/SCIP",
-    "url_base": " http://127.0.0.1:5500/",  # Para pruebas locales con HTML simulado
+    "url_base": "https://appweb.asfi.gob.bo/SCIP",
+    # "url_base": " http://127.0.0.1:5500/",  # Para pruebas locales con HTML simulado
 
     # Credenciales: se leen desde SQLite; estas variables/CLI son overrides temporales
     "usuario": os.environ.get("ASFI_USUARIO", ""),
     "password": os.environ.get("ASFI_PASSWORD", ""),
 
     # días_atras se conserva por compatibilidad con el CLI.
-    "dias_atras": 3,
+    "dias_atras": 1,
 
     # Intervalo de monitoreo en minutos (se puede sobreescribir con --intervalo)
     "intervalo_minutos": 15,
@@ -568,7 +568,7 @@ def obtener_reportes(
 
     # SCIP debe consultarse siempre para un único período: ayer. No se usan
     # rangos históricos aquí, aunque existan obligaciones atrasadas.
-    fecha_ayer = reportes_db.local_now().date() - timedelta(days=3)
+    fecha_ayer = reportes_db.local_now().date() - timedelta(days=1)
     fecha_inicio = fecha_ayer
     fecha_fin = fecha_ayer
     fmt_fecha_inicio = reportes_db.format_asfi_date(fecha_inicio)
@@ -598,7 +598,7 @@ def obtener_reportes(
         )
         
         context = browser.new_context(
-            viewport={"width": 1366, "height": 768},
+            viewport={"width": 1366, "height": 868},
             locale="es-BO",
             user_agent=user_agent,
             # Deshabilitar service workers para evitar caché que rompa la sesión
