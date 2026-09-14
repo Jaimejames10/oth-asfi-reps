@@ -24,10 +24,6 @@
       "estado": "SIN_ENVIAR",
       "notificado": "2026-09-05T09:27:53-04:00"
     },
-    "2026-09-04|CS - Cartera Semanal|En proceso de recepción": {
-      "estado": "ERROR",
-      "notificado": "2026-09-05T12:04:10.817213"
-    },
     "faltantes_semanales|6/9/2026": {
       "estado": "FALTANTE",
       "notificado": "2026-09-07T15:34:23.971212"
@@ -59,7 +55,47 @@
     "2026-09-07|D008 IF - Diario Tipo de Cambio|En proceso de recepcion": {
       "estado": "ERROR",
       "notificado": "2026-09-08T10:27:51.380856"
+    },
+    "faltantes_semanales|8/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-09T15:35:17.503346"
+    },
+    "faltantes_semanales|9/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-10T08:51:42.548416"
+    },
+    "sin_enviar_diarios|9/9/2026": {
+      "estado": "SIN_ENVIAR",
+      "notificado": "2026-09-10T08:51:59-04:00"
+    },
+    "faltantes_diarios|9/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-10T14:11:14.668249"
+    },
+    "sin_enviar_diarios|10/9/2026": {
+      "estado": "SIN_ENVIAR",
+      "notificado": "2026-09-11T11:22:16-04:00"
+    },
+    "sin_enviar_diarios|11/9/2026": {
+      "estado": "SIN_ENVIAR",
+      "notificado": "2026-09-12T10:43:49-04:00"
+    },
+    "faltantes_mensuales|11/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-12T12:14:53-04:00"
+    },
+    "faltantes_mensuales|13/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-14T11:45:42-04:00"
+    },
+    "sin_enviar_diarios|13/9/2026": {
+      "estado": "SIN_ENVIAR",
+      "notificado": "2026-09-14T09:18:05-04:00"
+    },
+    "tardios_mensuales|13/9/2026": {
+      "estado": "EXITOSO_TARDIO",
+      "notificado": "2026-09-14T16:38:45-04:00"
     }
   },
-  "ultima_revision": "2026-09-08T15:41:21-04:00"
+  "ultima_revision": "2026-09-14T16:37:33-04:00"
 }

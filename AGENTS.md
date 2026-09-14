@@ -58,13 +58,19 @@ Monitor automatizado que controla el envío de reportes al sistema ASFI/SCIP (pl
 
 ```
 Reports_ASFI_monitor/
-├── asfi_monitor.py              # Script principal - lógica de monitoreo
-├── reportes_db.py               # Persistencia SQLite y reglas de calendario
+├── asfi_monitor_app/            # Implementación modular del sistema
+│   ├── application/             # Servicio de revisión y CLI/scheduler
+│   ├── domain/                  # Análisis de estados y reglas de dominio
+│   ├── integrations/            # Playwright SCIP y notificaciones
+│   ├── storage/                 # SQLite, esquema, seguridad y estado
+│   └── ui/                      # Dashboard, diálogos y formateadores Tkinter
+├── asfi_monitor.py              # Fachada y CLI compatible
+├── reportes_db.py               # Fachada compatible de persistencia SQLite
 ├── reportes_seed.json           # Carga inicial del catálogo
-├── gestionar_reportes.py        # GUI para reportes, reglas y credenciales
+├── gestionar_reportes.py        # Fachada compatible de la GUI
 ├── configurar.bat               # Lanzador de la GUI de configuración
 ├── asfi_monitor.db              # Base local (se crea automáticamente, no versionar)
-├── debug_reportes.py            # Herramienta interactiva para debugging
+├── debug_reportes.py            # Herramienta compatible de debugging
 ├── probar_notificaciones.py      # Script para probar notificaciones
 ├── asfi_estado.json             # Caché de último estado conocido
 ├── reportes_debug.json          # Datos debuggueados de reportes
@@ -80,22 +86,28 @@ Reports_ASFI_monitor/
 ### Archivos Principales
 
 **asfi_monitor.py**
-- Punto de entrada principal
-- Contiene configuración (CONFIG dict)
-- Lógica de autenticación con Playwright
-- Scraping y análisis de reportes
-- Generación de notificaciones
-- Integración con catálogo y obligaciones SQLite
-- Compatibilidad temporal con el estado JSON
+- Fachada de compatibilidad para los comandos y imports existentes
+- Redirige la CLI a `asfi_monitor_app.application.cli`
+- Expone las funciones públicas del servicio modular
+
+**asfi_monitor_app**
+- `config.py`: configuración técnica y precedencia de credenciales
+- `domain/analysis.py`: análisis de estados y reconciliación de reintentos
+- `integrations/scip_client.py`: autenticación, scraping y paginación Playwright
+- `integrations/notifications.py`: proveedores de notificaciones Windows
+- `application/monitor_service.py`: caso de uso de revisión y persistencia
+- `application/cli.py`: argumentos CLI y scheduler
+- `storage/`: SQLite, migraciones, obligaciones, observaciones, DPAPI y estado JSON
+- `ui/`: dashboard, diálogos y formateadores de la interfaz
 
 **reportes_db.py**
-- Crea y migra el esquema SQLite
-- Calcula obligaciones y guarda observaciones e incumplimientos
-- Protege las credenciales con DPAPI en Windows
+- Fachada compatible de la API SQLite
+- La implementación está en `asfi_monitor_app/storage/`
+- Conserva el esquema versión 6 y la protección DPAPI
 
 **gestionar_reportes.py**
-- Interfaz gráfica local para administrar reportes y reglas
-- Permite guardar las credenciales consumidas por el monitor
+- Fachada compatible para iniciar la GUI
+- La interfaz está en `asfi_monitor_app/ui/`
 
 **debug_reportes.py**
 - Herramienta interactiva para debugging
@@ -115,7 +127,7 @@ Reports_ASFI_monitor/
 
 ## ⚙️ Configuración
 
-Las opciones técnicas se encuentran en `asfi_monitor.py` en la sección `CONFIG`.
+Las opciones técnicas se encuentran en `asfi_monitor_app/config.py` en la sección `CONFIG`.
 El catálogo de reportes y las credenciales se administran desde SQLite mediante
 `configurar.bat` o `python gestionar_reportes.py`.
 
@@ -165,6 +177,18 @@ python asfi_monitor.py
 ```
 
 ⚠️ **SEGURIDAD**: Nunca hardcodees credenciales en el código fuente.
+
+### Reportes Mensuales
+
+Los reportes mensuales usan siempre como fecha de corte el último día del mes.
+Cada regla define sus días de plazo, el tipo de plazo (`habil` o `calendario`) y
+la hora límite (`12:00` o `23:59`). Los días hábiles consideran lunes a viernes
+y las fechas almacenadas en la tabla SQLite `feriados`.
+
+Los feriados nacionales bolivianos se cargan automáticamente para varios años y
+pueden agregarse o eliminarse desde la sección **Configuración** de
+`gestionar_reportes.py`. La misma sección permite administrar el rango manual de
+fechas de consulta.
 
 ---
 

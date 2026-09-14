@@ -140,7 +140,7 @@
       "nombre": "S001-S005 IF - Semanal Reportes Liquidez",
       "tipo_periodo": "semanal",
       "reglas": [
-        {"regla_fecha_corte": "VIERNES", "dia_semana_corte": 5, "dias_envio": [5, 6, 7], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+        {"regla_fecha_corte": "SEMANAL", "dia_semana_corte": 5, "dias_envio": [], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
       ]
     },
     {
@@ -148,7 +148,7 @@
       "nombre": "CS - Cartera Semanal",
       "tipo_periodo": "semanal",
       "reglas": [
-        {"regla_fecha_corte": "VIERNES", "dia_semana_corte": 5, "dias_envio": [5, 6, 7], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+        {"regla_fecha_corte": "SEMANAL", "dia_semana_corte": 5, "dias_envio": [], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
       ]
     },
     {
@@ -156,44 +156,140 @@
       "nombre": "Solicitud de Créditos - PREAMyPes - Semanal",
       "tipo_periodo": "semanal",
       "reglas": [
-        {"regla_fecha_corte": "VIERNES", "dia_semana_corte": 5, "dias_envio": [7], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
+        {"regla_fecha_corte": "SEMANAL", "dia_semana_corte": 7, "dias_envio": [], "hora_limite": "12:00", "ocurrencias_requeridas": 1}
       ]
     },
     {
       "codigo": "M019",
       "nombre": "M019 IF - Mensual Tasas Pasivas",
       "tipo_periodo": "mensual",
-      "validacion_activa": false,
+      "validacion_activa": true,
       "reglas": [
-        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": null, "dias_plazo": null, "tipo_plazo": null, "ocurrencias_requeridas": 1}
+        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 1, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}
       ]
     },
     {
       "codigo": "CAPROSEN",
       "nombre": "Detalle de Créditos - CAPROSEN",
       "tipo_periodo": "mensual",
-      "validacion_activa": false,
+      "validacion_activa": true,
       "reglas": [
-        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": null, "dias_plazo": null, "tipo_plazo": null, "ocurrencias_requeridas": 1}
+        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "12:00", "dias_plazo": 1, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}
       ]
     },
     {
       "codigo": "CREDITO_PCD",
       "nombre": "Crédito PCD",
       "tipo_periodo": "mensual",
-      "validacion_activa": false,
+      "validacion_activa": true,
       "reglas": [
-        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": null, "dias_plazo": null, "tipo_plazo": null, "ocurrencias_requeridas": 1}
+        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "12:00", "dias_plazo": 10, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}
       ]
     },
     {
       "codigo": "PREAMYPES_MENSUAL",
       "nombre": "Solicitud de Créditos - PREAMyPes - Mensual",
       "tipo_periodo": "mensual",
-      "validacion_activa": false,
+      "validacion_activa": true,
       "reglas": [
-        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": null, "dias_plazo": null, "tipo_plazo": null, "ocurrencias_requeridas": 1}
+        {"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "12:00", "dias_plazo": 1, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}
       ]
+    },
+    {
+      "codigo": "TARIFAS_SERVICIOS",
+      "nombre": "Tarifas y n° de transacciones de servicios o productos",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 15, "tipo_plazo": "calendario", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "OPERACIONES_PRORROGADAS",
+      "nombre": "Operaciones prorrogadas",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 10, "tipo_plazo": "calendario", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "ACTIVOS_VIRTUALES",
+      "nombre": "Reporte de transacciones relativas a la compra de activos virtuales",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "12:00", "dias_plazo": 1, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "PEDAEEL_MENSUAL",
+      "nombre": "Mensual Solicitudes de Créditos - PEDAEEL",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "12:00", "dias_plazo": 1, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "CM_MENSUAL",
+      "nombre": "CM - Cartera Mensual",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 5, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "MC_MENSUAL",
+      "nombre": "MC - Mensual Central de Información Crediticia",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 4, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "DEPOSITOS_AHORRISTAS",
+      "nombre": "Depósitos y ahorristas",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 4, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "DEPOSITOS_PLAZO_FIJO",
+      "nombre": "Depósitos a plazo fijo",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 3, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "M020",
+      "nombre": "M020 - Mensual PR Reclamos",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 5, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "M021",
+      "nombre": "M021 - Mensual PR Soluciones",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 5, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "M029",
+      "nombre": "M029 - Información general de Personas Expuestas Políticamente",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 5, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "DETALLE_SOLICITUDES",
+      "nombre": "Detalle de solicitudes de crédito",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "12:00", "dias_plazo": 5, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "M030",
+      "nombre": "M030 - Reporte de tarifas",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 15, "tipo_plazo": "calendario", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "PASIVOS_PUBLICO",
+      "nombre": "Pasivos con el Público",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 3, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "MI01_MI09",
+      "nombre": "MI01-MI09 - Mensual Central de Información de Riesgo Operativo",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 3, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
+    },
+    {
+      "codigo": "MB01_MB20",
+      "nombre": "MB01-MB20 Mensual Balance",
+      "tipo_periodo": "mensual",
+      "reglas": [{"regla_fecha_corte": "FIN_MES", "frecuencia_meses": 1, "dias_envio": [], "hora_limite": "23:59", "dias_plazo": 2, "tipo_plazo": "habil", "ocurrencias_requeridas": 1}]
     }
   ]
 }

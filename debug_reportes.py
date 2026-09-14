@@ -1,42 +1,7 @@
-#!/usr/bin/env python
-"""Script de depuración para ver qué reportes se obtienen"""
-import sys
-import json
-from asfi_monitor import CONFIG, cargar_credenciales_desde_db, obtener_reportes
+"""Fachada compatible para la herramienta de depuracion."""
+
+from asfi_monitor_app.tools.debug_reportes import main
 
 
-usuario, password = cargar_credenciales_desde_db()
-if not CONFIG["usuario"]:
-    CONFIG["usuario"] = usuario
-if not CONFIG["password"]:
-    CONFIG["password"] = password
-
-if not CONFIG["usuario"] or not CONFIG["password"]:
-    print("No hay credenciales configuradas. Ejecuta gestionar_reportes.py primero.")
-    sys.exit(1)
-
-reportes = obtener_reportes()
-
-print("\n" + "="*70)
-print("REPORTES OBTENIDOS")
-print("="*70)
-
-for i, r in enumerate(reportes, 1):
-    print(f"\n{i}. GRUPO: {r['grupo']}")
-    print(f"   Estado: {r['estado']}")
-    print(f"   Envío/Reproceso: {r['envio']}")
-    print(f"   Validación: {r['validacion'][:50] if r['validacion'] else '(vacío)'}")
-
-print(f"\n{'='*70}")
-print(f"TOTAL: {len(reportes)} reportes obtenidos")
-print(f"{'='*70}\n")
-
-# Guardar a JSON para referencia
-with open("reportes_debug.json", "w", encoding="utf-8") as f:
-    json.dump([{
-        "grupo": r["grupo"],
-        "estado": r["estado"],
-        "envio": r["envio"],
-        "validacion": r["validacion"]
-    } for r in reportes], f, indent=2, ensure_ascii=False)
-print("✓ Datos guardados en reportes_debug.json")
+if __name__ == "__main__":
+    main()

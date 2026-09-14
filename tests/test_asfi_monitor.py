@@ -1,13 +1,57 @@
 import unittest
+from datetime import date
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
+import reportes_db
 from asfi_monitor import (
     _es_error_validacion,
     analizar_reporte_nuevo,
+    filtrar_reportes_para_revision,
     reconciliar_reportes_subsanados,
 )
 
 
+ROOT = Path(__file__).resolve().parents[1]
+
+
 class AnalisisReporteTests(unittest.TestCase):
+    def test_monthly_cutoff_does_not_reactivate_historical_daily_rows(self):
+        with TemporaryDirectory() as directory:
+            db_path = Path(directory) / "test.db"
+            reportes_db.initialize_database(db_path, ROOT / "reportes_seed.json")
+            conn = reportes_db.connect(db_path)
+            try:
+                reportes = [
+                    {
+                        "grupo": "D007 IF - Diario Operaciones Interbancarias",
+                        "fecha_corte": "31/8/2026",
+                    },
+                    {
+                        "grupo": "MI01-MI09 - Mensual Central de Información de Riesgo Operativo",
+                        "fecha_corte": "31/8/2026",
+                    },
+                    {
+                        "grupo": "D007 IF - Diario Operaciones Interbancarias",
+                        "fecha_corte": "13/9/2026",
+                    },
+                ]
+                result = filtrar_reportes_para_revision(
+                    conn,
+                    reportes,
+                    date(2026, 9, 13),
+                    {"2026-08-31": {"mensual"}},
+                )
+                self.assertEqual(
+                    [row["grupo"] for row in result],
+                    [
+                        "MI01-MI09 - Mensual Central de Información de Riesgo Operativo",
+                        "D007 IF - Diario Operaciones Interbancarias",
+                    ],
+                )
+            finally:
+                conn.close()
+
     def test_error_values_in_validation_column(self):
         for value in ("Error", "Detalle Error", "  detalle   error  "):
             with self.subTest(value=value):
