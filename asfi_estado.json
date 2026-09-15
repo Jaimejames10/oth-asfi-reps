@@ -95,7 +95,15 @@
     "tardios_mensuales|13/9/2026": {
       "estado": "EXITOSO_TARDIO",
       "notificado": "2026-09-14T16:38:45-04:00"
+    },
+    "sin_enviar_diarios|14/9/2026": {
+      "estado": "SIN_ENVIAR",
+      "notificado": "2026-09-15T08:31:44-04:00"
+    },
+    "faltantes_diarios|14/9/2026": {
+      "estado": "FALTANTE",
+      "notificado": "2026-09-15T16:08:18.107670"
     }
   },
-  "ultima_revision": "2026-09-14T16:37:33-04:00"
+  "ultima_revision": "2026-09-15T16:24:40-04:00"
 }

@@ -103,7 +103,7 @@ Reports_ASFI_monitor/
 **reportes_db.py**
 - Fachada compatible de la API SQLite
 - La implementación está en `asfi_monitor_app/storage/`
-- Conserva el esquema versión 6 y la protección DPAPI
+- Conserva el esquema versión 7 y la protección DPAPI
 
 **gestionar_reportes.py**
 - Fachada compatible para iniciar la GUI
@@ -184,6 +184,8 @@ Los reportes mensuales usan siempre como fecha de corte el último día del mes.
 Cada regla define sus días de plazo, el tipo de plazo (`habil` o `calendario`) y
 la hora límite (`12:00` o `23:59`). Los días hábiles consideran lunes a viernes
 y las fechas almacenadas en la tabla SQLite `feriados`.
+Desde el editor de reglas también se puede marcar **No generar obligación el último
+día del mes**, una excepción reutilizable para reportes diarios con ese calendario.
 
 Los feriados nacionales bolivianos se cargan automáticamente para varios años y
 pueden agregarse o eliminarse desde la sección **Configuración** de
@@ -286,6 +288,14 @@ python gestionar_reportes.py
 python asfi_monitor.py --visible
 ```
 
+### Salida detallada en consola
+```bash
+python asfi_monitor.py --verbose
+```
+Por defecto la consola muestra una lista agrupada por reportes diarios,
+semanales y mensuales. El detalle completo continúa guardándose en
+`asfi_monitor.log`.
+
 ### Debugging interactivo
 ```bash
 python debug_reportes.py
@@ -324,7 +334,7 @@ python probar_notificaciones.py
 4. **Refactorización**
    - Mantén la sección CONFIG intacta para que el usuario pueda editarla fácilmente
    - Los loops infinitos con `schedule` deben seguir el patrón actual
-   - Preserva compatibilidad con argumentos CLI (`--intervalo`, `--una-vez`, `--visible`)
+   - Preserva compatibilidad con argumentos CLI (`--intervalo`, `--una-vez`, `--visible`, `--verbose`)
 
 5. **Restricciones**
    - ❌ No hardcodees credenciales
@@ -446,7 +456,7 @@ python probar_notificaciones.py
 3. **Vistas útiles a generar**
    - Mapa de dependencias entre módulos
    - Flujo de ejecución paso a paso (diagrama)
-   - Puntos de entrada (argumentos CLI: `--intervalo`, `--una-vez`, `--visible`)
+   - Puntos de entrada (argumentos CLI: `--intervalo`, `--una-vez`, `--visible`, `--verbose`)
    - Estado compartido (archivo JSON y variables globales)
    - Llamadas a funciones externas (Playwright, Plyer)
 

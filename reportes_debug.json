@@ -18,12 +18,6 @@
     "validacion": "Solicitar Apertura"
   },
   {
-    "grupo": "M019 IF - Mensual Tasas Pasivas",
-    "estado": "EXITOSO",
-    "envio": "Envío 1",
-    "validacion": "Solicitar Apertura"
-  },
-  {
     "grupo": "D008 IF - Diario Tipo de Cambio",
     "estado": "EXITOSO",
     "envio": "Envío 2",
@@ -36,25 +30,37 @@
     "validacion": "Solicitar Apertura"
   },
   {
-    "grupo": "Detalle de Créditos - CAPROSEN",
-    "estado": "EXITOSO",
-    "envio": "Envío 1",
-    "validacion": "Solicitar Apertura"
-  },
-  {
-    "grupo": "Crédito PCD",
-    "estado": "EXITOSO",
-    "envio": "Envío 1",
-    "validacion": "Solicitar Apertura"
-  },
-  {
-    "grupo": "Solicitud de Créditos - PREAMyPes - Mensual",
+    "grupo": "Estratificación de Depósitos",
     "estado": "EXITOSO",
     "envio": "Envío 1",
     "validacion": "Solicitar Apertura"
   },
   {
     "grupo": "Ampliación de plazo de reclamos de primera instancia",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "Reporte de Transacciones con el Exterior Diario",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "D001-D005 IF - Diario Encaje",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "D012 - Créditos refinanciados y/o reprogramados",
+    "estado": "EXITOSO",
+    "envio": "Envío 1",
+    "validacion": "Solicitar Apertura"
+  },
+  {
+    "grupo": "REPORTE DIARIO DE RETIRO DE DEPÓSITOS EN MONEDA EXTRANJERA",
     "estado": "EXITOSO",
     "envio": "Envío 1",
     "validacion": "Solicitar Apertura"

@@ -48,6 +48,8 @@ class ReportesDatabaseTests(unittest.TestCase):
                    for rule in d008["reglas"]),
             [(1, 2), (2, 2), (3, 2), (4, 2), (5, 2), (6, 2), (7, 1)],
         )
+        d001 = next(item for item in catalog if item["codigo"] == "D001_D005")
+        self.assertTrue(all(rule["excluir_ultimo_dia_mes"] for rule in d001["reglas"]))
         preamypes = next(item for item in catalog if item["codigo"] == "PREAMYPES_SEMANAL")
         self.assertEqual(preamypes["tipo_periodo"], "semanal")
         self.assertEqual(preamypes["reglas"][0]["regla_fecha_corte"], "SEMANAL")
@@ -109,7 +111,7 @@ class ReportesDatabaseTests(unittest.TestCase):
             tuple(rules[1][key] for key in ("regla_fecha_corte", "dia_semana_corte", "dias_envio", "hora_limite")),
             ("SEMANAL", 7, "[]", "12:00"),
         )
-        self.assertEqual(migrated.execute("PRAGMA user_version").fetchone()[0], 6)
+        self.assertEqual(migrated.execute("PRAGMA user_version").fetchone()[0], 7)
         migrated.close()
 
     def test_d008_requires_two_successful_occurrences(self):
@@ -611,6 +613,39 @@ class ReportesDatabaseTests(unittest.TestCase):
         self.assertEqual(failure["estado"], "EXITOSO_TARDIO")
         self.assertIsNone(failure["resuelto_en"])
 
+    def test_daily_rule_can_exclude_last_day_of_month(self):
+        report_id = reportes_db.save_report(
+            self.conn,
+            None,
+            "DTEST",
+            "Reporte diario con excepción de fin de mes",
+            "diario",
+            True,
+            True,
+            "",
+            [{
+                "regla_fecha_corte": "AYER",
+                "hora_limite": "12:00",
+                "excluir_ultimo_dia_mes": True,
+            }],
+            [],
+        )
+        report = next(item for item in reportes_db.get_catalog(self.conn) if item["id"] == report_id)
+        rule = dict(report["reglas"][0])
+        rule.update({
+            "codigo": report["codigo"],
+            "nombre": report["nombre"],
+            "tipo_periodo": report["tipo_periodo"],
+        })
+
+        self.assertIsNone(
+            reportes_db.calculate_obligation(rule, date(2026, 9, 30))
+        )
+        self.assertIsNotNone(
+            reportes_db.calculate_obligation(rule, date(2026, 10, 1))
+        )
+        self.assertTrue(report["reglas"][0]["excluir_ultimo_dia_mes"])
+
     def test_version_three_database_migrates_monthly_catalog(self):
         path = Path(self.temp_dir.name) / "monthly-migration.db"
         conn = reportes_db.connect(path)
@@ -656,7 +691,7 @@ class ReportesDatabaseTests(unittest.TestCase):
             (active_rule["dias_plazo"], active_rule["tipo_plazo"], active_rule["hora_limite"]),
             (1, "habil", "23:59"),
         )
-        self.assertEqual(migrated.execute("PRAGMA user_version").fetchone()[0], 6)
+        self.assertEqual(migrated.execute("PRAGMA user_version").fetchone()[0], 7)
         migrated.close()
 
     def test_current_and_pending_obligation_views(self):

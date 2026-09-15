@@ -15,6 +15,7 @@ Uso:
     python asfi_monitor.py
     python asfi_monitor.py --intervalo 10   # revisar cada 10 minutos
     python asfi_monitor.py --una-vez        # ejecutar solo una vez
+    python asfi_monitor.py --verbose        # mostrar detalle completo en consola
 """
 
 from __future__ import annotations
@@ -71,15 +72,23 @@ if not RUTA_ICONO.exists():
 if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
+CONSOLE_HANDLER = logging.StreamHandler(sys.stdout)
+CONSOLE_HANDLER.setLevel(logging.ERROR)
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.StreamHandler(sys.stdout),
+        CONSOLE_HANDLER,
         logging.FileHandler(BASE_DIR / "asfi_monitor.log", encoding="utf-8"),
     ],
 )
 log = logging.getLogger("asfi_monitor")
+
+
+def configurar_salida_consola(verbose: bool = False) -> None:
+    """Controla cuánto detalle se muestra en consola sin afectar el archivo de log."""
+    CONSOLE_HANDLER.setLevel(logging.INFO if verbose else logging.ERROR)
 
 
 def notificar(titulo: str, mensaje: str, urgente: bool = False) -> None:
@@ -200,6 +209,169 @@ def filtrar_reportes_para_revision(
     return result
 
 
+_PERIODOS_SALIDA = (
+    ("diario", "DIARIOS"),
+    ("semanal", "SEMANALES"),
+    ("mensual", "MENSUALES"),
+)
+
+
+def _nombre_de_fila(fila: dict) -> str:
+    return str(fila.get("nombre") or fila.get("grupo") or "Reporte sin nombre")
+
+
+def _formatear_reporte(reporte: dict) -> str:
+    grupo = str(reporte.get("grupo") or "Reporte sin nombre")
+    sigla = str(reporte.get("sigla") or "-")
+    fecha_corte = str(reporte.get("fecha_corte") or "-")
+    return f"{grupo} ({sigla} | corte {fecha_corte})"
+
+
+def _periodo_de_nombre(nombre: str, periodos_por_reporte: dict[str, str]) -> str:
+    periodo = periodos_por_reporte.get(reportes_db.normalize_name(nombre), "otros")
+    return periodo if periodo in {item[0] for item in _PERIODOS_SALIDA} else "otros"
+
+
+def _nueva_seccion_resumen() -> dict:
+    return {
+        "observados": 0,
+        "exitosos": 0,
+        "errores": 0,
+        "pendientes": 0,
+        "faltantes": 0,
+        "sin_enviar": 0,
+        "tardios": 0,
+        "lineas": [],
+    }
+
+
+def imprimir_resumen_consola(
+    current: datetime,
+    fecha_corte: str,
+    reportes_revision: list[dict],
+    exitosos: list[dict],
+    errores: list[dict],
+    pendientes: list[dict],
+    reportes_faltantes: dict[str, list[str]],
+    reportes_tardios: list[str],
+    sin_enviar: dict[str, list[dict]],
+    periodos_por_reporte: dict[str, str],
+) -> None:
+    """Muestra una lista agrupada por periodicidad, con una línea por reporte."""
+    periodos = {periodo: _nueva_seccion_resumen() for periodo, _label in _PERIODOS_SALIDA}
+    periodos["otros"] = _nueva_seccion_resumen()
+
+    for reporte in reportes_revision:
+        periodo = _periodo_de_nombre(reporte.get("grupo", ""), periodos_por_reporte)
+        periodos[periodo]["observados"] += 1
+
+    for reporte in exitosos:
+        periodo = _periodo_de_nombre(reporte.get("grupo", ""), periodos_por_reporte)
+        periodos[periodo]["exitosos"] += 1
+        periodos[periodo]["lineas"].append(f"✅ {_formatear_reporte(reporte)}")
+
+    for reporte in errores:
+        periodo = _periodo_de_nombre(reporte.get("grupo", ""), periodos_por_reporte)
+        detalle = str(reporte.get("detalle") or "").replace("\n", " ")[:60]
+        periodos[periodo]["errores"] += 1
+        linea = f"❌ {_formatear_reporte(reporte)}"
+        if detalle:
+            linea += f" - {detalle}"
+        periodos[periodo]["lineas"].append(linea)
+
+    for reporte in pendientes:
+        periodo = _periodo_de_nombre(reporte.get("grupo", ""), periodos_por_reporte)
+        periodos[periodo]["pendientes"] += 1
+        periodos[periodo]["lineas"].append(
+            f"⏳ {_formatear_reporte(reporte)} (PENDIENTE)"
+        )
+
+    for periodo, nombres in reportes_faltantes.items():
+        destino = periodo if periodo in periodos else "otros"
+        for nombre in nombres:
+            periodos[destino]["faltantes"] += 1
+            etiqueta = {
+                "diario": "FALTANTE",
+                "semanal": "SEMANAL VENCIDO SIN ENVIAR",
+                "mensual": "MENSUAL FALTANTE",
+            }.get(destino, "FALTANTE")
+            periodos[destino]["lineas"].append(f"⚠️ {nombre} ({etiqueta})")
+
+    for periodo, filas in sin_enviar.items():
+        destino = periodo if periodo in periodos else "otros"
+        for fila in filas:
+            periodos[destino]["sin_enviar"] += 1
+            nombre = _nombre_de_fila(fila)
+            sufijo = f" (envío {fila['ocurrencia']})" if fila.get("ocurrencia", 1) > 1 else ""
+            if destino == "semanal":
+                linea = (
+                    f"⏳ {nombre}{sufijo} "
+                    f"(SEMANAL SIN ENVIAR - corte {fila.get('fecha_corte', '-')})"
+                )
+            else:
+                linea = f"⏳ {nombre}{sufijo} (SIN ENVIAR - dentro de plazo)"
+            periodos[destino]["lineas"].append(linea)
+
+    for nombre in reportes_tardios:
+        periodos["mensual"]["tardios"] += 1
+        periodos["mensual"]["lineas"].append(
+            f"⏱️ {nombre} (MENSUAL ENVIADO FUERA DE PLAZO)"
+        )
+
+    print()
+    print("=" * 78)
+    print("RESULTADO DE LOS REPORTES")
+    print(
+        f"Revisión: {current.strftime('%d/%m/%Y %H:%M:%S')}"
+        f" | Fecha de corte: {fecha_corte}"
+    )
+    print("=" * 78)
+
+    for periodo, etiqueta in _PERIODOS_SALIDA:
+        seccion = periodos[periodo]
+        tiene_resultados = bool(seccion["observados"] or seccion["lineas"])
+        print(f"\n[ {etiqueta} ]")
+        print("-" * 78)
+        if not tiene_resultados:
+            print("  Sin resultados o novedades para esta periodicidad.")
+            continue
+
+        print(
+            f"  Revisados: {seccion['observados']} | "
+            f"OK: {seccion['exitosos']} | "
+            f"Errores: {seccion['errores']} | "
+            f"Faltantes: {seccion['faltantes']} | "
+            f"Pendientes: {seccion['pendientes']}"
+        )
+        for linea in seccion["lineas"]:
+            print(f"  {linea}")
+        if (
+            seccion["exitosos"]
+            and seccion["errores"] == 0
+            and seccion["pendientes"] == 0
+            and seccion["faltantes"] == 0
+            and seccion["sin_enviar"] == 0
+            and seccion["tardios"] == 0
+        ):
+            print("  Estado: TODO CORRECTO")
+
+    if periodos["otros"]["observados"] or periodos["otros"]["lineas"]:
+        seccion = periodos["otros"]
+        print("\n[ OTROS ]")
+        print("-" * 78)
+        print(
+            f"  Revisados: {seccion['observados']} | "
+            f"OK: {seccion['exitosos']} | "
+            f"Errores: {seccion['errores']} | "
+            f"Faltantes: {seccion['faltantes']} | "
+            f"Pendientes: {seccion['pendientes']}"
+        )
+        for linea in seccion["lineas"]:
+            print(f"  {linea}")
+
+    print("=" * 78)
+
+
 # ──────────────────────────────────────────────────────────────────────────────
 # LÓGICA PRINCIPAL DE MONITOREO
 # ──────────────────────────────────────────────────────────────────────────────
@@ -253,6 +425,7 @@ def cargar_configuracion_desde_db(db_path: Optional[Path] = None) -> None:
 
 def ejecutar_revision() -> None:
     """Revisa los reportes y envía notificaciones si hay problemas."""
+    print("\nAnalizando reportes, esto podría tardar un par de minutos...")
     log.info("=" * 60)
     current = reportes_db.local_now()
     log.info(f"Iniciando revisión: {current.strftime('%Y-%m-%d %H:%M:%S')}")
@@ -305,6 +478,7 @@ def ejecutar_revision() -> None:
 
     sin_enviar_diarios: list[dict] = []
     sin_enviar_semanales: list[dict] = []
+    periodos_por_reporte: dict[str, str] = {}
     try:
         revision_actual = reportes_db.local_now()
         obligaciones_previas = reportes_db.list_current_obligations(conn)
@@ -333,6 +507,13 @@ def ejecutar_revision() -> None:
                 CONFIG.get("fecha_inicio_corte") and CONFIG.get("fecha_fin_corte")
             ),
         )
+        for reporte in reportes_revision:
+            nombre = reporte.get("grupo", "")
+            nombre_normalizado = reportes_db.normalize_name(nombre)
+            if nombre_normalizado not in periodos_por_reporte:
+                periodos_por_reporte[nombre_normalizado] = (
+                    reportes_db.lookup_report_period(conn, nombre) or "otros"
+                )
 
         if not reportes:
             log.warning(
@@ -353,6 +534,11 @@ def ejecutar_revision() -> None:
             conn, reportes_revision, revision_actual
         )
         obligaciones_actuales = reportes_db.list_current_obligations(conn)
+        nombres_tardios = {
+            reportes_db.normalize_name(nombre)
+            for nombres in evaluacion.get("tardios", {}).values()
+            for nombre in nombres
+        }
 
         # Diarios del período vigente que aún no se registran como enviados
         # (ABIERTO/PENDIENTE): se avisan en cada ciclo mientras esté dentro
@@ -430,10 +616,16 @@ def ejecutar_revision() -> None:
                 prev = estado["alertas_enviadas"][clave]
                 if prev.get("estado") == "ERROR":
                     del estado["alertas_enviadas"][clave]
-                    notificar(
-                        f"✅ Reporte ASFI resuelto — {r['grupo'][:40]}",
-                        f"El reporte '{r['grupo'][:60]}' ahora figura como exitoso.",
-                    )
+                    if reportes_db.normalize_name(r.get("grupo", "")) in nombres_tardios:
+                        log.info(
+                            "Reporte exitoso tardío resuelto sin alerta: %s",
+                            r.get("grupo", ""),
+                        )
+                    else:
+                        notificar(
+                            f"✅ Reporte ASFI resuelto — {r['grupo'][:40]}",
+                            f"El reporte '{r['grupo'][:60]}' ahora figura como exitoso.",
+                        )
 
     # Validar que se enviaron todos los reportes esperados para el día
     log.info(f"Validando obligaciones configuradas para {fmt_fecha}...")
@@ -491,21 +683,14 @@ def ejecutar_revision() -> None:
         )
 
     if reportes_tardios_mensuales:
-        log.warning(
-            "⚠️ Reportes mensuales enviados fuera de plazo: %s",
+        log.info(
+            "Reportes mensuales enviados fuera de plazo; se mantienen en "
+            "Reportes Vencidos sin enviar alerta: %s",
             reportes_tardios_mensuales,
         )
         clave_tardios = f"tardios_mensuales|{fmt_fecha}"
-        estado["alertas_enviadas"][clave_tardios] = {
-            "estado": "EXITOSO_TARDIO",
-            "notificado": reportes_db.now_iso(),
-        }
-        listado = "\n".join(f"  • {nombre}" for nombre in reportes_tardios_mensuales)
-        notificar(
-            f"⚠️ ASFI/SCIP Monitor - {len(reportes_tardios_mensuales)} reportes MENSUALES TARDÍOS",
-            f"El envío figura como exitoso, pero llegó después de la fecha/hora límite.\n\n{listado}",
-            urgente=True,
-        )
+        # Puede quedar una marca de una versión anterior que sí notificaba.
+        estado["alertas_enviadas"].pop(clave_tardios, None)
 
     # Recordatorio periódico (cada ciclo, por defecto 15 min) de los reportes
     # diarios del día que todavía no se han enviado y siguen dentro del plazo.
@@ -551,7 +736,27 @@ def ejecutar_revision() -> None:
             urgente=False,
         )
 
-    # Listado en consola del estado de los reportes
+    imprimir_resumen_consola(
+        current=revision_actual,
+        fecha_corte=fmt_fecha,
+        reportes_revision=reportes_revision,
+        exitosos=exitosos,
+        errores=errores,
+        pendientes=pendientes,
+        reportes_faltantes={
+            "diario": reportes_faltantes_diarios,
+            "semanal": reportes_faltantes_semanales,
+            "mensual": reportes_faltantes_mensuales,
+        },
+        reportes_tardios=reportes_tardios_mensuales,
+        sin_enviar={
+            "diario": sin_enviar_diarios,
+            "semanal": sin_enviar_semanales,
+        },
+        periodos_por_reporte=periodos_por_reporte,
+    )
+
+    # Listado detallado en el log y en consola cuando se usa --verbose.
     total_faltantes = (
         len(reportes_faltantes_diarios)
         + len(reportes_faltantes_semanales)

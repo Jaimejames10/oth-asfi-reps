@@ -12,7 +12,59 @@ import schedule
 from asfi_monitor_app.application import monitor_service as service
 
 
+# LOGO_ASCII = r"""
+#              or  uuuuuuuuuuuuuu q                                                                                                                                
+#           q  qqqqqqqqqqqqqqqqqq q                                                                                                                                
+#         q qqqq           qqqqqq q                                                                                                                                
+#        q qqq               qqqq q                                                                                                                                
+#       q qqs      qqqqq       qq q                                                                                                                                
+#      rq qq     qqqqqqqqqqqqqqqq q    qqqqqqqo    qqqqqqqqqqqqqqqqqqq      oqqqqqqqqqq qq qqqqq    oqqqqqqqqqq  qqqqqqqqqqq      oqqqqqqqqqq                      
+#      q qq      qqqqqqqqqqqqqqqq q  qqqqoooqqqqq  qqqqooooqqqqqoooqqqq   qqqqooooqqqqq qqqqqqqq  qqqqqoooqqqqq  qqqqqoooqqqqq  qqqqqoooqqqqq                      
+#      q qqq     qqqqqqqqqqqqqqqq q qqqq      qqqq qqq     qqqq     qqqq qqqq      qqqq qqqq     qqqq       qqq  qqq       qqqxqqqq       qqq                      
+#      rq qq      qqqqqqqqqqqqqqq q qqq       qqqq qqq     qqqq     qqqq qqq       qqqq qqqq     qqqq       qqq  qqq       qqqqqqqq       qqq                      
+#       q uqq        qqqq     qq q  qqqq      qqq  qqq     qqqq     qqqq qqqq      qqqq qqqq     qqqq      qqqq  qqqq      qqq  qqq      qqqq   qrrq   qq          
+#        rq qqq              qq q    qqqqqqqqqqq   qqq     qqqq     qqqq  qqqqqqqqqqqqq qqqq      qqqqqqqqqqqqq  qqqqqqqqqqqqx  qqqqqqqqqqqqq   qqqq   qq          
+#          q qqqqr        qqqq r       qqqqqqq     qqq      qqq      qqq    qqqqqq  qqq qqqq        qqqqqqq qqq  qqq qqqqqqt      qqqqqqq qqq   q  q q qqqq q      
+#            q  qqqqqqqqqqq  q                                                                                   qqq                                               
+#               rq  qq  uq                                                                                       qqq                                               
+# """.strip("\n")
+LOGO_ASCII = """\n\n\n
+             or  uuuuuuuuuuuuuu q                                                                                                                                
+          q  qqqqqqqqqqqqqqqqqq q                                                                                                                                
+        q qqqq           qqqqqq q                                                                                                                                
+       q qqq               qqqq q                                                                                                                                
+      q qqs      qqqqq       qq q                                                                                                                                
+     rq qq     qqqqqqqqqqqqqqqq q    qqqqqqqo    qqqqqqqqqqqqqqqqqqq      oqqqqqqqqqq qq qqqqq    oqqqqqqqqqq  qqqqqqqqqqq      oqqqqqqqqqq                      
+     q qq      qqqqqqqqqqqqqqqq q  qqqqoooqqqqq  qqqqooooqqqqqoooqqqq   qqqqooooqqqqq qqqqqqqq  qqqqqoooqqqqq  qqqqqoooqqqqq  qqqqqoooqqqqq                      
+     q qqq     qqqqqqqqqqqqqqqq q qqqq      qqqq qqq     qqqq     qqqq qqqq      qqqq qqqq     qqqq       qqq  qqq       qqqxqqqq       qqq                      
+     rq qq      qqqqqqqqqqqqqqq q qqq       qqqq qqq     qqqq     qqqq qqq       qqqq qqqq     qqqq       qqq  qqq       qqqqqqqq       qqq                      
+      q uqq        qqqq     qq q  qqqq      qqq  qqq     qqqq     qqqq qqqq      qqqq qqqq     qqqq      qqqq  qqqq      qqq  qqq      qqqq   qrrq   qq          
+       rq qqq              qq q    qqqqqqqqqqq   qqq     qqqq     qqqq  qqqqqqqqqqqqq qqqq      qqqqqqqqqqqqq  qqqqqqqqqqqqx  qqqqqqqqqqqqq   qqqq   qq          
+         q qqqqr        qqqq r       qqqqqqq     qqq      qqq      qqq    qqqqqq  qqq qqqq        qqqqqqq qqq  qqq qqqqqqt      qqqqqqq qqq   q  q q qqqq q      
+           q  qqqqqqqqqqq  q                                                                                   qqq                                               
+              rq  qq  uq                                                                                       qqq                                               
+\n\n"""
+
+
+def imprimir_encabezado(config: dict, args: argparse.Namespace) -> None:
+    """Muestra la información esencial sin exponer credenciales."""
+    print("=" * 78)
+    print("ASFI / SCIP MONITOR")
+    print(
+        f"Usuario: {config['usuario'] or '-'} | "
+        f"Intervalo: {config['intervalo_minutos']} minutos"
+    )
+    print(
+        f"Modo: {'visible' if args.visible else 'headless'} | "
+        f"Consulta: {args.dias} día(s) hacia atrás | "
+        f"Salida: {'detallada' if args.verbose else 'resumida'}"
+    )
+    print("=" * 78)
+
+
 def main() -> None:
+    print(LOGO_ASCII)
+    print()
     config = service.CONFIG
     parser = argparse.ArgumentParser(
         description="Monitor de envíos ASFI/SCIP con notificaciones Windows"
@@ -28,6 +80,10 @@ def main() -> None:
     parser.add_argument(
         "--visible", action="store_true",
         help="Mostrar el navegador (útil para depuración)",
+    )
+    parser.add_argument(
+        "--verbose", "-v", action="store_true",
+        help="Mostrar el detalle completo de la revisión en consola",
     )
     parser.add_argument(
         "--dias", type=int, default=config["dias_atras"],
@@ -46,6 +102,8 @@ def main() -> None:
         help="Abrir la interfaz gráfica de configuración y salir",
     )
     args = parser.parse_args()
+    service.configurar_salida_consola(args.verbose)
+    config["_verbose"] = args.verbose
 
     try:
         db_path = service.inicializar_base_datos()
@@ -98,6 +156,7 @@ def main() -> None:
         )
         sys.exit(1)
 
+    imprimir_encabezado(config, args)
     log = service.log
     log.info("=" * 60)
     log.info("ASFI SCIP Monitor iniciado")
@@ -105,6 +164,7 @@ def main() -> None:
     log.info("  Intervalo: %s minutos", config["intervalo_minutos"])
     log.info("  Headless : %s", config["headless"])
     log.info("  Días atrás: %s", config["dias_atras"])
+    log.info("  Salida detallada: %s", args.verbose)
     log.info("=" * 60)
 
     try:
@@ -126,6 +186,10 @@ def main() -> None:
     )
     service.ejecutar_revision()
     schedule.every(config["intervalo_minutos"]).minutes.do(service.ejecutar_revision)
+    print(
+        f"\nMonitoreo activo cada {config['intervalo_minutos']} minutos. "
+        "Presione Ctrl+C para detener."
+    )
     log.info("Scheduler activo. Revisando cada %s minutos.", config["intervalo_minutos"])
     log.info("Presionar Ctrl+C para detener.")
     try:

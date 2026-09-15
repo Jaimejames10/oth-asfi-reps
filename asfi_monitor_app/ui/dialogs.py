@@ -54,6 +54,9 @@ class RuleDialog(tk.Toplevel):
         self.anchor_month = tk.StringVar(
             value="" if rule.get("mes_ancla") is None else str(rule["mes_ancla"])
         )
+        self.exclude_last_day_month = tk.BooleanVar(
+            value=bool(rule.get("excluir_ultimo_dia_mes", False))
+        )
 
         frame = ttk.Frame(self, padding=12)
         frame.grid(sticky="nsew")
@@ -113,6 +116,11 @@ class RuleDialog(tk.Toplevel):
                 widget = ttk.Entry(frame, textvariable=variable, width=23)
             widget.grid(row=row, column=1, sticky="ew", pady=3)
 
+        ttk.Checkbutton(
+            frame,
+            text="No generar obligación el último día del mes",
+            variable=self.exclude_last_day_month,
+        ).grid(row=len(fields), column=0, columnspan=2, sticky="w", pady=(5, 3))
         ttk.Label(
             frame,
             text=(
@@ -122,9 +130,9 @@ class RuleDialog(tk.Toplevel):
                 else "1 = lunes ... 7 = domingo. Envíos requeridos indica cuántas ocurrencias deben llegar."
             ),
             foreground="#555555",
-        ).grid(row=len(fields), column=0, columnspan=2, sticky="w", pady=(6, 10))
+        ).grid(row=len(fields) + 1, column=0, columnspan=2, sticky="w", pady=(6, 10))
         buttons = ttk.Frame(frame)
-        buttons.grid(row=len(fields) + 1, column=0, columnspan=2, sticky="e")
+        buttons.grid(row=len(fields) + 2, column=0, columnspan=2, sticky="e")
         ttk.Button(buttons, text="Cancelar", command=self.destroy).pack(side="right", padx=(6, 0))
         ttk.Button(buttons, text="Aceptar", command=self._accept).pack(side="right")
         self.bind("<Return>", lambda _event: self._accept())
@@ -168,6 +176,7 @@ class RuleDialog(tk.Toplevel):
                 "dias_plazo": grace_days,
                 "tipo_plazo": grace_type,
                 "mes_ancla": anchor_month,
+                "excluir_ultimo_dia_mes": self.exclude_last_day_month.get(),
             }
         except ValueError as exc:
             messagebox.showerror("Regla inválida", str(exc), parent=self)
@@ -228,7 +237,7 @@ class ReportDialog(tk.Toplevel):
         )
         self.rules_tree = ttk.Treeview(
             frame,
-            columns=("rule", "cutoff", "send", "time", "occ", "grace", "freq"),
+            columns=("rule", "cutoff", "send", "time", "occ", "grace", "freq", "exception"),
             show="headings",
             height=7,
         )
@@ -240,10 +249,12 @@ class ReportDialog(tk.Toplevel):
             "occ": "Ocurr.",
             "grace": "Plazo",
             "freq": "Frecuencia",
+            "exception": "Excepción",
         }
         for key, heading in headings.items():
             self.rules_tree.heading(key, text=heading)
-            self.rules_tree.column(key, width=90 if key != "rule" else 110, anchor="center")
+            width = 120 if key == "exception" else (90 if key != "rule" else 110)
+            self.rules_tree.column(key, width=width, anchor="center")
         self.rules_tree.grid(row=len(fields) + 2, column=0, columnspan=2, sticky="nsew")
         self.rules_tree.bind("<Double-1>", lambda _event: self._edit_rule())
         self._refresh_rules()
@@ -279,6 +290,7 @@ class ReportDialog(tk.Toplevel):
             str(rule.get("ocurrencias_requeridas", 1)),
             grace_text,
             str(rule.get("frecuencia_meses", 1)),
+            "Último día mes" if rule.get("excluir_ultimo_dia_mes") else "-",
         )
 
     def _refresh_rules(self) -> None:

@@ -311,27 +311,25 @@ def initialize_database(
         version = conn.execute("PRAGMA user_version").fetchone()[0]
         if version == 0:
             conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
-        elif version == 1:
-            try:
-                conn.execute("ALTER TABLE reglas_reportes ADD COLUMN mes_ancla INTEGER")
-            except sqlite3.OperationalError as exc:
-                if "duplicate column name" not in str(exc).lower():
-                    raise
-            _migrate_weekly_rules(conn)
-            _migrate_monthly_catalog(conn, seed_path)
-            conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
-        elif version == 2:
-            _migrate_weekly_rules(conn)
-            _migrate_monthly_catalog(conn, seed_path)
-            conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
-        elif version == 3:
-            _migrate_monthly_catalog(conn, seed_path)
-            conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
-        elif version == 4:
-            _migrate_monthly_catalog(conn, seed_path)
-            conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
-        elif version == 5:
-            _migrate_monthly_catalog(conn, seed_path)
+        elif version in {1, 2, 3, 4, 5, 6}:
+            _ensure_rule_exception_columns(conn)
+            if version == 1:
+                try:
+                    conn.execute("ALTER TABLE reglas_reportes ADD COLUMN mes_ancla INTEGER")
+                except sqlite3.OperationalError as exc:
+                    if "duplicate column name" not in str(exc).lower():
+                        raise
+                _migrate_weekly_rules(conn)
+                _migrate_monthly_catalog(conn, seed_path)
+            elif version == 2:
+                _migrate_weekly_rules(conn)
+                _migrate_monthly_catalog(conn, seed_path)
+            elif version == 3:
+                _migrate_monthly_catalog(conn, seed_path)
+            elif version == 4:
+                _migrate_monthly_catalog(conn, seed_path)
+            elif version == 5:
+                _migrate_monthly_catalog(conn, seed_path)
             conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
         elif version > SCHEMA_VERSION:
             raise RuntimeError(
@@ -357,6 +355,17 @@ def initialize_database(
     finally:
         conn.close()
     return path
+
+
+def _ensure_rule_exception_columns(conn: sqlite3.Connection) -> None:
+    columns = {
+        row[1] for row in conn.execute("PRAGMA table_info(reglas_reportes)")
+    }
+    if "excluir_ultimo_dia_mes" not in columns:
+        conn.execute(
+            "ALTER TABLE reglas_reportes "
+            "ADD COLUMN excluir_ultimo_dia_mes INTEGER NOT NULL DEFAULT 0"
+        )
 
 
 def _migrate_weekly_rules(conn: sqlite3.Connection) -> None:
@@ -601,8 +610,9 @@ def _insert_rule(
         INSERT INTO reglas_reportes
           (reporte_id, regla_fecha_corte, dia_semana_corte, dia_mes_corte,
            mes_ancla, frecuencia_meses, dias_envio, ocurrencias_requeridas, hora_limite,
-           dias_plazo, tipo_plazo, activo, creado_en, actualizado_en)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?)
+           dias_plazo, tipo_plazo, excluir_ultimo_dia_mes, activo,
+           creado_en, actualizado_en)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?)
         """,
         (
             report_id,
@@ -616,6 +626,7 @@ def _insert_rule(
             rule.get("hora_limite"),
             rule.get("dias_plazo"),
             rule.get("tipo_plazo"),
+            int(bool(rule.get("excluir_ultimo_dia_mes", False))),
             timestamp,
             timestamp,
         ),
@@ -897,6 +908,13 @@ def calculate_obligation(
         )
         period_key = cutoff.strftime("%Y-%m") if frequency == 1 else cutoff.isoformat()
     else:
+        return None
+
+    if (
+        rule.get("excluir_ultimo_dia_mes")
+        and deadline_day is not None
+        and deadline_day == _month_end(deadline_day.year, deadline_day.month)
+    ):
         return None
 
     deadline = _combine_date_time(deadline_day, deadline_hour) if deadline_day else None
